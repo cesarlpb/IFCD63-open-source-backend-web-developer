@@ -66,6 +66,7 @@ git config --global user.email "tuemail@ejemplo.com"
 Comandos básicos:
 
 Comando	Descripción
+```
 git init	Inicializa un repositorio local
 git status	Muestra los cambios actuales
 git add .	Añade todos los archivos al staging
@@ -73,11 +74,12 @@ git commit -m "Mensaje"	Guarda los cambios en el repositorio local
 git remote add origin URL	Conecta tu repo local con GitHub
 git push -u origin main	Sube tu código a GitHub
 git clone URL	Clona un repositorio desde GitHub
+```
 
 --- 
 
 5️⃣ Conocer estructura básica de una página web
-html
+```html
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
@@ -92,6 +94,7 @@ html
   <p><a href="https://github.com/tuusuario">Mi perfil de GitHub</a></p>
 </body>
 </html>
+```
 Guarda este archivo como index.html y ábrelo en tu navegador para verlo.
 
 6️⃣ Crear y subir una primera página a GitHub
@@ -108,24 +111,31 @@ cd mi-web
 touch index.html  # o créalo con tu editor
 ```
 # 3. Inicializa Git
+```
 git init
+```
 
 # 4. Añade el archivo
+```
 git add index.html
 git commit -m "Primera versión de mi web"
+```
 
 # 5. Crea un repositorio en GitHub (desde la web)
 
 # 6. Conéctalo con tu repo local
+```
 git remote add origin https://github.com/tuusuario/mi-web.git
+```
 
 # 7. Sube tu web
+```
 git push -u origin main
-Opcional: Publicar en GitHub Pages
-Ve a la configuración del repo en GitHub.
+```
 
-Busca la sección Pages.
-
-Selecciona la rama main y carpeta raíz (/).
+- Opcional: Publicar en GitHub Pages
+  - Ve a la configuración del repo en GitHub.
+  - Busca la sección Pages.
+  - Selecciona la rama main y carpeta raíz (/).
 
 ¡Tu web estará publicada en https://tuusuario.github.io/mi-web/!
