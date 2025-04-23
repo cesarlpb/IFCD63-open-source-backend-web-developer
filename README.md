@@ -112,7 +112,9 @@ git push -u origin main	Sube tu código a GitHub
 </body>
 </html>
 ```
-Guarda este archivo como index.html y ábrelo en tu navegador para verlo.
+Guarda este archivo como `index.html` y ábrelo en tu navegador para verlo.
+
+- [Teoría de HTML](https://www.w3schools.com/html/default.asp) 
 
 6️⃣ Crear y subir una primera página a GitHub
 Paso a paso:
