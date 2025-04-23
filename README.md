@@ -142,6 +142,8 @@ git commit -m "Primera versión de mi web"
 
 # 5. Crea un repositorio en GitHub (desde la web)
 
+- [Puedes usar este formulario](https://github.com/new)
+
 # 6. Conéctalo con tu repo local
 ```
 git remote add origin https://github.com/tuusuario/mi-web.git
