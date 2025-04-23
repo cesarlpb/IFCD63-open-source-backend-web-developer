@@ -40,6 +40,20 @@ Tecnologías típicas:
 
 > 💡 **Usuarios Mac:** Git viene preinstalado. Si no está, puedes instalarlo con `brew install git` (requiere Homebrew).
 
+Comprobaciones de Git:
+
+1. Instalamos Git (pasos anteriores)
+2. Comprobamos git en terminal con `git --version`
+3. Configuramos user y el email con:
+```bash
+  git config --global user.name "Tu Nombre"
+  git config --global user.email "tuemail@ejemplo.com" # cambiar por email de Github
+```
+4. Colocar VS Code como editor por defecto con `git config --global core.editor "code"`
+Comprobamos que es correcto con: `git config core.editor`
+
+> code
+
 ---
 
 ## 3️⃣ Crear cuenta en GitHub
