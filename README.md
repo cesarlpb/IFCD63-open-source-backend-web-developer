@@ -80,14 +80,17 @@ git config --global user.email "tuemail@ejemplo.com"
 Comandos básicos:
 
 Comando	Descripción
-```
+```bash
+git --version	Muestra la versión de git
+git clone URL	Clona un repositorio desde GitHub
+# --------------------------------------------- 
 git init	Inicializa un repositorio local
 git status	Muestra los cambios actuales
 git add .	Añade todos los archivos al staging
 git commit -m "Mensaje"	Guarda los cambios en el repositorio local
 git remote add origin URL	Conecta tu repo local con GitHub
 git push -u origin main	Sube tu código a GitHub
-git clone URL	Clona un repositorio desde GitHub
+
 ```
 
 --- 
