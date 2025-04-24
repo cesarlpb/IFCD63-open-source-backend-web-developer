@@ -175,12 +175,32 @@ git commit -m "Primera versión de mi web"
 
 - [Puedes usar este formulario](https://github.com/new)
 
+![alt text](image-1.png)
+
 # 6. Conéctalo con tu repo local
-```
-git remote add origin https://github.com/tuusuario/mi-web.git
+
+Tomad la referencia al respositorio desde el botón Code en Github:
+
+![alt text](image-2.png)
+
+```bash
+git remote add origin https://github.com/cesarlpb/IFCD63-open-source-backend-web-developer.git
 ```
 
+Este ejemplo usa el enlace de este repositorio de la formación, en vuestro caso si queréis usar uno de vuestros repositorios tenéis que cambiar la URL.
+
+`git clone`
+
+La alternativa a `git init` y usar `git remote add origin` es usar `git clone`:  
+
+```bash
+git clone https://github.com/cesarlpb/IFCD63-open-source-backend-web-developer.git
+```
+
+> Crea el repositorio local y lo conecta con GitHub.
+
 # 7. Sube tu web
+
 ```
 git push -u origin main
 ```
