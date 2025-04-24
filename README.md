@@ -167,7 +167,7 @@ Debe salir un mensaje de que el repositorio se ha creado en la ruta actual.
 - Desde terminal:
 
 ```bash
-git add index.html
+git add index.html 
 git commit -m "Primera versión de mi web"
 ```
 
