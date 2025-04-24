@@ -201,13 +201,34 @@ git clone https://github.com/cesarlpb/IFCD63-open-source-backend-web-developer.g
 
 # 7. Sube tu web
 
+Hay dos opciones para subir tu web:
+
+- Opcional: Publicar en GitHub Pages usando un repositorio de GitHub Pages con el nombre: `<tu_usuario>.github.io` => opción actual
+- Crear una rama `gh-pages` y subir tu web a esa rama. Como aún no hemos visto ramas, esta opción la dejamos para después.
+
 ```
 git push -u origin main
 ```
 
-- Opcional: Publicar en GitHub Pages
+1. Ir a Github y crear el repositorio de GitHub Pages con el nombre: `<tu_usuario>.github.io`
+
+![alt text](image-3.png)
+
+> En mi caso ya existe este repositorio y no me deja crearlo de nuevo
+
+> La rama por defecto actualmente es `main`, en mi caso es `master`.
+
+[Mi portafolio](https://cesarlpb.github.io/)
+
+![alt text](image-4.png)
+
+**Ejercicio:**
+
+  - Publicar en GitHub Pages
   - Ve a la configuración del repo en GitHub.
   - Busca la sección Pages.
   - Selecciona la rama main y carpeta raíz (/).
+
+  - Una vez publicado > subid cambios y comprobad que se actualizan en la URL.
 
 ¡Tu web estará publicada en https://tuusuario.github.io/mi-web/!
