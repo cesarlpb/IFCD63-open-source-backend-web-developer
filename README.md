@@ -116,26 +116,57 @@ Guarda este archivo como `index.html` y ábrelo en tu navegador para verlo.
 
 - [Teoría de HTML](https://www.w3schools.com/html/default.asp) 
 
+---
+
 6️⃣ Crear y subir una primera página a GitHub
+
 Paso a paso:
 
 # 1. Crea una carpeta para tu proyecto
-```
+
+- Explorador de archivos:
+  - Windows: Abre la carpeta en el explorador de archivos.
+  - Mac: Abre la carpeta en Finder.
+  - Linux: Abre la carpeta en el explorador de archivos.
+
+- Terminal: 
+```bash
 mkdir mi-web
 cd mi-web
 ```
 
 # 2. Crea tu archivo HTML
-```
+Si no funciona el comando, hacedlo en VS Code.
+
+- En Windows: cread el archivo desde VS Code
+- En Mac/Linux: se puede crear desde la terminal con:
+```bash
 touch index.html  # o créalo con tu editor
 ```
+
 # 3. Inicializa Git
-```
+
+Cread un repositorio local vacío:
+
+```bash
 git init
 ```
 
+> Por lo general, no hay que colocar un repositorio dentro de otro. (Miramos si hay carpeta `.git` o usamos `git log`)
+
+Debe salir un mensaje de que el repositorio se ha creado en la ruta actual.
+
+> Aparece una carpeta `.git` en la ruta actual. Es una **carpeta oculta** que contiene información sobre el repositorio.
+
 # 4. Añade el archivo
-```
+
+- Podemos hacer esto desde VS Code también con las opciones de control de cambios:
+
+![alt text](image.png)
+
+- Desde terminal:
+
+```bash
 git add index.html
 git commit -m "Primera versión de mi web"
 ```
