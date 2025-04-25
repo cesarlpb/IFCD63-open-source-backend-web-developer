@@ -235,3 +235,7 @@ git push -u origin main
   - Una vez publicado > subid cambios y comprobad que se actualizan en la URL.
 
   Tu web estará publicada en `https://<tuusuario>.github.io/` 
+
+## HTML
+
+Contenido de HTML en [html](1.html/)
