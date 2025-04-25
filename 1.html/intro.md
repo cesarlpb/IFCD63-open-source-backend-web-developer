@@ -157,6 +157,11 @@ Ejemplos:
 
 ---
 
+**Ejercicio:** completar el contenido del archivo [semantica.html](./semantica.html)
+
+
+---
+
 - **details:**
 - **figcaption:**
 - **figure:**
