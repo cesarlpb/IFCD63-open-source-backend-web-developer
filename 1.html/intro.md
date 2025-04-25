@@ -74,11 +74,23 @@ Los párrafos (paragraph) son los bloques de texto más básicos de HTML. Alinea
 
 Los enlaces (links)  son elementos que se pueden colocar en cualquier lugar de un documento HTML. Se crean con la etiqueta `<a>` (anchor).
 
-````html
+```html
 <a href="https://www.google.com/">Abrir Google</a>
-````
+```
+
+Por defecto, los enlaces se abren en la misma pestaña, si queremos usar otra pestaña hay que añadir el atributo `target` con el valor `_blank`:
+
+```html
+<a href="https://www.google.com/" target="_blank">Abrir Google en otra pestaña</a>
+```
 
 ### Imágenes: img
+
+Las imágenes se colocan en la etiqueta `img` y se debe colocar la fuente de la imagen en el atributo `src` que puede ser un enlace de internet. Atributos habituales:
+
+- **src (necesario):** la ubicación de la imagen, puede ser local o remoto
+- **alt (recomendado):** texto alternativo, describe la imagen
+- **width / height (opcionales):** sirven para indicar el ancho / alto de la imagen respectivamente
 
 ```html
 <img src="https://via.placeholder.com/150" alt="Imagen de ejemplo" />
