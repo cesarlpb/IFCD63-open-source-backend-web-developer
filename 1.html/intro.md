@@ -67,12 +67,12 @@ Los encabezados (headings) de HTML tienen 6 niveles. Se usan para colocar títul
 Los párrafos (paragraph) son los bloques de texto más básicos de HTML. Alinean texto para que sea legible.
 
 ```html
-  <p>Esta es mi primera página web.</p>
+<p>Esta es mi primera página web.</p>
 ```
 
 ### Enlaces: a
 
-Los enlaces (links)  son elementos que se pueden colocar en cualquier lugar de un documento HTML. Se crean con la etiqueta `<a>` (anchor).
+Los enlaces (links) son elementos que se pueden colocar en cualquier lugar de un documento HTML. Se crean con la etiqueta `<a>` (anchor).
 
 ```html
 <a href="https://www.google.com/">Abrir Google</a>
@@ -81,7 +81,9 @@ Los enlaces (links)  son elementos que se pueden colocar en cualquier lugar de u
 Por defecto, los enlaces se abren en la misma pestaña, si queremos usar otra pestaña hay que añadir el atributo `target` con el valor `_blank`:
 
 ```html
-<a href="https://www.google.com/" target="_blank">Abrir Google en otra pestaña</a>
+<a href="https://www.google.com/" target="_blank"
+  >Abrir Google en otra pestaña</a
+>
 ```
 
 ### Imágenes: img
@@ -98,4 +100,70 @@ Las imágenes se colocan en la etiqueta `img` y se debe colocar la fuente de la 
 
 ### listas: ul y ol
 
+Las listas nos permiten agrupar elementos con jerarquía y orden. Se pueden intercambiar y se pueden anidar entre sí. Cada elemento de una lista se coloca en un `li` (list item).
+
+```html
+<!-- Lista no ordenada (unordered) -->
+<ul>
+  <li>Elemento 1</li>
+  <li>Elemento 2</li>
+  <ul>
+    <li>Elemento 2.1</li>
+    <li>Elemento 2.1</li>
+  </ul>
+  <li>Elemento 3</li>
+</ul>
+```
+
+```html
+<!-- Lista ordenada (ordered) -->
+<ol>
+  <li>Elemento 1</li>
+  <li>Elemento 2</li>
+  <ol>
+    <li>Elemento 2.1</li>
+    <li>Elemento 2.2</li>
+  </ol>
+  <li>Elemento 3</li>
+</ol>
+```
+
 ### Semántica
+
+Tenemos una explicación de la semántica de HTML en la [página de W3schools](https://www.w3schools.com/html/html5_semantic_elements.asp).
+
+![Esquema de la estructura de una página web](image.png)
+
+- **header:** etiqueta que va en la parte superior y es la cabecera del documento o sección de la página
+- **nav:** agrupa los enlaces/botones de navegación 
+
+- **section:** es una sección de la página, debe tener su propia estructura y normalmente debe contener todo lo que necesita para funcionar. 
+
+Ejemplos:
+
+  - About me / Acerca de
+  - Contacto (formulario)
+  - Carrusel (fotos que van cambiando)
+
+- **article:** elemento que se puede repetir y es independiente en un section.
+
+Ejemplos:
+
+  - En los últimos posts de un blog, cada tarjeta de post puede ser un article
+  - Si tenemos artículos de tienda, cada tarjeta presentando la foto, el título, descripción, precio, etc. puede ser un article
+
+- **aside:** suele ser un panel lateral que tiene diversos usos: navegación, listas de contenidos / enlaces, etc. 
+- **footer:** el pie de página suele estar como la última sección de una página y suele tener datos del proyecto / empresa y enlaces de navegación
+
+---
+
+- **details:**
+- **figcaption:**
+- **figure:**
+- **main:**
+- **mark:**
+
+
+- **summary:**
+- **time:**
+
