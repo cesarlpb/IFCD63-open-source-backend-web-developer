@@ -20,26 +20,45 @@
   <!-- Cabecera -> título de la página -->
   <header>
     <h1>Semántica</h1>
+    <p>La <strong>semántica</strong> en HTML es el uso de las etiquetas adecuadas para comunicar el significado de la estructura de nuestro documento.</p>
   </header>
   <hr>
   <!-- Navegación -> lista de enlaces -->
   <nav>
     <ul>
-      <li><a href="#">Acerca de</a></li>   
-      <li><a href="#">Tecnologías</a></li>
-      <li><a href="#">Contacto</a></li>
+      <!-- Colocamos # delante del acerca-de para indicar que es un id en la misma página -->
+      <li><a href="#acerca-de">Acerca de</a></li>   
+      <li><a href="#tecnologias">Tecnologías</a></li>
+      <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
   <hr>
   <!-- Acerca de -->
   <section>
     <header>
-      <h1>Acerca de</h1>
+      <!-- Colocamos el id al que vamos a enlazar SIN # aquí: -->
+      <h1 id="acerca-de">Acerca de</h1>
     </header>
-    <!-- Breve biografía o texto descriptivo de nuestro perfil -->
-    <!-- Imagen -->
-    <!-- Enlace a Github -->
-    <!-- Enlace a Linkedin -->
+    
+    <!-- Usamos un <div> para contener los elementos de la bio: -->
+    <div style="border: 1px solid lightgray; padding: 0 1em 1em;">
+      <!-- Breve biografía o texto descriptivo de nuestro perfil -->
+      <h2>César Patiño</h2>
+      <!-- Texto de la biografía -->
+      <p>Desarrollador full-stack Python y Javascript.</p>
+      <p>Programador con experiencia en ciencia de datos.</p>
+      <p>Instructor de Bootcamps de programación.</p>
+      <!-- Imagen -->
+      <img src="https://avatars.githubusercontent.com/u/25636436" alt="Mi foto de perfil" width="150">
+      <div>
+        <!-- Enlace a Github -->
+        <a href="https://github.com/cesarlpb/" target="_blank">Mi Github</a>
+        <br>
+        <!-- Enlace a Linkedin -->
+        <a href="https://www.linkedin.com/in/cesarlpb89/" target="_blank">Linkedin</a>
+      </div>
+    </div>
+
   </section>
   
   <hr>
