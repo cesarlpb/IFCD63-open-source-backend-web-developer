@@ -224,7 +224,7 @@ link: [Footer nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_me
 
 #### Resultado del Artículo de blog:
 
-## link: [Artículo nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/articulo_nihilista/)
+link: [Artículo nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/articulo_nihilista/)
 
 ### 4. Tarjeta de proyecto destacada
 
@@ -242,8 +242,8 @@ link: [Footer nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_me
 
 #### Resultado del Proyecto destacado:
 
-link: [Proyecto nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/proyecto_nihilista/)
-gitgub: [Proyecto nihilista](https://github.com/cdryampi/proyectos_memes/tree/main/proyectos_memes/proyecto_nihilista)
+- link: [Proyecto nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/proyecto_nihilista/)
+- gitgub: [Proyecto nihilista](https://github.com/cdryampi/proyectos_memes/tree/main/proyectos_memes/proyecto_nihilista)
 
 ---
 
@@ -271,7 +271,7 @@ gitgub: [Proyecto nihilista](https://github.com/cdryampi/proyectos_memes/tree/ma
 
 #### Resultado de la sección “Sobre mí” enriquecida:
 
-## link: [Sobre mí nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/mi_yo_nihilista/)
+link: [Sobre mí nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/mi_yo_nihilista/)
 
 ### Siguiente paso
 
