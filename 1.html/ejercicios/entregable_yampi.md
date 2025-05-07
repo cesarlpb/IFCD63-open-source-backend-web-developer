@@ -56,6 +56,92 @@ Crea un documento `.html` para cada uno de los siguientes ejercicios:
 > 2. Reemplaza los `TODO` o completa los huecos indicados.
 > 3. Abre el archivo en tu navegador y observa el resultado.
 
+### Resultado del primer ejercicio
+
+link: [ejercicio1.html](https://cdryampi.github.io/proyectos_memes/)
+
+- HTML del ejercicio1.html
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memes Nihilistas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-black text-gray-400 font-mono flex flex-col justify-center items-center min-h-screen p-4"
+  >
+    <h1 class="text-2xl md:text-3xl text-gray-500 mb-8 text-center">
+      Todo es absurdo. Escoge un proyecto.
+    </h1>
+    <ul class="space-y-3">
+      <li>
+        <a
+          href="proyectos_memes/proyecto_nihilista/"
+          class="hover:text-white transition"
+          >Proyecto Nihilista</a
+        >
+      </li>
+      <li>
+        <a
+          href="proyectos_memes/articulo_nihilista/"
+          class="hover:text-white transition"
+          >Artículo Nihilista</a
+        >
+      </li>
+      <li>
+        <a
+          href="proyectos_memes/cv_nihilista/"
+          class="hover:text-white transition"
+          >CV Nihilista</a
+        >
+      </li>
+      <li>
+        <a
+          href="proyectos_memes/footer_nihilista/"
+          class="hover:text-white transition"
+          >Footer Nihilista</a
+        >
+      </li>
+      <li>
+        <a
+          href="proyectos_memes/nihilismo_banner/"
+          class="hover:text-white transition"
+          >Banner Nihilista</a
+        >
+      </li>
+      <li>
+        <a
+          href="proyectos_memes/presentacion_nihilista/"
+          class="hover:text-white transition"
+          >Presentación Nihilista</a
+        >
+      </li>
+      <li>
+        <a
+          href="proyectos_memes/semantica_nihilista/"
+          class="hover:text-white transition"
+          >Semántica Nihilista</a
+        >
+      </li>
+      <li>
+        <a
+          href="proyectos_memes/mi_yo_nihilista/"
+          class="hover:text-white transition"
+          >Mi yo nihilista</a
+        >
+      </li>
+    </ul>
+    <footer class="mt-12 text-sm text-gray-600 text-center">
+      Nada importa, pero igual lo hicimos.
+    </footer>
+  </body>
+</html>
+```
+
 ---
 
 ### 1. Hero Banner
@@ -75,6 +161,10 @@ Crea un documento `.html` para cada uno de los siguientes ejercicios:
   <a href="#contacto">¡Contáctame!</a>
 </section>
 ```
+
+#### Resultado del Hero Banner:
+
+link: [Hero nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/nihilismo_banner/)
 
 ---
 
@@ -99,6 +189,10 @@ Crea un documento `.html` para cada uno de los siguientes ejercicios:
   </nav>
 </footer>
 ```
+
+#### Resultado del Footer minimalista:
+
+link: [Footer nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/footer_nihilista/)
 
 ---
 
@@ -128,7 +222,9 @@ Crea un documento `.html` para cada uno de los siguientes ejercicios:
 </article>
 ```
 
----
+#### Resultado del Artículo de blog:
+
+## link: [Artículo nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/articulo_nihilista/)
 
 ### 4. Tarjeta de proyecto destacada
 
@@ -143,6 +239,11 @@ Crea un documento `.html` para cada uno de los siguientes ejercicios:
   <a href="https://demo.com/proyecto" target="_blank">Demo en vivo</a>
 </article>
 ```
+
+#### Resultado del Proyecto destacado:
+
+link: [Proyecto nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/proyecto_nihilista/)
+gitgub: [Proyecto nihilista](https://github.com/cdryampi/proyectos_memes/tree/main/proyectos_memes/proyecto_nihilista)
 
 ---
 
@@ -168,7 +269,9 @@ Crea un documento `.html` para cada uno de los siguientes ejercicios:
 </section>
 ```
 
----
+#### Resultado de la sección “Sobre mí” enriquecida:
+
+## link: [Sobre mí nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/mi_yo_nihilista/)
 
 ### Siguiente paso
 
@@ -180,3 +283,9 @@ Antes de entregar:
 3. Envía el formulario de entrega con los contenidos.
 
 ¡Happy Coding!
+
+## Nota:
+
+- Los proyectos estan en la carpeta de `proyectos_memes` en la rama `main` del repositorio [github](https://github.com/cdryampi/proyectos_memes/tree/main).
+- El backend para el proyecto de `proyecto_nihilista` esta apagado porque necesita un tunel para que funcione el frontend correctamente. Si se quiere ver el proyecto funcionando, me avisas para encender el backend y que funcione el frontend.
+- cv_nihilista: [cv_nihilista](https://cdryampi.github.io/proyectos_memes/proyectos_memes/cv_nihilista/)
