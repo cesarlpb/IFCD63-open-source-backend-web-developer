@@ -2,9 +2,12 @@
 
 ## 1. Introducción a CSS
 - **¿Qué es CSS?**
+
   CSS (Cascading Style Sheets) es un lenguaje de hojas de estilo que define la apariencia y el formato de un documento web. 
   Es decir, HTML le da estructura a la página web, mientras que CSS le da estilo.
+
 - **Sintaxis básica**
+
   ```css
   selector {
     propiedad_1: valor_1;
@@ -12,15 +15,47 @@
     ...
   }
   ```
+
   - `selector`: Elemento HTML o clase o id, etc. que se va a estilizar
   - `propiedad`: Atributo que se va a modificar
   - `valor`: Valor que se le asigna a la propiedad
   
-- Formas de incluir CSS en HTML
-  - Estilos en línea
-  - Etiqueta `<style>`
-  - Archivos externos (.css)
-- Comentarios en CSS
+- **Formas de incluir CSS en HTML**
+
+  - **Estilos en línea** (en la misma etiqueta HTML usando atributo `style`):
+
+  ```html
+  <p style="color:red">Texto en rojo.</p>
+  ```
+  
+  - Etiqueta `<style>`:
+
+  ```html
+  <style>
+    p {
+        color: red;
+    }
+  </style>
+  ```
+
+  - **Archivos externos** (`style.css`, `main.css`, etc.):
+
+  ```html
+  <link rel="stylesheet" href="style.css">
+  ```
+
+- Comentarios en CSS:
+
+```css
+
+/* Comentario de una línea */
+
+/* Comentario 
+*  de 
+*  varias 
+* líneas
+*/
+```
 
 ## 2. Selectores
 - Selectores de tipo (etiquetas)
