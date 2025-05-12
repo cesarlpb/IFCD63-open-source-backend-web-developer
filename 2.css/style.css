@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(209, 177, 137);
+}
+h1 {
+    color: red;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+} 
+p {
+    color: gray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+    
