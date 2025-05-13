@@ -333,7 +333,7 @@ Tipo/Pseudo-elemento (0-0-1) > Universal *
 
 > **tl;dr:** Un gran poder conlleva una gran responsabilidad => usar con cuidado.
 
-[Ejercicios de selectores](./ejercicios/selectores.md)
+- [Ejercicios de selectores](./ejercicios/selectores.md)
 
 ## 3. Modelo de Caja (Box Model)
 
@@ -373,6 +373,8 @@ Tipo/Pseudo-elemento (0-0-1) > Universal *
   </div>
 ```
 
+- **Ejercicio:** Haz un ejemplo similar con `height`.
+
 ---
 
 ### 3.2 `padding`
@@ -382,6 +384,37 @@ Tipo/Pseudo-elemento (0-0-1) > Universal *
 |**Sintaxis**|`padding: top right bottom left;` (shorthand) <br>`padding-block`, `padding-inline` para lógica RTL.|
 |**Ejemplo**|`.card { padding: 1rem 1.5rem; }`|
 |**Notas dev**|Suma al tamaño final salvo que uses `box-sizing: border-box`. Piensa en `padding` como la serialización “pretty-print” que añade espacios legibles.|
+
+```html
+  <style>
+    div > div {
+      background-color: lightgray;
+      border: 1px solid black;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .box1 {
+      width: 300px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .box2 {
+      width: auto;
+      padding: 1em;
+    }
+    .box3 {
+      width: 50%;
+      padding: 0;
+    }
+  </style>
+  <div>
+    <div class="box1">Box 1 (300 px)</div>
+    <div class="box2">Box 2 (auto)</div>
+    <div class="box3">Box 3 (50% del parent)</div>
+  </div>
+```
+
+> El `padding` nos coloca espaciado interno en una caja entonces hace que el contenido no este pegado a sus márgenes y se pueda leer mejor.
 
 ---
 
@@ -393,6 +426,15 @@ Tipo/Pseudo-elemento (0-0-1) > Universal *
 |**Ejemplo**|`img { border: 2px solid #ccc; border-radius: 50%; }`|
 |**Notas dev**|Afecta al flujo del documento (ocupa espacio). Usa `outline` si solo necesitas remarcar sin mover nada.|
 
+```css
+  div {
+      background-color: lightgray;
+      border: 1px solid black;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+```
+
 ---
 
 ### 3.4 `margin`
@@ -402,6 +444,15 @@ Tipo/Pseudo-elemento (0-0-1) > Universal *
 |**Sintaxis**|`margin: top right bottom left;`|
 |**Ejemplo**|`section { margin-block: 2rem; }`|
 |**Notas dev**|Los márgenes verticales se “colapsan” entre elementos consecutivos (el mayor gana). Es como coalescer filas duplicadas en una consulta.|
+
+```css
+  div {
+      background-color: lightgray;
+      border: 2px solid black;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+```
 
 ---
 
@@ -413,6 +464,14 @@ Tipo/Pseudo-elemento (0-0-1) > Universal *
 |**Ejemplo**|`* { box-sizing: border-box; }`|
 |**Notas dev**|`border-box` evita cálculos mentales al diseñar layouts (tamaño total constante). Es el equivalente a normalizar unidades antes de hacer sumas.|
 
+```css
+ .box1 {
+      width: 300px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+```
+
 ---
 
 ### 3.6 `outline`
@@ -423,6 +482,16 @@ Tipo/Pseudo-elemento (0-0-1) > Universal *
 |**Ejemplo**|`button:focus-visible { outline: 3px dashed var(--brand); }`|
 |**Notas dev**|Ideal para *focus rings* accesibles. No lo uses como sustituto de `border` si necesitas que el layout respete el espacio.|
 
+```css
+   .box3 {
+      width: 50%;
+      padding: 0;
+      border:5px solid green;
+      outline: 5px solid red;
+    }
+```
+
+- Ejercicios de box model en [box-model.md](./ejercicios/box-model.md)
 
 ## 4. Colores y Fondos
 - Nombres de colores
