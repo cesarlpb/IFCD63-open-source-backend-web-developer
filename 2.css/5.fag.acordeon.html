@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ con acordeón</title>
+    <style>
+      h1 {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-decoration: underline;
+      }
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: antiquewhite;
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      .answer {
+        display: none;
+      }
+      input:checked ~ .answer {
+        display: block;
+      }
+    </style>
+    <section class="faq">
+      <h1>FAQ con acordeón</h1>
+      <hr>
+      <h3>¿Qué es CSS?</h3>
+      <input type="checkbox" id="q1" /> 
+      <label for="q1">Marca la casilla para ver la respuesta</label>
+      <br>
+      <hr>
+      <p class="answer"><strong>Respuesta:</strong> CSS describe la presentación de una página web...</p>
+    </section>
+  </body>
+</html>
