@@ -16,10 +16,23 @@
     </style>
   </head>
   <body>
+    <style>
+      .answer {
+        display: none;
+      }
+      input:checked ~ .answer {
+        display: block;
+      }
+    </style>
     <section class="faq">
+      <h1>FAQ con acordeón</h1>
+      <hr>
       <h3>¿Qué es CSS?</h3>
-      <input type="checkbox" id="q1" />
-      <p class="answer">CSS describe la presentación...</p>
+      <input type="checkbox" id="q1" /> 
+      <label for="q1">Marca la casilla para ver la respuesta</label>
+      <br>
+      <hr>
+      <p class="answer"><strong>Respuesta:</strong> CSS describe la presentación de una página web...</p>
     </section>
   </body>
 </html>
