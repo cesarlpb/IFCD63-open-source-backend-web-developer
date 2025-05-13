@@ -345,9 +345,33 @@ Tipo/Pseudo-elemento (0-0-1) > Universal *
 | | |
 |---|---|
 |**Definición**|Tamaño **del contenido** de la caja (no incluye padding, border ni margin).|
-|**Sintaxis**|`width: <longitud | % | auto>;` <br>`height: <longitud | % | auto>;`|
+|**Sintaxis**| `width: <longitud  %  auto>, height: <longitud  %  auto>`|
 |**Ejemplo**|`.box { width: 300px; height: 180px; }`|
 |**Notas dev**|`auto` deja que el navegador calcule según el contexto. `%` usa el contenedor padre como referencia. En realidad casi nunca defines ambos: fija uno y deja que el otro fluya, igual que al paginar resultados.|
+
+```html
+  <style>
+    div > div {
+      background-color: lightgray;
+      border: 1px solid black;
+      text-align: center;
+    }
+    .box1 {
+      width: 300px;
+    }
+    .box2 {
+      width: auto;
+    }
+    .box3 {
+      width: 50%;
+    }
+  </style>
+  <div>
+    <div class="box1">Box 1 (300 px)</div>
+    <div class="box2">Box 2 (auto)</div>
+    <div class="box3">Box 3 (50% del parent)</div>
+  </div>
+```
 
 ---
 
