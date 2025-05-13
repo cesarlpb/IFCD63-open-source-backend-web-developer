@@ -34,6 +34,8 @@ Alterna el fondo (`background:#f5f5f5`) solo en las filas de datos **pares**.
 
 *Tip*: selector `tr:nth-child(even)`.
 
+- Propuesta de solución en [2.zebra-striping.html](./2.zebra-striping.html)
+
 ---
 
 ### 3️⃣ Inputs obligatorios con borde rojo
@@ -68,6 +70,8 @@ Haz que **solo** el `<article>` dentro del primer `<li>` tenga `font-size:1.4rem
 
 *Tip*: `ul.cards > li:first-child > article { … }`.
 
+- Propuesta de solución en [4.tarjeta-destacada.html](./4.tarjeta-destacada.html)
+
 ---
 
 ### 5️⃣ FAQ tipo acordeón (solo CSS)
@@ -84,6 +88,8 @@ Haz que **solo** el `<article>` dentro del primer `<li>` tenga `font-size:1.4rem
 Oculta `.answer` por defecto y muéstrala (`display:block`) cuando el `<input>` hermano esté `:checked`.
 
 *Tip*: selector hermano adyacente `input:checked + .answer`.
+
+- Propuesta de solución en [5.faq-acordeon.html](./5.faq-acordeon.html)
 
 ---
 
