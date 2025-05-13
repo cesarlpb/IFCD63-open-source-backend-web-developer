@@ -16,10 +16,42 @@
     </style>
   </head>
   <body>
+    <h1>Tarjeta destacda</h1>
+    <hr />
+    <style>
+      /* Estilos de tarjetas */
+      ul {
+        padding-left: 0; /* quitamos espaciado a la izq del ul */
+        list-style: none; /* también sirve list-style-type */
+      }
+      ul > li {
+        display: block;
+        max-width: 300px;
+        border: 1px solid black;
+        padding: 1em;
+        margin: 0 auto;
+        margin-bottom: 1em;  
+      }
+
+      ul > li:first-of-type {
+        background-color: lightgray;
+      }
+      
+      ul.cards li:first-of-type article {
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+    </style>
     <ul class="cards">
-      <li><article>Destacado</article></li>
-      <li><article>Normal 1</article></li>
-      <li><article>Normal 2</article></li>
+      <li>
+        <article>Destacado</article>
+      </li>
+      <li>
+        <article>Normal 1</article>
+      </li>
+      <li>
+        <article>Normal 2</article>
+      </li>
     </ul>
   </body>
 </html>
