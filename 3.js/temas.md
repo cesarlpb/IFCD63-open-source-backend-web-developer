@@ -447,9 +447,66 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
 
 ---
 
-- [Ejercicios de Javascript](./ejercicios/all.md)
-- [Proyectos de Javascript](./ejercicios/proyectos.md)
+- [Ejercicios de Javascript](./ejercicios/frontend.md)
+- [Proyectos de Javascript](./ejercicios/proyectos-frontend.md)
 
 ## Referencias
 
 - [MDN Web Docs: JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
+
+---
+
+# Temario Javascript para Back-End con Node.js
+
+## Parte IV — Fundamentos de Node.js  
+
+- **4.1** ¿Qué es Node.js? V8, Event Loop y arquitectura no bloqueante  
+- **4.2** Gestor de paquetes **npm / yarn**  
+  - `package.json`, versiones semánticas, scripts  
+- **4.3** Módulos CommonJS vs ES Modules  
+  - `require` / `module.exports` y `import` / `export`  
+- **4.4** API de sistema de archivos (fs)  
+  - Lectura/escritura síncrona y asíncrona  
+- **4.5** Eventos y EventEmitter  
+- **4.6** Trabajo con streams (lectura y escritura de datos en chunks)  
+- ⚡ **Lab**: script CLI que lee un JSON, lo modifica y lo reescribe  
+
+## Parte V — Servidores HTTP y Express.js  
+
+- **5.1** Módulo nativo `http`  
+  - Crear servidor, rutas básicas, cabeceras y códigos de estado  
+- **5.2** Introducción a **Express**  
+  - Instalación y estructura de un proyecto  
+- **5.3** Rutas y verbos HTTP (`GET`, `POST`, `PUT`, `DELETE`)  
+- **5.4** Middleware  
+  - Uso de `app.use()`, orden, middleware de terceros (morgan, body-parser)  
+- **5.5** Gestión de errores (error-handling middleware)  
+- **5.6** Servir archivos estáticos  
+- 🛠️ **Lab**: API REST mínima de “tareas” en memoria con Express  
+
+## Parte VI — Persistencia de datos  
+
+- **6.1** Conexión a bases de datos  
+  - **MongoDB** con **Mongoose**: esquemas, modelos, validaciones  
+  - **PostgreSQL** con **Sequelize** / **Knex**: definiciones, migraciones  
+- **6.2** CRUD completo conectado a BD  
+- **6.3** Consultas avanzadas: filtros, paginación, población (populate)  
+- **6.4** Gestión de transacciones (en SQL)  
+- **6.5** Variables de entorno con **dotenv**  
+- ⚡ **Lab**: extender la API de “tareas” para que persista en MongoDB  
+
+## Parte VII — Seguridad, Testing y Despliegue  
+
+- **7.1** Autenticación y autorización  
+  - **JWT**, **bcrypt** para hashing de contraseñas  
+  - Middlewares de protección de rutas  
+- **7.2** Buenas prácticas de seguridad  
+  - **Helmet**, **CORS**, validación de inputs (Joi / express-validator)  
+- **7.3** Testing de API  
+  - **Jest** + **Supertest**: tests de rutas y casos de error  
+- **7.4** Contenerización ligera con **Docker** (Dockerfile básico)  
+- **7.5** Despliegue en **Heroku** / **Vercel** / **Render**  
+- 🚀 **Mini-proyecto**: API completa de “usuarios” con registro/login, roles y tests  
+
+- [Ejercicios de Javascript](./ejercicios/backend.md)
+- [Proyectos de Javascript](./ejercicios/proyectos-backend.md)
