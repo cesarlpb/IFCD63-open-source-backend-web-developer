@@ -495,10 +495,6 @@ Tipo/Pseudo-elemento (0-0-1) > Universal *
 
 ## 4. Colores y Fondos
 
-En este tema aprendemos a usar colores y fondos en CSS.
-
-## 4. Colores y Fondos en CSS
-
 En este tema aprendemos a usar colores y fondos (backgrounds) en CSS.
 
 ### 1. Formatos de color
@@ -574,6 +570,8 @@ Define el punto de anclaje de cada capa.
   background-position: center 20%;   /* útil para visibilidad de rostros */
 }
 ```
+
+
 
 ### 5. background-size
 
@@ -697,7 +695,8 @@ Los *gradients* son **funciones de imagen** – se colocan en `background-image`
 
 ---
 
-Ya puedes empezar los [Labs 1 y 2](./labs.md)
+- Ejercicios de colores y fondos en [colores-y-fondos.md](./ejercicios/colores-y-fondos.md)
+- Ya puedes empezar los [Labs 1 y 2](./labs.md)
 
 ## 5. Tipografía
 
@@ -725,43 +724,52 @@ habituales, buenas prácticas y ejemplos mínimos.
 
 ### 5.2 `font-size` — tamaño de letra
 
-\| Sintaxis | `font-size: 1rem;` |
-\| Unidades | • Absolutas: `px`, `pt`, `cm` (poco usadas en web).<br>• Relativas: `em`, `rem` (a la raíz), `%` (al contenedor), `vw/vh`, funciones `clamp()` y `calc()`. |
-\| Recomendaciones |
-\| • Usa `rem` para un punto de escala global (`html { font-size: 100%; }`).<br>• Para tipografía fluida: `font-size: clamp(1rem, 0.9rem + 1vw, 1.4rem);`. |
+| **Campo**           | **Descripción**                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Sintaxis**        | `font-size: 1rem;`                                                                                                                                             |
+| **Unidades**        | **Absolutas:** `px`, `pt`, `cm` (poco usadas en web).<br>**Relativas:** `em`, `rem` (a la raíz), `%` (al contenedor), `vw/vh`, funciones `clamp()` y `calc()`. |
+| **Recomendaciones** | • Usa `rem` para un punto de escala global (`html { font-size: 100%; }`).<br>• Para tipografía fluida: `font-size: clamp(1rem, 0.9rem + 1vw, 1.4rem);`.        |
+
 
 ---
 
 ### 5.3 `font-weight` — grosor
 
-\| Sintaxis | `font-weight: 700;` |
-\| Valores  | Palabras clave `normal` (400) y `bold` (700) o números 100-900 en pasos de 100. |
-\| Puntos clave |
-\| • Verifica que tu archivo de fuente incluya los pesos declarados (evitar “faux bold”).<br>• Con *variable fonts* puedes animar o transicionar entre pesos (`font-variation-settings: "wght" 350;`). |
+| **Campo**        | **Descripción**                                                                                                                                                                                     |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Sintaxis**     | `font-weight: 700;`                                                                                                                                                                                 |
+| **Valores**      | Palabras clave `normal` (400) y `bold` (700) o números 100–900 en pasos de 100.                                                                                                                     |
+| **Puntos clave** | • Verifica que tu archivo de fuente incluya los pesos declarados (evitar “faux bold”).<br>• Con *variable fonts* puedes animar o transicionar entre pesos (`font-variation-settings: "wght" 350;`). |
 
 ---
 
 ### 5.4 `font-style` — estilo
 
-\| Sintaxis | `font-style: italic;` |
-\| Valores | `normal`, `italic`, `oblique` (ángulo opcional → `oblique 10deg`). |
-\| Nota | Italic usa un glifo propio; *oblique* inclina el glifo normal. Muchos navegadores sintetizan la cursiva si la fuente carece de ella. |
+| **Campo**    | **Descripción**                                                                                                                        |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Sintaxis** | `font-style: italic;`                                                                                                                  |
+| **Valores**  | `normal`, `italic`, `oblique` (ángulo opcional → `oblique 10deg`)                                                                      |
+| **Nota**     | *Italic* usa un glifo propio; *oblique* inclina el glifo normal. Muchos navegadores sintetizan la cursiva si la fuente carece de ella. |
 
 ---
 
 ### 5.5 `line-height` — interlineado
 
-\| Sintaxis | `line-height: 1.5;` *← valor recomendado* |
-\| Unidades | • Relativa sin unidad (factor del tamaño de letra).<br>• Absoluta (`px`, `em`). |
-\| Buenas prácticas | • Prefiere valores sin unidad: heredan de forma predecible y escalan mejor (`1.4 – 1.6`).<br>• Ajusta según la tipografía (x-height) y el contexto (lectura larga vs. UI). |
+| **Campo**            | **Descripción**                                                                                                                                                            |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Sintaxis**         | `line-height: 1.5;` *← valor recomendado*                                                                                                                                  |
+| **Unidades**         | • Relativa sin unidad (factor del tamaño de letra).<br>• Absoluta (`px`, `em`).                                                                                            |
+| **Buenas prácticas** | • Prefiere valores sin unidad: heredan de forma predecible y escalan mejor (`1.4 – 1.6`).<br>• Ajusta según la tipografía (x-height) y el contexto (lectura larga vs. UI). |
 
 ---
 
 ### 5.6 `text-align` — alineación horizontal
 
-\| Sintaxis | `text-align: justify;` |
-\| Valores  | `left`, `right`, `center`, `justify`, `start`, `end`, `match-parent`. |
-\| Tips | • Usa `text-align: center` para cards, pero deja texto largo en `left/start` para legibilidad.<br>• `start` y `end` respetan la dirección del documento (`dir="rtl"`). |
+| **Campo**    | **Descripción**                                                                                                                                                          |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Sintaxis** | `text-align: justify;`                                                                                                                                                   |
+| **Valores**  | `left`, `right`, `center`, `justify`, `start`, `end`, `match-parent`                                                                                                     |
+| **Tips**     | • Usa `text-align: center` para cards, pero deja texto largo en `left`/`start` para legibilidad.<br>• `start` y `end` respetan la dirección del documento (`dir="rtl"`). |
 
 ---
 
@@ -782,31 +790,38 @@ a {
 }
 ```
 
-\| Valores línea | `underline`, `overline`, `line-through`, `none`, combinaciones |
-\| Buenas prácticas | • Para enlaces, personaliza `text-decoration-color` en foco/hover en lugar de quitar el subrayado (accesibilidad). |
+| **Campo**            | **Descripción**                                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Valores línea**    | `underline`, `overline`, `line-through`, `none`, combinaciones                                                     |
+| **Buenas prácticas** | • Para enlaces, personaliza `text-decoration-color` en foco/hover en lugar de quitar el subrayado (accesibilidad). |
 
 ---
 
 ### 5.8 `text-transform` — cambio de capitalización
 
-\| Sintaxis | `text-transform: uppercase;` |
-\| Valores | `none`, `capitalize`, `uppercase`, `lowercase`, `full-width`, `full-size-kana`. |
-\| Nota | Solo cambia la presentación; el DOM conserva el texto original (útil para búsquedas). |
+| **Campo**            | **Descripción**                                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Valores línea**    | `underline`, `overline`, `line-through`, `none`, combinaciones                                                     |
+| **Buenas prácticas** | • Para enlaces, personaliza `text-decoration-color` en foco/hover en lugar de quitar el subrayado (accesibilidad). |
 
 ---
 
 ### 5.9 `letter-spacing` — espaciado entre letras
 
-\| Sintaxis | `letter-spacing: 0.05em;` |
-\| Unidades | Relativas (`em`, `rem`) o absolutas (`px`). |
-\| Consejos | • Ajusta kerning en títulos grandes o cuando uses versalitas.<br>• Puede aceptar valores negativos (`-0.02em`) para condensar. |
+| **Campo**    | **Descripción**                                                                                                                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Sintaxis** | `letter-spacing: 0.05em;`                                                                                                      |
+| **Unidades** | Relativas (`em`, `rem`) o absolutas (`px`).                                                                                    |
+| **Consejos** | • Ajusta kerning en títulos grandes o cuando uses versalitas.<br>• Puede aceptar valores negativos (`-0.02em`) para condensar. |
 
 ---
 
 ### 5.10 `word-spacing` — espacio entre palabras
 
-\| Sintaxis | `word-spacing: 0.2em;` |
-\| Uso | Menos común; se usa para textos justificados o diseños con tipografía display. |
+| **Campo**    | **Descripción**                                                                |
+| ------------ | ------------------------------------------------------------------------------ |
+| **Sintaxis** | `word-spacing: 0.2em;`                                                         |
+| **Uso**      | Menos común; se usa para textos justificados o diseños con tipografía display. |
 
 ---
 
@@ -856,108 +871,506 @@ a {
 4. **Espaciado de texto (WCAG 1.4.12):** Garantiza que tu UI soporte aumentos de `letter-spacing` 0.12 em, `word-spacing` 0.16 em y `line-height` 1.5 sin romperse.
 5. **Rendimiento:** Sirve las fuentes en `woff2`, activa `font-display: swap` y agrupa las peticiones en un solo `@font-face` cuando uses variable fonts.
 
+- Ejercicios de colores y fondos en [tipografia.md](./ejercicios/tipografia.md)
+
 ## 6. Modelo de Visualización
-- display (block, inline, inline-block, flex, grid, none)
-- visibility
-- overflow
-- position (static, relative, absolute, fixed, sticky)
-- z-index
-- float y clear
+
+Un buen control del flujo y la disposición de elementos es esencial para construir interfaces robustas y responsivas. A continuación tienes las propiedades clave:
+
+### 6.1 `display` — tipo de caja y modelo de renderizado
+
+| **Valor**      | **Descripción & Uso**                                                                                  |
+| -------------- | ------------------------------------------------------------------------------------------------------ |
+| `block`        | Ocupa todo el ancho disponible, comienza nueva línea. Ideal para contenedores (`<div>`, `<section>`).  |
+| `inline`       | Solo ocupa el espacio de su contenido, no rompe línea. No admite ancho/alto. Útil en `<span>`, `<a>`.  |
+| `inline-block` | Híbrido: comport. inline (no rompe línea) pero admite ancho/alto.                                      |
+| `flex`         | Activa Flexbox en el contenedor: organiza hijos en fila o columna con alineación y reparto de espacio. |
+| `grid`         | Activa CSS Grid: layout bidimensional con filas/columnas; ideal para rejillas complejas.               |
+| `none`         | El elemento no se renderiza (ni ocupa espacio). Útil para esconder sin afectar `visibility`.           |
+
+```css
+/* Ejemplo rápido */
+.container { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; }
+.item-inline { display: inline-block; width: 120px; height: 120px; }
+```
+
+---
+
+### 6.2 `visibility` — visibilidad del elemento
+
+| **Valor**  | **Descripción**                                                                        |
+| ---------- | -------------------------------------------------------------------------------------- |
+| `visible`  | Por defecto; el elemento y su contenido se muestran.                                   |
+| `hidden`   | El elemento no se ve, pero sigue ocupando su espacio en el flujo.                      |
+| `collapse` | En tablas colapsa filas/columnas como si no existieran (no soportado en todos los UA). |
+
+> [!NOTE]
+> **Diferencia con `display: none`**:
+>
+> * `visibility: hidden` mantiene el hueco y permite animar la entrada/salida.
+> * `display: none` retira completamente del flujo y de la accesibilidad.
+
+---
+
+### 6.3 `overflow` — gestión del contenido desbordado
+
+| **Propiedad**  | **Valores comunes**                                 |
+| -------------- | --------------------------------------------------- |
+| `overflow`     | `visible` (por defecto), `hidden`, `scroll`, `auto` |
+| `overflow-x/y` | Mismo conjunto, controla eje X o Y por separado.    |
+
+```css
+.box {
+  width: 200px; height: 100px;
+  overflow: auto; /* scroll si el contenido supera el tamaño */
+}
+```
+
+* **`visible`**: deja que el contenido sobresalga.
+* **`hidden`**: recorta el exceso (útil para máscaras o contenedores fijos).
+* **`scroll`**: siempre muestra barras de scroll.
+* **`auto`**: muestra barras solo cuando sea necesario.
+
+---
+
+### 6.4 `position` — modelo de posicionamiento
+
+| **Valor**  | **Descripción**                                                                                                |          |       |                            |
+| ---------- | -------------------------------------------------------------------------------------------------------------- | -------- | ----- | -------------------------- |
+| `static`   | Por defecto; elemento en flujo normal, ignora `top/right/...`.                                                 |          |       |                            |
+| `relative` | Como `static` pero permite desplazar con `top/right/bottom/left` sin salir del flujo (espacio original queda). |          |       |                            |
+| `absolute` | Se posiciona respecto al ancestro posicionado (\`relative                                                      | absolute | fixed | sticky\`); sale del flujo. |
+| `fixed`    | Similar a `absolute` pero respecto a la ventana (viewport); perfecto para barras fijas.                        |          |       |                            |
+| `sticky`   | Híbrido `relative`↔`fixed`: actúa como relativo hasta cruzar un umbral del viewport, luego se “pega”.          |          |       |                            |
+
+```css
+/* Sticky header */
+header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 100;
+}
+```
+
+---
+
+### 6.5 `z-index` — orden en el eje Z
+
+* Solo funciona en elementos posicionados (`position` distinto de `static`).
+* Acepta enteros (positivos, negativos, 0).
+* Elementos con mayor `z-index` aparecen por encima.
+
+```css
+.modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 1000; }
+.backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 900; }
+```
+
+> [!TIP]
+>
+> Crear variables en el nivel raíz para gestionar capas:
+>
+> ```css
+> :root {
+>   --z-backdrop: 100;
+>   --z-modal: 200;
+>   --z-tooltip: 300;
+> }
+> ```
+
+---
+
+### 6.6 `float` & `clear` — diseño “clásico”
+
+| **Propiedad** | **Valores**                     | **Uso**                                                                                               |
+| ------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `float`       | `left`, `right`, `none`         | Saca el elemento del flujo y lo coloca a izquierda/derecha, permitiendo que el texto fluya a su lado. |
+| `clear`       | `left`, `right`, `both`, `none` | Limpia floats: el elemento siguiente “rompe” el envoltorio de floats a ese lado.                      |
+
+```html
+<img class="float-right" src="..." alt="...">
+<p>Texto que fluye alrededor de la imagen...</p>
+<div style="clear: both;"></div>
+```
+
+> [!TIP]
+> **Buenas prácticas**
+>  -  Usa floats solo para textos alrededor de imágenes o elementos muy sencillos.
+>  - Para layouts complejos, prefiere **Flexbox** o **Grid** y deja `float` para casos puntuales.
+
+- Ejercicios de colores y fondos en [visualizacion.md](./ejercicios/visualizacion.md)
 
 ## 7. Flexbox
-- Conceptos básicos
-- Flex container
-  - flex-direction
-  - flex-wrap
-  - justify-content
-  - align-items
-  - align-content
-- Flex items
-  - order
-  - flex-grow
-  - flex-shrink
-  - flex-basis
-  - align-self
+
+Flexbox es un modelo de diseño unidimensional, ideal para organizar elementos en
+fila o columna con control preciso del alineamiento, el reparto de espacio y la 
+distribución de órdenes. 
+
+Se compone de **contenedor flex** (padre) y **items flex** (hijos).
+
+> [!TIP]
+> Flexbox es una elección adecuada cuando el diseño se puede organizar en filas
+> y columnas.
+
+### 7.1 Conceptos básicos
+
+* **Eje principal (main axis)**
+  La dirección en la que fluyen los flex items. Por defecto es horizontal (`row`).
+* **Eje cruzado (cross axis)**
+  Perpendicular al main axis (vertical si `row`, horizontal si `column`).
+* **Flex container**
+  Cualquier elemento con `display: flex` o `display: inline-flex`.
+* **Flex items**
+  Hijos directos del contenedor flex.
+* **Espacio sobrante**
+  El contenedor reparte espacio extra (o lo ajusta) según las reglas de “grow”, “shrink” y “basis”.
+
+### 7.2 Propiedades del Flex Container
+
+| Propiedad           | Sintaxis / Valores                                                                            | Descripción                                                                          |
+| ------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **display**         | `display: flex;`<br>`display: inline-flex;`                                                   | Activa el contexto Flexbox.                                                          |
+| **flex-direction**  | `row` (por defecto)<br>`row-reverse`<br>`column`<br>`column-reverse`                          | Define el main axis y el orden de los items.                                         |
+| **flex-wrap**       | `nowrap` (por defecto)<br>`wrap`<br>`wrap-reverse`                                            | Permite que los items salten a una nueva línea (o columna).                          |
+| **justify-content** | `flex-start`<br>`flex-end`<br>`center`<br>`space-between`<br>`space-around`<br>`space-evenly` | Alinea items a lo largo del main axis (distribución de espacio entre/antes/después). |
+| **align-items**     | `stretch` (por defecto)<br>`flex-start`<br>`flex-end`<br>`center`<br>`baseline`               | Alinea items a lo largo del cross axis (ajusta la caja de cada item).                |
+| **align-content**   | `stretch`<br>`flex-start`<br>`flex-end`<br>`center`<br>`space-between`<br>`space-around`      | Alinea líneas de items cuando hay varias filas/columnas (solo si hay wrap).          |
+
+> [!NOTE]
+> **Buen uso**
+>
+> * Para layouts de una sola dimensión, flex es más sencillo que grid.
+> * Combina `justify-content` con `align-items` para centrar items en dos ejes.
+> * Usa `wrap` si los elementos deben fluir en varias líneas en pantallas pequeñas.
+
+### 7.3 Propiedades de los Flex Items
+
+| Propiedad       | Sintaxis / Valores                        | Descripción                                                            |                                                                                      |          |        |             |                                                  |
+| --------------- | ----------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | -------- | ------ | ----------- | ------------------------------------------------ |
+| **order**       | `order: <número entero>;` (por defecto 0) | Controla el orden visual de los items sin cambiar el HTML.             |                                                                                      |          |        |             |                                                  |
+| **flex-grow**   | `flex-grow: <número>;` (por defecto 0)    | Define cuánto espacio extra toma el item respecto al total disponible. |                                                                                      |          |        |             |                                                  |
+| **flex-shrink** | `flex-shrink: <número>;` (por defecto 1)  | Indica cuánto se reduce el item cuando el espacio es insuficiente.     |                                                                                      |          |        |             |                                                  |
+| **flex-basis**  | \`flex-basis: <longitud>                  | auto;`(por defecto`auto\`)                                             | Tamaño inicial del item antes de repartir espacio. Puede usar `%`, `px`, `rem`, etc. |          |        |             |                                                  |
+| **align-self**  | \`align-self: auto                        | stretch                                                                | flex-start                                                                           | flex-end | center | baseline;\` | Sobrescribe `align-items` para un item concreto. |
+
+#### Ejemplos rápidos
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: start;
+}
+
+/* Reordenar visualmente */
+.item--primero { order: 2; }
+.item--segundo { order: 1; }
+
+/* Crecer y encoger */
+.item--crece {
+  flex-grow: 2;    /* tomará el doble de espacio sobrante */
+  flex-shrink: 0;  /* no se encogerá si falta espacio */
+  flex-basis: 150px;
+}
+
+/* Ajuste individual de alineamiento */
+.item--alineado {
+  align-self: flex-end;
+}
+```
+
+> [!TIP]
+>
+> **Tips**
+>
+> * Usa la shorthand `flex: grow shrink basis;` (por ejemplo `flex: 1 0 200px;`).
+> * Valores altos de `order` colocan el item al final; valores negativos al principio.
+> * Para centrar un solo item en el contenedor:
+>
+>   ```css
+>   .container {
+>     display: flex;
+>     justify-content: center;
+>     align-items: center;
+>   }
+>   ```
+
+- Ejercicios de colores y fondos en [flexbox.md](./ejercicios/flexbox.md)
+- Puedes practicar con este [juego para aprender Flexbox](https://flexboxfroggy.com/)
 
 ## 8. Grid
-- Conceptos básicos
-- Grid container
-  - grid-template-columns
-  - grid-template-rows
-  - grid-template-areas
-  - gap
-  - justify-items
-  - align-items
-  - place-items
-- Grid items
-  - grid-column
-  - grid-row
-  - grid-area
-  - justify-self
-  - align-self
-  - place-self
+
+CSS Grid es un sistema bidimensional que permite construir rejillas complejas 
+definiendo filas y columnas. Se compone de un **contenedor grid** y **grid items** 
+(hijos directos).
+
+### 8.1 Conceptos básicos
+
+* **Grid container**: elemento padre con `display: grid` o `display: inline-grid`. Define la rejilla.
+* **Grid tracks**: filas y columnas que forman la estructura.
+* **Grid cells**: intersección de una fila y una columna.
+* **Grid areas**: áreas nombradas formadas por varias celdas.
+* **Gap**: espacio entre tracks (reemplaza a `grid-row-gap` y `grid-column-gap`).
+
+### 8.2 Propiedades del Grid Container
+
+| Propiedad               | Sintaxis / Valores                                                                               | Descripción                                                                 |
+| ----------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| `grid-template-columns` | `grid-template-columns: 200px 1fr 2fr;`<br>`repeat(3, minmax(100px, 1fr))`                       | Define el ancho de cada columna. Canales fijos, fluidos o repeat.           |
+| `grid-template-rows`    | `grid-template-rows: 100px auto 50px;`                                                           | Define la altura de cada fila.                                              |
+| `grid-template-areas`   | `css<br>grid-template-areas:<br>  "header header"<br>  "sidebar main"<br>  "footer footer";<br>` | Nombra áreas en una “plantilla” de texto. Hace sencillo el posicionamiento. |
+| `gap`                   | `gap: 1rem 2rem;`  (fila / columna)                                                              | Espacio entre filas y columnas.                                             |
+| `justify-items`         | `start` / `end` / `center` / `stretch`                                                           | Alinea el contenido de cada celda en el eje inline (horizontal).            |
+| `align-items`           | `start` / `end` / `center` / `stretch`                                                           | Alinea el contenido de cada celda en el eje block (vertical).               |
+| `place-items`           | Shorthand de `align-items` + `justify-items`:<br>`place-items: center stretch;`                  | Atajo para alinear en ambos ejes simultáneamente.                           |
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  gap: 1rem 2rem;
+  justify-items: stretch;
+  align-items: start;
+}
+```
+
+### 8.3 Propiedades de los Grid Items
+
+| Propiedad      | Sintaxis / Valores                                                          | Descripción                                                                           |
+| -------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `grid-column`  | `grid-column: 1 / 3;`<br>`span 2`                                           | Indica inicio y fin de columna (líneas de rejilla) o cuántas columnas ocupa (`span`). |
+| `grid-row`     | `grid-row: 2 / span 3;`                                                     | Igual para filas: línea de inicio y fin, o `span` para ocupar varias.                 |
+| `grid-area`    | `grid-area: header;`                                                        | Ubica el ítem en un área nombrada definida en `grid-template-areas`.                  |
+| `justify-self` | `start` / `end` / `center` / `stretch`                                      | Alinea el item dentro de su celda en el eje inline (horizontal).                      |
+| `align-self`   | `start` / `end` / `center` / `stretch`                                      | Alinea el item dentro de su celda en el eje block (vertical).                         |
+| `place-self`   | Shorthand de `align-self` + `justify-self`:<br>`place-self: center center;` | Atajo para alinear un item en ambos ejes.                                             |
+
+```css
+.header {
+  grid-area: header;
+}
+.sidebar {
+  grid-column: 1 / 2;
+  grid-row: 2;
+}
+.main {
+  grid-column: 2 / 3;
+  grid-row: 2;
+}
+.footer {
+  grid-area: footer;
+  justify-self: center;
+  align-self: end;
+}
+```
+
+### 8.4 Ejemplo completo
+
+```html
+<div class="grid-container">
+  <header class="header">Header</header>
+  <aside class="sidebar">Sidebar</aside>
+  <main class="main">Main content</main>
+  <footer class="footer">Footer</footer>
+</div>
+```
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  gap: 1rem;
+  place-items: stretch center;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main    { grid-area: main; }
+.footer  { grid-area: footer; place-self: end center; }
+```
+
+- Ejercicios de colores y fondos en [grid.md](./ejercicios/grid.md) 
+- Puedes practicar con este [juego para aprender Grid](https://cssgridgarden.com/) 
+- Ya puedes empezar los [Labs 3 y 4](./labs.md)
+
+---
 
 ## 9. Transiciones y Animaciones
-- transition
-- @keyframes
-- animation
-- transform
-- transform-origin
-- perspective
-- backface-visibility
+
+* **transition**
+
+  * Shorthand para animar cambios de propiedades CSS (p. ej. `transition: background‐color 0.3s ease-in-out 0s;`).
+  * Componentes: propiedad(s), duración, función de tiempo (timing‐function), retardo.
+* **@keyframes**
+
+  * Define fotogramas intermedios de una animación CSS.
+  * Sintaxis:
+
+    ```css
+    @keyframes miAnim {
+      0%   { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    ```
+* **animation**
+
+  * Shorthand para aplicar un `@keyframes`: nombre, duración, timing‐function, delays, iteraciones, dirección, modo de relleno, estado.
+* **transform**
+
+  * Transformaciones 2D y 3D: `translate()`, `rotate()`, `scale()`, `skew()`.
+  * Se encadenan: `transform: translateX(10px) scale(1.2);`.
+* **transform-origin**
+
+  * Punto de origen de la transformación (p. ej. `transform-origin: top left;`).
+* **perspective**
+
+  * Añade profundidad a transformaciones 3D (se define en el contenedor padre o en la propiedad shorthand).
+* **backface-visibility**
+
+  * Controla si se muestra la “cara trasera” de un elemento cuando rota en 3D (`visible`/`hidden`).
+
+---
 
 ## 10. Diseño Responsivo
-- Viewport
-- Media Queries
-- Unidades relativas (%, vw, vh, rem, em)
-- Imágenes responsivas
-- Mobile-first vs Desktop-first
+
+* **Viewport**
+
+  * Meta tag esencial: `<meta name="viewport" content="width=device-width, initial-scale=1">`.
+* **Media Queries**
+
+  * Condiciones CSS basadas en características del dispositivo (`@media (min-width: 768px) { … }`).
+* **Unidades relativas**
+
+  * `%` (contenedor), `vw`/`vh` (viewport), `rem` (raíz), `em` (elemento).
+* **Imágenes responsivas**
+
+  * Atributos `srcset`/`sizes`, `picture`, `object-fit`.
+* **Mobile-first vs Desktop-first**
+
+  * Escribir reglas para móvil primero (`min-width`), o para escritorio primero (`max-width`). Mobile-first suele facilitar la optimización y el rendimiento.
+
+---
 
 ## 11. Variables CSS
-- Definición de variables (--nombre)
-- Uso de variables (var())
-- Ámbito de las variables
+
+* **Definición**
+
+  * Se declaran con `--nombre: valor;` (más habitual en `:root`).
+* **Uso**
+
+  * `color: var(--color-principal, blue);` (segundo parámetro = valor de reserva).
+* **Ámbito**
+
+  * Respetan la cascada e heredan a todos los descendientes del elemento donde se declaran.
+
+---
 
 ## 12. Preprocesadores CSS (Breve introducción)
-- SASS/SCSS
-- LESS
-- Stylus
-- Variables
-- Anidamiento
-- Mixins
-- Herencia
+
+* **SASS/SCSS, LESS, Stylus**
+
+  * Sintaxis extendida que compila a CSS puro.
+* **Variables**
+
+  * `$color-base: #3498db;`
+* **Anidamiento**
+
+  * Selector padre `&`, anidación lógica de reglas.
+* **Mixins**
+
+  * Bloques reutilizables con parámetros (`@mixin centrado { display: flex; justify-content: center; }`).
+* **Herencia / Extends**
+
+  * Compartir reglas entre selectores (`@extend .botón-base;`).
+
+---
 
 ## 13. Metodologías CSS
-- BEM (Block, Element, Modifier)
-- OOCSS (Object-Oriented CSS)
-- SMACSS (Scalable and Modular Architecture for CSS)
-- ITCSS (Inverted Triangle CSS)
+
+* **BEM** (Block-Element-Modifier)
+
+  * `block__element--modifier` → máxima claridad y bajo acoplamiento.
+* **OOCSS** (Object-Oriented CSS)
+
+  * Separar “estructura” (contenedor) de “skin” (estilo visual).
+* **SMACSS** (Scalable and Modular Architecture for CSS)
+
+  * Categorías: Base, Layout, Module, State, Theme.
+* **ITCSS** (Inverted Triangle CSS)
+
+  * Capas en orden: Settings → Tools → Generic → Elements → Objects → Components → Utilities.
+
+---
 
 ## 14. Herramientas y Recursos
-- DevTools del navegador
-- Validadores de CSS
-- Prefijos de proveedores
-- Normalize.css y Reset CSS
-- Frameworks CSS populares (Bootstrap, Tailwind, etc.)
+
+* **DevTools**
+
+  * Inspección, perfiles de rendimiento, edición en vivo.
+* **Validadores**
+
+  * W3C CSS Validator, stylelint.
+* **Prefijos de proveedores**
+
+  * Autoprefixer / PostCSS para compatibilidad cross-browser.
+* **Normalize.css / Reset CSS**
+
+  * Base consistente: resetear o normalizar estilos por defecto.
+* **Frameworks populares**
+
+  * Bootstrap, Tailwind CSS, Foundation…
+
+---
 
 ## 15. Buenas Prácticas
-- Especificidad
-- Herencia
-- Organización del código
-- Nomenclatura
-- Rendimiento
-- Accesibilidad
+
+* **Especificidad**
+
+  * Mantenerla baja y predecible; evitar selectores muy anidados.
+* **Herencia**
+
+  * Aprovechar valores por defecto y variables para no repetir.
+* **Organización de código**
+
+  * Modularizar en varios archivos, usar Imports.
+* **Nomenclatura**
+
+  * Convenciones claras (BEM, spaghetti-free).
+* **Rendimiento**
+
+  * Minificar, critical CSS, carga diferida de fuentes.
+* **Accesibilidad**
+
+  * Contraste de color, foco visible, `prefers-reduced-motion`.
+
+---
 
 ## 16. Novedades en CSS
-- CSS Grid Layout
-- Flexbox
-- Custom Properties (Variables CSS)
-- CSS Grid Subgrid
-- Container Queries
-- Cascade Layers
-- :has() selector
-- Aspect Ratio
-- Scroll Snap
+
+* **CSS Grid Layout** y **Flexbox** (ya estándar).
+* **Custom Properties** (Variables CSS nativas).
+* **Subgrid** (Grid dentro de grid).
+* **Container Queries** (consultas basadas en contenedor en lugar de viewport).
+* **Cascade Layers** (`@layer` para organización y control de prioridades).
+* **Selector `:has()`** (parent selector).
+* **Aspect Ratio** (`aspect-ratio: 16/9;`).
+* **Scroll Snap** (`scroll-snap-type`, `scroll-snap-align`).
+
+
+- [Ejercicios de temas del 09 al 16](./ejercicios/mas-ejercicios.md)
 
 ---
 
