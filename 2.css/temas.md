@@ -1374,6 +1374,10 @@ definiendo filas y columnas. Se compone de un **contenedor grid** y **grid items
 
 ---
 
+- [Ejercicios de CSS](./ejercicios/css.md)
+
+---
+
 ## Referencias
 
 - W3Schools: https://www.w3schools.com/css/
