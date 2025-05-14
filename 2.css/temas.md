@@ -494,17 +494,210 @@ Tipo/Pseudo-elemento (0-0-1) > Universal *
 - Ejercicios de box model en [box-model.md](./ejercicios/box-model.md)
 
 ## 4. Colores y Fondos
-- Nombres de colores
-- RGB y RGBA
-- HEX
-- HSL y HSLA
-- background-color
-- background-image
-- background-position
-- background-size
-- background-repeat
-- background-attachment
-- Degradados (linear-gradient, radial-gradient)
+
+En este tema aprendemos a usar colores y fondos en CSS.
+
+## 4. Colores y Fondos en CSS
+
+En este tema aprendemos a usar colores y fondos (backgrounds) en CSS.
+
+### 1. Formatos de color
+
+| Formato              | Sintaxis                  | Ejemplo                                                            | Ventajas                                                          |
+| -------------------- | ------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| **Nombres de color** | `color: red;`             | 147 nombres estándar (`red`, `cornflowerblue`, `goldenrod`, etc.). | Rápidos de escribir, buena legibilidad.                           |
+| **RGB**              | `rgb(255, 0, 0)`          | `color: rgb(255, 0, 0);`                                           | Preciso; idéntico a valores de Photoshop / Figma.                 |
+| **RGBA**             | `rgba(255, 0, 0, 0.5)`    | `background: rgba(0,0,0,0.25);`                                    | Igual que RGB + **canal alfa** (`0 = transparente`, `1 = opaco`). |
+| **HEX**              | `#ff0000` (3 o 6 dígitos) | `#f00` ≡ `#ff0000`                                                 | Popular, compacto, compatible con todos los navegadores.          |
+| **HSL**              | `hsl(0, 100%, 50%)`       | `hsl(200,70%,50%)`                                                 | Más intuitivo para girar tonos o ajustar claridad.                |
+| **HSLA**             | `hsla(0, 100%, 50%, 0.5)` | `hsla(200,70%,50%,.2)`                                             | Como HSL con transparencia.                                       |
+
+```css
+/* Ejemplo comparativo */
+.box-names { color: cornflowerblue; }
+.box-rgb   { color: rgb(100, 149, 237); }
+.box-hex   { color: #6495ed; }
+.box-hsl   { color: hsl(219,79%,66%); }   /* mismo tono */
+```
+
+[!TIP]
+> En VS Code podemos cambiar de una representación de color a otra haciendo click en el menú desplegable de los colores:
+
+![alt text](image.png)
+
+Click en rgb... para cambiar de formato.
+
+![alt text](image-1.png)
+
+Si sigues haciendo click vuelve a aparecer el formato RGB.
+
+---
+
+### 2. background-color
+
+Establece un color de fondo sólido.
+
+```css
+.card {
+  background-color: #fafafa;        /* gris muy claro */
+}
+```
+
+> **Pro Tip:** valores semitransparentes (RGBA/HSLA) permiten overlays sin poner otra capa HTML.
+
+### 3. background-image
+
+Admite **una o varias** imágenes, rutas locales o URLs remotas, y gradientes.
+
+```css
+.hero {
+  background-image: url("/img/cover.jpg"),
+                    linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6));
+}
+```
+
+La lista se pinta **de izquierda a derecha** (la primera es la capa más cercana al usuario).
+
+### 4. background-position
+
+Define el punto de anclaje de cada capa.
+
+| Valor                    | Resultado                                           |
+| ------------------------ | --------------------------------------------------- |
+| `left top` (por defecto) | Esquina superior-izquierda                          |
+| `center center`          | Centrado completo                                   |
+| `50% 50%`                | Igual que *center center*                           |
+| `right 30%`              | 30 % desde la parte superior, alineado a la derecha |
+
+```css
+.banner {
+  background-position: center 20%;   /* útil para visibilidad de rostros */
+}
+```
+
+### 5. background-size
+
+Controla el escalado:
+
+* `cover` → rellena el contenedor, puede recortar.
+* `contain` → muestra todo el contenido, puede dejar huecos.
+* `auto`, valores `px`, `%` o pares `width height`.
+
+```css
+.avatar {
+  background-size: cover;
+}
+```
+
+### 6. background-repeat
+
+| Valor                   | Uso               |
+| ----------------------- | ----------------- |
+| `repeat` (default)      | Repite en x e y   |
+| `repeat-x` / `repeat-y` | Solo eje indicado |
+| `no-repeat`             | Sin repetición    |
+
+```css
+.watermark {
+  background-repeat: no-repeat;
+}
+```
+
+### 7. background-attachment
+
+* `scroll` → la imagen se desplaza con la página (por defecto).
+* `fixed` → “parallax” simple: el fondo queda fijo respecto a la ventana.
+* `local` → se mueve dentro de un elemento con *overflow*.
+
+```css
+.parallax-hero {
+  background-attachment: fixed;
+}
+```
+
+### 8. Degradados
+
+Los *gradients* son **funciones de imagen** – se colocan en `background-image`.
+
+#### 8.1 linear-gradient
+
+```css
+/* 45° de azul a morado */
+.box {
+  background-image: linear-gradient(45deg, #3b82f6, #9333ea);
+}
+```
+
+* Primer argumento: **ángulo** (`deg`) o palabras clave (`to right`, `to bottom left`).
+* Después, **colores** (tantos como quieras).
+* Puedes indicar “stops”: `linear-gradient(90deg, red 0%, orange 50%, yellow 100%)`.
+
+### 8.2 radial-gradient
+
+```css
+.badge {
+  background-image: radial-gradient(circle at center,
+                    hsl(50 100% 60%) 0%, hsl(50 100% 40%) 100%);
+}
+```
+
+* Forma: `circle` (default) o `ellipse`.
+* Posición: `at top right`, `at 30% 70%`, etc.
+
+#### 8.3 Gradientes repetitivos
+
+* `repeating-linear-gradient()`
+* `repeating-radial-gradient()`
+
+Útiles para patrones (rayas, cuadriculado).
+
+```css
+.tartan {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #555 0 10px,
+    #333 10px 20px
+  );
+}
+```
+
+### 9. Ejemplo completo
+
+```html
+<section class="showcase">
+  <h1>CSS Color & Background demo</h1>
+</section>
+```
+
+```css
+.showcase {
+  /* Fondo compuesto */
+  background-image:
+    url("/img/forest.jpg"),
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 50%,
+      rgba(0,0,0,0.6) 100%
+    );
+  background-size: cover;              /* cubre el hero */
+  background-position: center top;     /* centra la foto */
+  background-attachment: fixed;        /* parallax ligero */
+  color: #fff;
+  padding: 8rem 2rem;
+  text-align: center;
+}
+```
+
+### Checklist rápido del tema
+
+* ✅ **Conocer** los 5 formatos de color y elegir el más cómodo.
+* ✅ **Combinar** varias capas en `background-image` para efectos complejos.
+* ✅ Ajustar posición, tamaño y repetición para evitar imágenes deformadas o mosaicos no deseados.
+* ✅ Usar gradientes como “tinta” para overlays sin PNG ni extra divs.
+
+---
+
+Ya puedes empezar los [Labs 1 y 2](./labs.md)
 
 ## 5. Tipografía
 - font-family
