@@ -700,16 +700,161 @@ Los *gradients* son **funciones de imagen** – se colocan en `background-image`
 Ya puedes empezar los [Labs 1 y 2](./labs.md)
 
 ## 5. Tipografía
-- font-family
-- font-size
-- font-weight
-- font-style
-- line-height
-- text-align
-- text-decoration
-- text-transform
-- letter-spacing
-- word-spacing
+
+Un sistema tipográfico coherente mejora la legibilidad, refuerza la identidad 
+visual y, bien gestionado, facilita la accesibilidad.
+
+En este tema, se describen las propiedades clave, con sintaxis, valores 
+habituales, buenas prácticas y ejemplos mínimos.
+
+---
+
+### 5.1 `font-family` — familia tipográfica
+
+| Qué hace                                                                                                                                                                                                              | Define la pila de fuentes que el navegador intentará cargar, de izquierda a derecha.                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Sintaxis                                                                                                                                                                                                              | `font-family: "Open Sans", Roboto, Helvetica, Arial, sans-serif;`                                                          |
+| Valores                                                                                                                                                                                                               | • nombres concretos (`"Fira Sans"`)<br>• genéricos (`serif`, `sans-serif`, `monospace`, `cursive`, `fantasy`, `system-ui`) |
+| Buenas prácticas                                                                                                                                                                                                      |                                                                                                                            |
+| • Ordenar las fuentes por preferencia y terminar con una familia genérica.<br>• Encerrar nombres con espacios en comillas.<br>• Incluir variantes locales para i18n, p. ej. `"Noto Sans SC"` para chino simplificado. |                                                                                                                            |
+
+> [!TIP]
+> **Custom fonts** – Carga con `@font-face` o servicios como Google Fonts; sirve los archivos con `font-display: swap` para evitar FOIT (flash of invisible text).
+
+---
+
+### 5.2 `font-size` — tamaño de letra
+
+\| Sintaxis | `font-size: 1rem;` |
+\| Unidades | • Absolutas: `px`, `pt`, `cm` (poco usadas en web).<br>• Relativas: `em`, `rem` (a la raíz), `%` (al contenedor), `vw/vh`, funciones `clamp()` y `calc()`. |
+\| Recomendaciones |
+\| • Usa `rem` para un punto de escala global (`html { font-size: 100%; }`).<br>• Para tipografía fluida: `font-size: clamp(1rem, 0.9rem + 1vw, 1.4rem);`. |
+
+---
+
+### 5.3 `font-weight` — grosor
+
+\| Sintaxis | `font-weight: 700;` |
+\| Valores  | Palabras clave `normal` (400) y `bold` (700) o números 100-900 en pasos de 100. |
+\| Puntos clave |
+\| • Verifica que tu archivo de fuente incluya los pesos declarados (evitar “faux bold”).<br>• Con *variable fonts* puedes animar o transicionar entre pesos (`font-variation-settings: "wght" 350;`). |
+
+---
+
+### 5.4 `font-style` — estilo
+
+\| Sintaxis | `font-style: italic;` |
+\| Valores | `normal`, `italic`, `oblique` (ángulo opcional → `oblique 10deg`). |
+\| Nota | Italic usa un glifo propio; *oblique* inclina el glifo normal. Muchos navegadores sintetizan la cursiva si la fuente carece de ella. |
+
+---
+
+### 5.5 `line-height` — interlineado
+
+\| Sintaxis | `line-height: 1.5;` *← valor recomendado* |
+\| Unidades | • Relativa sin unidad (factor del tamaño de letra).<br>• Absoluta (`px`, `em`). |
+\| Buenas prácticas | • Prefiere valores sin unidad: heredan de forma predecible y escalan mejor (`1.4 – 1.6`).<br>• Ajusta según la tipografía (x-height) y el contexto (lectura larga vs. UI). |
+
+---
+
+### 5.6 `text-align` — alineación horizontal
+
+\| Sintaxis | `text-align: justify;` |
+\| Valores  | `left`, `right`, `center`, `justify`, `start`, `end`, `match-parent`. |
+\| Tips | • Usa `text-align: center` para cards, pero deja texto largo en `left/start` para legibilidad.<br>• `start` y `end` respetan la dirección del documento (`dir="rtl"`). |
+
+---
+
+### 5.7 `text-decoration` — adornos de texto
+
+`text-decoration` es ahora un *shorthand* de:
+`text-decoration-line`, `text-decoration-style`, `text-decoration-color`, `text-decoration-thickness`.
+
+```css
+a {
+  text-decoration: underline;
+}
+
+.marked {
+  text-decoration-line: underline overline;
+  text-decoration-style: wavy;
+  text-decoration-color: hotpink;
+}
+```
+
+\| Valores línea | `underline`, `overline`, `line-through`, `none`, combinaciones |
+\| Buenas prácticas | • Para enlaces, personaliza `text-decoration-color` en foco/hover en lugar de quitar el subrayado (accesibilidad). |
+
+---
+
+### 5.8 `text-transform` — cambio de capitalización
+
+\| Sintaxis | `text-transform: uppercase;` |
+\| Valores | `none`, `capitalize`, `uppercase`, `lowercase`, `full-width`, `full-size-kana`. |
+\| Nota | Solo cambia la presentación; el DOM conserva el texto original (útil para búsquedas). |
+
+---
+
+### 5.9 `letter-spacing` — espaciado entre letras
+
+\| Sintaxis | `letter-spacing: 0.05em;` |
+\| Unidades | Relativas (`em`, `rem`) o absolutas (`px`). |
+\| Consejos | • Ajusta kerning en títulos grandes o cuando uses versalitas.<br>• Puede aceptar valores negativos (`-0.02em`) para condensar. |
+
+---
+
+### 5.10 `word-spacing` — espacio entre palabras
+
+\| Sintaxis | `word-spacing: 0.2em;` |
+\| Uso | Menos común; se usa para textos justificados o diseños con tipografía display. |
+
+---
+
+### Ejemplo completo
+
+```html
+<section class="hero">
+  <h1>La tipografía importa</h1>
+  <p>Configurar bien fuente, tamaño, peso y espacio hace tu web más legible y accesible.</p>
+</section>
+
+<style>
+:root {
+  --font-main: "Inter", Helvetica, Arial, sans-serif;
+}
+
+.hero {
+  font-family: var(--font-main);
+  font-size: clamp(1rem, 0.9rem + 1vw, 1.3rem);
+  line-height: 1.6;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 60ch;
+}
+
+.hero h1 {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+
+.hero p {
+  font-weight: 400;
+  text-decoration: underline hotpink;
+}
+</style>
+```
+
+---
+
+### Accesibilidad y buenas prácticas generales
+
+1. **Escalabilidad:** Usa unidades relativas (`rem`, `em`, sin unidad) para respetar el zoom del navegador.
+2. **Contraste:** El subrayado o cualquier decoración debe mantener un contraste mínimo (WCAG 2.2 §1.4.3).
+3. **Responsive type:** Combina `clamp()` o media queries para tipografía fluida.
+4. **Espaciado de texto (WCAG 1.4.12):** Garantiza que tu UI soporte aumentos de `letter-spacing` 0.12 em, `word-spacing` 0.16 em y `line-height` 1.5 sin romperse.
+5. **Rendimiento:** Sirve las fuentes en `woff2`, activa `font-display: swap` y agrupa las peticiones en un solo `@font-face` cuando uses variable fonts.
 
 ## 6. Modelo de Visualización
 - display (block, inline, inline-block, flex, grid, none)
