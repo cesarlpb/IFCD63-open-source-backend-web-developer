@@ -236,6 +236,16 @@ git push -u origin main
 
   Tu web estará publicada en `https://<tuusuario>.github.io/` 
 
+---
+
 ## HTML
 
 Contenido de HTML en [html](1.html/)
+
+## CSS
+
+Contenido de CSS en [css](2.css/)
+
+## JavaScript
+
+Contenido de JavaScript en [js](3.js/)
