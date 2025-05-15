@@ -901,6 +901,11 @@ Un buen control del flujo y la disposición de elementos es esencial para constr
 .item-inline { display: inline-block; width: 120px; height: 120px; }
 ```
 
+> [!NOTE]
+> Cada etiqueta de HTML tiene un valor de `display` predeterminado. Por ejemplo, `<p>` es un `block` y `<div>` es un `inline` pero `<a>` es `inline` por defecto.
+> Es decir, los párrafos con `<p>` siempre se separan verticalmente pero los enlaces con `<a>` siempre se muestran en una línea si no cambiamos su valor de `display`.
+> <strong>El valor del display puede alterar el alineamiento de los elementos.</strong>
+
 ---
 
 ### 6.2 `visibility` — visibilidad del elemento
