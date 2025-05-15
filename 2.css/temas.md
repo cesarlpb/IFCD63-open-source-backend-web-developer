@@ -1070,6 +1070,56 @@ header {
 > }
 > ```
 
+**Ejemplo de z-index con div y p**
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>z-index</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+    }
+    div:first-of-type {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    div:last-of-type {
+      background-color: #000;
+      position: absolute;
+      top: 2em;
+      left: 2em;
+      z-index: 1;
+      color: white;
+    }
+    p {
+      background-color: brown;
+      position: absolute;
+      top: 3em;
+      left: 3em;
+      z-index: 3;
+      color: white;
+    }
+    div, p {
+      padding: 0.5em;
+    }
+  </style>
+</head>
+<body>
+ <div>Caja 1 detrás de Caja 2</div>
+ <p>Texto encima de la Caja 1 y Caja 2</p> 
+ <div>Caja 2 encima de Caja 1</div>
+  
+</body>
+</html>
+```
+
 ---
 
 ### 6.6 `float` & `clear` — diseño “clásico”
