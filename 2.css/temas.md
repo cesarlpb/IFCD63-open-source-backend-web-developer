@@ -805,10 +805,11 @@ a {
 
 ### 5.8 `text-transform` — cambio de capitalización
 
-| **Campo**            | **Descripción**                                                                                                    |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **Valores línea**    | `underline`, `overline`, `line-through`, `none`, combinaciones                                                     |
-| **Buenas prácticas** | • Para enlaces, personaliza `text-decoration-color` en foco/hover en lugar de quitar el subrayado (accesibilidad). |
+| **Campo**       | **Descripción**                                                                                                          |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------|
+| **Sintaxis**    | `text-transform: uppercase;`                                                                                             |
+| **Valores**     | `none`, `capitalize`, `uppercase`, `lowercase`, `full-width`, `full-size-kana`                                          |
+| **Buenas prácticas** | • Usa `capitalize` para títulos cortos, no para párrafos extensos.<br>• Recuerda que no altera el contenido real, solo la presentación. |
 
 ---
 
