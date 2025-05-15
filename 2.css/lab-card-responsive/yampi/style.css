@@ -1,0 +1,164 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FUENTES */
+body {
+  font-family: "Space Grotesk", sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* TITULOS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+}
+
+/* CONTENEDOR DE TARJETAS */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  justify-items: center;
+}
+
+/* WRAPPER CON PERSPECTIVA */
+.card-wrapper {
+  perspective: 1000px;
+  width: 300px;
+  height: 500px;
+}
+
+/* TARJETA CON GIRO */
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.card-wrapper:hover .card {
+  transform: rotateY(180deg);
+}
+
+/* CARAS DE LA TARJETA */
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* FRENTE */
+.card__face--front {
+  background-color: #2a2a2a;
+  padding: 0rem;
+}
+
+.card__header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card__image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card__tag {
+  position: absolute;
+  bottom: 0rem;
+  left: 0rem;
+  background-color: #000;
+  color: #fff;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card__title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.card__description {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.5rem;
+}
+.card__icon-image {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+  transition: fill 0.3s ease;
+}
+
+/* REVERSO */
+.card__face--back {
+  background-color: #000;
+  transform: rotateY(180deg);
+}
+
+.card__tag--back {
+  font-size: 1.2rem;
+  background: #111;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  font-style: italic;
+}
