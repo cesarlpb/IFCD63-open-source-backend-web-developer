@@ -922,6 +922,48 @@ Un buen control del flujo y la disposición de elementos es esencial para constr
 > * `visibility: hidden` mantiene el hueco y permite animar la entrada/salida.
 > * `display: none` retira completamente del flujo y de la accesibilidad.
 
+**Ejemplo de comparativa con `display: none` y `visibility: hidden`**
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparativa</title>
+  <style>
+    a {
+      display: inline;
+      margin: 10px;
+    }
+    div {
+      border: 1px solid black;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      padding: 1em;
+    }
+    .none {
+      display: none;
+    }
+    .hidden {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <h2>display</h2>
+  <a href="#">Enlace 1</a>
+  <a href="#">Enlace 2</a>
+  <a href="#">Enlace 3</a>
+  <h2>display y visibility</h2>
+  <div>
+    <p class="hidden">Texto oculto con visiibility hidden</p>
+  </div>
+  <div>
+    <p class="none">Texto con display none</p>
+  </div>
+</body>
+</html>
+```
 ---
 
 ### 6.3 `overflow` — gestión del contenido desbordado
