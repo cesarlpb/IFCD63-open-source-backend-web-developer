@@ -2,3 +2,4 @@ test.*
 *.test
 *.bak
 temp.*
+.DS_Store

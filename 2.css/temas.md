@@ -659,6 +659,8 @@ Los *gradients* son **funciones de imagen** – se colocan en `background-image`
 }
 ```
 
+- [CSS Gradient Generator](https://cssgradient.io/)
+
 ### 9. Ejemplo completo
 
 ```html
