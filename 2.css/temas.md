@@ -785,7 +785,8 @@ habituales, buenas prácticas y ejemplos mínimos.
 
 ```css
 a {
-  text-decoration: underline;
+  text-decoration: underline; /* valor por defecto */
+  text-decoration: none; /* deshabilita todas las decoraciones del texto */
 }
 
 .marked {
