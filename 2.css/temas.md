@@ -722,6 +722,9 @@ habituales, buenas prácticas y ejemplos mínimos.
 > [!TIP]
 > **Custom fonts** – Carga con `@font-face` o servicios como Google Fonts; sirve los archivos con `font-display: swap` para evitar FOIT (flash of invisible text).
 
+> [!TIP]
+> [Google Fonts](https://fonts.google.com/) es un sitio que te permite conseguir muchas fuentes gratuitas para usar en tu sitio web.
+
 ---
 
 ### 5.2 `font-size` — tamaño de letra
