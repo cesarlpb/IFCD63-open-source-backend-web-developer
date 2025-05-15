@@ -1007,6 +1007,44 @@ header {
 }
 ```
 
+**Ejemplo de uso de position con navbar**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position</title>
+  <style>
+    nav {
+      display: block;
+      position: absolute;
+      top:1em;
+      left: 1em;
+    }
+    nav > a {
+      display: inline-block;
+      margin: 0.25em;
+    }
+    h2 {
+      margin-top: 2.5em;
+    }
+  </style>
+</head>
+<body>
+  <h2>position</h2>
+  <p>Texto antes de enlaces</p>
+  <nav>
+    <a href="#">Enlace 1</a>
+    <a href="#">Enlace 2</a>
+    <a href="#">Enlace 3</a>
+  </nav>
+  <p>Texto después de enlaces</p>
+  
+</body>
+</html>
+```
+
 ---
 
 ### 6.5 `z-index` — orden en el eje Z
