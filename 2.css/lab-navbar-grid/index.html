@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lab 2 - Navbar + Responsive Card" />
+    <title>Lab 2</title>
+    <link rel="stylesheet" href="./main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <button
+          class="menu-toggle"
+          aria-label="Menú irrelevante"
+          onclick="document.body.classList.toggle('nav-open')"
+        >
+          [ MÁS OPCIONES VACÍAS ]
+        </button>
+        <ul class="navbar__list">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Cartas</a></li>
+          <li><a href="#">Ranking</a></li>
+          <li><a href="#">Categorías</a></li>
+          <li><a href="#">Manifiesto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1 class="title">Categorías del Fracaso Profesional</h1>
+      <p class="hero__description">
+        Una sola carta para contenerlos a todos: diseñadores olvidados,
+        desarrolladores ignorados, promesas rotas por procesos de selección
+        automatizados. Esta es la taxonomía visual del desempleo moderno.
+      </p>
+    </section>
+    <section class="categories">
+      <article class="category">
+        <h2 class="category__title">paro total</h2>
+        <p class="category__highlight">1500</p>
+        <p class="category__description">días sin contrato</p>
+        <p class="category__link">
+          <a href="#" target="_blank" title="más datos, menos sentido"
+            >contemplar el vacío</a
+          >
+        </p>
+      </article>
+
+      <article class="category">
+        <h2 class="category__title">rechazos formales</h2>
+        <p class="category__highlight">87</p>
+        <p class="category__description">emails que fingieron empatía</p>
+        <p class="category__link">
+          <a href="#" title="spoiler: era plantilla">leer la decepción</a>
+        </p>
+      </article>
+
+      <article class="category">
+        <h2 class="category__title">“te llamamos”</h2>
+        <p class="category__highlight">14</p>
+        <p class="category__description">llamadas que nunca ocurrieron</p>
+        <p class="category__link">
+          <a href="#" title="crónica de una ghosteada">esperar por nada</a>
+        </p>
+      </article>
+
+      <article class="category">
+        <h2 class="category__title">entrevistas anuladas</h2>
+        <p class="category__highlight">9</p>
+        <p class="category__description">justo antes de sentir esperanza</p>
+        <p class="category__link">
+          <a href="#" title="la cancelación también es feedback"
+            >ver el correo frío</a
+          >
+        </p>
+      </article>
+
+      <article class="category">
+        <h2 class="category__title">CVs ignorados</h2>
+        <p class="category__highlight">120+</p>
+        <p class="category__description">sin abrir, como mi corazón</p>
+        <p class="category__link">
+          <a href="#" title="nadie lo descargó">aceptar el silencio</a>
+        </p>
+      </article>
+
+      <article class="category">
+        <h2 class="category__title">perfiles vistos</h2>
+        <p class="category__highlight">300</p>
+        <p class="category__description">nadie hizo clic en “contactar”</p>
+        <p class="category__link">
+          <a href="#" title="ni para descartar"
+            >ser observado, no considerado</a
+          >
+        </p>
+      </article>
+
+      <article class="category">
+        <h2 class="category__title">ofertas guardadas</h2>
+        <p class="category__highlight">∞</p>
+        <p class="category__description">que jamás serán aplicadas</p>
+        <p class="category__link">
+          <a href="#" title="ansiedad disfrazada de organización"
+            >coleccionar ilusiones</a
+          >
+        </p>
+      </article>
+
+      <article class="category">
+        <h2 class="category__title">cambios al CV</h2>
+        <p class="category__highlight">33</p>
+        <p class="category__description">nunca fueron el problema</p>
+        <p class="category__link">
+          <a href="#" title="la culpa no era del diseño"
+            >editar lo inservible</a
+          >
+        </p>
+      </article>
+
+      <article class="category">
+        <h2 class="category__title">portafolio visitado</h2>
+        <p class="category__highlight">1</p>
+        <p class="category__description">por mí, al probarlo</p>
+        <p class="category__link">
+          <a href="#" title="ni recursos humanos entró"
+            >ver el vacío interactivo</a
+          >
+        </p>
+      </article>
+
+      <article class="category">
+        <h2 class="category__title">proyectos personales</h2>
+        <p class="category__highlight">5</p>
+        <p class="category__description">que nadie quiso ver</p>
+        <p class="category__link">
+          <a href="#" title="ni con dark mode interesan">subir otro repo más</a>
+        </p>
+      </article>
+    </section>
+    <footer class="footer">
+      <p>© 2025 Jobless as a Service™</p>
+      <p class="footer__slogan">No es una comunidad. Es un archivo muerto.</p>
+      <p class="footer__legal">
+        Hecho con desgana. Licencia: úsalo, rómpelo o ignóralo.
+      </p>
+    </footer>
+  </body>
+</html>
