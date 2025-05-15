@@ -659,6 +659,8 @@ Los *gradients* son **funciones de imagen** – se colocan en `background-image`
 }
 ```
 
+- [CSS Gradient Generator](https://cssgradient.io/)
+
 ### 9. Ejemplo completo
 
 ```html
@@ -720,6 +722,9 @@ habituales, buenas prácticas y ejemplos mínimos.
 > [!TIP]
 > **Custom fonts** – Carga con `@font-face` o servicios como Google Fonts; sirve los archivos con `font-display: swap` para evitar FOIT (flash of invisible text).
 
+> [!TIP]
+> [Google Fonts](https://fonts.google.com/) es un sitio que te permite conseguir muchas fuentes gratuitas para usar en tu sitio web.
+
 ---
 
 ### 5.2 `font-size` — tamaño de letra
@@ -780,7 +785,8 @@ habituales, buenas prácticas y ejemplos mínimos.
 
 ```css
 a {
-  text-decoration: underline;
+  text-decoration: underline; /* valor por defecto */
+  text-decoration: none; /* deshabilita todas las decoraciones del texto */
 }
 
 .marked {
@@ -799,10 +805,11 @@ a {
 
 ### 5.8 `text-transform` — cambio de capitalización
 
-| **Campo**            | **Descripción**                                                                                                    |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **Valores línea**    | `underline`, `overline`, `line-through`, `none`, combinaciones                                                     |
-| **Buenas prácticas** | • Para enlaces, personaliza `text-decoration-color` en foco/hover en lugar de quitar el subrayado (accesibilidad). |
+| **Campo**       | **Descripción**                                                                                                          |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------|
+| **Sintaxis**    | `text-transform: uppercase;`                                                                                             |
+| **Valores**     | `none`, `capitalize`, `uppercase`, `lowercase`, `full-width`, `full-size-kana`                                          |
+| **Buenas prácticas** | • Usa `capitalize` para títulos cortos, no para párrafos extensos.<br>• Recuerda que no altera el contenido real, solo la presentación. |
 
 ---
 
@@ -894,6 +901,11 @@ Un buen control del flujo y la disposición de elementos es esencial para constr
 .item-inline { display: inline-block; width: 120px; height: 120px; }
 ```
 
+> [!NOTE]
+> Cada etiqueta de HTML tiene un valor de `display` predeterminado. Por ejemplo, `<p>` es un `block` y `<div>` es un `inline` pero `<a>` es `inline` por defecto.
+> Es decir, los párrafos con `<p>` siempre se separan verticalmente pero los enlaces con `<a>` siempre se muestran en una línea si no cambiamos su valor de `display`.
+> <strong>El valor del display puede alterar el alineamiento de los elementos.</strong>
+
 ---
 
 ### 6.2 `visibility` — visibilidad del elemento
@@ -910,6 +922,48 @@ Un buen control del flujo y la disposición de elementos es esencial para constr
 > * `visibility: hidden` mantiene el hueco y permite animar la entrada/salida.
 > * `display: none` retira completamente del flujo y de la accesibilidad.
 
+**Ejemplo de comparativa con `display: none` y `visibility: hidden`**
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparativa</title>
+  <style>
+    a {
+      display: inline;
+      margin: 10px;
+    }
+    div {
+      border: 1px solid black;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      padding: 1em;
+    }
+    .none {
+      display: none;
+    }
+    .hidden {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <h2>display</h2>
+  <a href="#">Enlace 1</a>
+  <a href="#">Enlace 2</a>
+  <a href="#">Enlace 3</a>
+  <h2>display y visibility</h2>
+  <div>
+    <p class="hidden">Texto oculto con visiibility hidden</p>
+  </div>
+  <div>
+    <p class="none">Texto con display none</p>
+  </div>
+</body>
+</html>
+```
 ---
 
 ### 6.3 `overflow` — gestión del contenido desbordado
@@ -953,6 +1007,44 @@ header {
 }
 ```
 
+**Ejemplo de uso de position con navbar**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position</title>
+  <style>
+    nav {
+      display: block;
+      position: absolute;
+      top:1em;
+      left: 1em;
+    }
+    nav > a {
+      display: inline-block;
+      margin: 0.25em;
+    }
+    h2 {
+      margin-top: 2.5em;
+    }
+  </style>
+</head>
+<body>
+  <h2>position</h2>
+  <p>Texto antes de enlaces</p>
+  <nav>
+    <a href="#">Enlace 1</a>
+    <a href="#">Enlace 2</a>
+    <a href="#">Enlace 3</a>
+  </nav>
+  <p>Texto después de enlaces</p>
+  
+</body>
+</html>
+```
+
 ---
 
 ### 6.5 `z-index` — orden en el eje Z
@@ -977,6 +1069,56 @@ header {
 >   --z-tooltip: 300;
 > }
 > ```
+
+**Ejemplo de z-index con div y p**
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>z-index</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+    }
+    div:first-of-type {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    div:last-of-type {
+      background-color: #000;
+      position: absolute;
+      top: 2em;
+      left: 2em;
+      z-index: 1;
+      color: white;
+    }
+    p {
+      background-color: brown;
+      position: absolute;
+      top: 3em;
+      left: 3em;
+      z-index: 3;
+      color: white;
+    }
+    div, p {
+      padding: 0.5em;
+    }
+  </style>
+</head>
+<body>
+ <div>Caja 1 detrás de Caja 2</div>
+ <p>Texto encima de la Caja 1 y Caja 2</p> 
+ <div>Caja 2 encima de Caja 1</div>
+  
+</body>
+</html>
+```
 
 ---
 
