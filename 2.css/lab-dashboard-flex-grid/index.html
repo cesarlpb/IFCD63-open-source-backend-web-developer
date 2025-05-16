@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <title>Dashboard: SEPE labs</title>
+  </head>
+  <body>
+    <header class="dashboard-header">
+      <!-- Branding -->
+      <div class="dashboard-header__left">
+        <nav>
+          <a href="#" class="dashboard-header__brand">SEPE LABS</a>
+        </nav>
+      </div>
+
+      <!-- Logo institucional -->
+      <div class="dashboard-header__center">
+        <img
+          src="./src/img/SEPE_Cuadrado_Negativo_cas.png"
+          alt="SEPE LOGO"
+          class="dashboard-header__logo"
+        />
+      </div>
+
+      <!-- Usuario -->
+      <div class="dashboard-header__right">
+        <nav class="user-info">
+          <div class="user-info__avatar">
+            <img src="./src/img/lucia.jpg" alt="foto de lucía" />
+          </div>
+          <div class="user-info__name">
+            <a href="#">Lucía Gracía</a>
+          </div>
+          <div class="user-info__status">
+            <p>Volviste. El sistema no.</p>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <button id="toggleSidebar" class="sidebar-toggle" title="Mostrar menú">
+      ☰
+    </button>
+
+    <aside class="sidebar collapsed" id="sidebar">
+      <span class="sidebar__date">14 MAY 2025</span>
+
+      <nav class="sidebar__nav">
+        <ul>
+          <li><a href="#">Panel</a></li>
+          <li><a href="#">Postulaciones</a></li>
+          <li><a href="#">Sin Respuesta</a></li>
+          <li><a href="#">Historial</a></li>
+          <li><a href="#">Ajustes</a></li>
+          <li><a href="#" class="disabled">Ayuda</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main>
+      <nav class="top-tabs">
+        <ul class="top-tabs__list">
+          <li class="active">
+            <a href="#"
+              ><img
+                src="./src/img/bar-chart.png"
+                alt="Chart"
+                class="icon-img"
+              />indicadores de fracaso</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./src/img/curriculum.png" alt="CV" class="icon-img" />
+              CVs evaporados</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="./src/img/interview.png"
+                alt="interview"
+                class="icon-img"
+              />entrevistas ficticias</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="./src/img/certificate.png"
+                alt="certificados"
+                class="icon-img"
+              />certificados irrelevantes</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="./src/img/workplace.png"
+                alt="empresas"
+                class="icon-img"
+              />empresas fantasma</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="./src/img/headhunting.png"
+                alt="postulaciones"
+                class="icon-img"
+              />postulaciones ignoradas</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="./src/img/update-arrows.png"
+                alt="loop"
+                class="icon-img"
+              />loops administrativos</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="./src/img/reboot.png"
+                alt="reboot"
+                class="icon-img"
+              />reiniciar desesperanza</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <section class="main-section">
+        <section class="hero">
+          <h2 class="section-title">SEPE Labs — Panel de Rechazo</h2>
+        </section>
+
+        <!-- acá irían las métricas, tablas, etc. -->
+      </section>
+    </main>
+
+    <script src="./src/js/main.js"></script>
+  </body>
+</html>
