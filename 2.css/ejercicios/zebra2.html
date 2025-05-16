@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zebra striping en tabla</title>
+    <style>
+      h1 {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-decoration: underline;
+      }
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: antiquewhite;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ej 02: Zebra striping</h1>
+    <style>
+      /* Estilos de tabla */
+      table {
+        margin: 1em auto;
+        min-width: 300px;
+        border: 1px solid #909090;
+        border-radius: 8px;
+      }
+      tr, td {
+        padding: 4px 8px;
+        margin: 4px 8px
+      }
+      /* filas impares: */
+      tr:nth-child(odd) {
+        background:#808080; 
+        color: #eaeaea;
+      }
+      /* filas pares: */
+      tr:nth-child(even) {
+        background:#e8e8e8;
+        color: #404040;
+      }
+      /* bordes superiores en primera fila */
+      tr:first-of-type th:nth-child(1) {
+        border-radius: 6px 0 0 0;
+      }
+      tr:first-of-type th:nth-child(2) {
+        border-radius: 0 6px 0 0;
+      }
+      /* bordes inferiores en la última fila */
+      tr:last-of-type td:nth-child(1) {
+        border-radius: 0 0 0 6px;
+      }
+      tr:last-of-type td:nth-child(2) {
+        border-radius: 0 0 6px 0;
+      }
+    </style>
+    <table>
+      <!-- Primera fila: encabezados -->
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+      </tr>
+      <!-- Siguientes filas: datos -->
+      <tr>
+        <td>1</td>
+        <td>Ada</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Brendan</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Linus</td>
+      </tr>
+    </table>
+  </body>
+</html>
