@@ -1,0 +1,76 @@
+
+* {
+    margin: auto;
+    padding: 10px  10px 10px 10px;     
+    font-family: sans-serif;
+    background-color: #f2f2f2;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #43f2ff 15%, #d04fff 100%);
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 25px;
+    padding: 20px;
+   background: linear-gradient(135deg, #32767b 15%, #c2a6cd 100%);
+   text-align: center;
+} 
+.card img {
+  width: 250px;
+  height: auto;
+  margin:  auto;
+  display: block;
+  box-shadow: 0 4px 8px rgba(24, 2, 2, 0.1); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 10px;
+}
+.card:hover {
+  transform: translateY(-4px);  /* Eleva la tarjeta hacia arriba */
+  box-shadow: 0 8px 16px rgba(155, 76, 76, 0.2);  /* Sombra más pronunciada al hacer hover */
+}
+
+.price {
+  position: absolute;
+  top: 25px;
+  right:25px;
+  background-color: rgba(26, 12, 79, 0.9);
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 14px;
+  
+}
+button {
+  background-color: #4c68f7;
+  color: rgb(255, 254, 254);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+button:hover {
+  background-color: #081d92; /* Un color más oscuro para el hover */
+  transform: translateY(-2px); /* Efecto de elevar el botón */
+}
+h2 {
+  
+  font-size: 25px;
+  margin-bottom: 10px;
+ text-decoration: underline;
+}
+p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+  
