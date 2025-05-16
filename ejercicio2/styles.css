@@ -4,9 +4,10 @@
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho y alto total */
+  margin: 0;   /* Elimina el margen por defecto */
+  padding: 0; /* Elimina el margen y padding por defecto */
+ 
 }
 
 body {
@@ -15,7 +16,7 @@ body {
 }
 
 /* Navbar fija */
-.navbar { 
+.navbar {    
   position: fixed; 
   top: 0;
   left: 0;
@@ -70,8 +71,8 @@ body {
   font-size: 1.2rem;
 }
 
-/* Responsive: ocultar texto < 640px */
-@media (max-width: 639px) {
+@media (max-width: 639px) {  /* Este bloque es una media query que se aplica solo en pantallas pequeñas (ancho máximo de 639px), 
+    como móviles o pantallas pequeñas.*/
   .nav-links .link-text {
     display: none;
   }
@@ -86,7 +87,7 @@ body {
   }
 }
 
-/* Contenido principal */
+/*Contenido principal */
 .contenido {
   padding-top: var(--navbar-height);
   max-width: 800px;
@@ -95,13 +96,13 @@ body {
   padding-right: 2rem;
 }
 
-h1 {
+h1 {    /* Titulo principal */
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: #270a0a;
   padding: 1rem 0;
 }
-h2 {
+h2 { /* Titulo secundario */
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #270a0a;
@@ -112,8 +113,33 @@ h2 {
   display: grid;
   gap: 5rem; /* pongo en 5 para que sea mas ancho*/
   margin-top: 2rem;
+    grid-template-columns: 1fr; /* Cambia el tamaño mínimo de las tarjetas */
+ 
 }
+/* Tablets: 2 columnas */
+@media (min-width: 640px) {
+  .tarjetas-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+/* Pantallas grandes: 3 columnas */
+@media (min-width: 1280px) {
+  .tarjetas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/*  ¿Cómo comprobarlo?
+Abre tu sitio en un navegador.
 
+Activa las herramientas de desarrollo (F12 o clic derecho → "Inspeccionar").
+
+Cambia el ancho de la ventana y verás cómo las tarjetas:
+
+se ven en 1 columna en móviles,
+
+en 2 columnas en tablets o pantallas medianas,
+
+y en 3 columnas en pantallas grandes.
 /* Tarjeta base */
 .tarjeta {
   background-color: #f7f4f4;
