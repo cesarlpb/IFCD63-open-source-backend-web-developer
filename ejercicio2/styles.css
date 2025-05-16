@@ -1,0 +1,114 @@
+:root {
+  --navbar-height: 65px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #d39a9a;
+}
+
+/* Navbar fija */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  background-color: rgba(181, 217, 240, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(54, 17, 17, 0.05);
+  z-index: 1000;
+}
+
+/* Contenedor de navbar */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1b0303;
+}
+
+/* Enlaces navbar */
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+/* Icono y texto del link */
+.nav-links .icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Responsive: ocultar texto < 640px */
+@media (max-width: 639px) {
+  .nav-links .link-text {
+    display: none;
+  }
+
+  .nav-links a {
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+
+  .nav-links .icon {
+    margin: 0;
+  }
+}
+
+/* Contenido principal */
+.contenido {
+  padding-top: var(--navbar-height);
+  max-width: 800px;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Grid de tarjetas */
+.tarjetas-grid {
+  display: grid;
+  flex-direction: column;
+  gap: 10rem; /* pongo en 10 para comprobar el scroll*/
+  margin-top: 2rem;
+}
+
+/* Tarjeta base */
+.tarjeta {
+  background-color: #f7f4f4;
+  padding: 6rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border: 1px solid #270a0a;
+}
+
+
