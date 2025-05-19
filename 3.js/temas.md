@@ -7,7 +7,7 @@
 JavaScript es un lenguaje de programación **interpretado**, de **tipado dinámico** 
 y multiparadigma (imperativo, funcional y orientado a objetos). Nació en 1995 
 para dar interactividad al navegador y hoy se usa tanto en **front-end** como en
- **back-end** (Node.js), móviles, IoT, etc.
+ **back-end** (Node.js, Deno, Bun, ...), móviles, IoT, etc.
 
 ### 2. Variables: `let`, `const` y `var`
 
