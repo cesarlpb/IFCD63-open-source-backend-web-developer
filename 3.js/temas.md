@@ -40,9 +40,9 @@ para dar interactividad al navegador y hoy se usa tanto en **front-end** como en
   // console.log(b); // ReferenceError (TDZ)
   var a = 1;
   let b = 2;
-  const c = 3;
+  const c = 30;
   b = 20;
-  // c = 30; // TypeError
+  // c = 31; // TypeError => no se puede reasignar a una constante
 ```
 
 > [!TIP]
