@@ -136,16 +136,44 @@ Sintaxis compacta, **no** tienen su propio `this`, `arguments`, ni `new.target`.
 ```js
 // Declaración clásica
 const sq1 = function(n) { return n * n; };
+// Evaluamos con n = 3:
+sq1(3); // 9
 
 // Arrow function
 const sq2 = n => n * n;
+// Evaluamos con n = 3:
+sq2(3); // 9
 
+// Podemos comprobar que ambas son funciones:
+typeof sq1; // 'function'
+typeof sq2; // 'function'
+```
+
+Otro ejemplo de función:
+
+```js
 // Múltiples parámetros y cuerpo de bloque
 const sum = (a, b = 0) => {
   const res = a + b;
   return res;
 };
 ```
+
+#### Parámetros y Retorno de Funciones
+
+- **Sin parámetros y sin retorno:** `function saludar() { console.log('¡Hola!'); }`
+  - Sin parámetro -> no recibe datos o inputs `()` vacío
+  - Sin retorno -> no devuelve nada `undefined` => `let saludo = saludar(); // undefined`
+- **Sin parámetros y con retorno:** `function saludar() { return 'Hola'; }`
+  - Sin parámetro -> no recibe datos o inputs `()` vacío
+  - Con retorno -> devuelve un valor `let saludo = saludar(); // Hola` => podemos guardar el resultado en una variable para uso posterior en el programa
+- **Con parámetros y sin retorno:** `function saludar(nombre) { console.log('¡Hola, ' + nombre + '!'); }`
+  - Con parámetro -> recibe datos o inputs `let saludar = saludar('Pepe'); // ¡Hola, Pepe!`
+  - Sin retorno -> no devuelve nada `let saludar = saludar('Pepe'); // undefined`
+- **Con parámetros y con retorno:** `function saludar(nombre) { return '¡Hola, ' + nombre + '!'; }`
+  - Con parámetro -> recibe datos o inputs, en este caso recibimos `nombre`
+  - Con retorno -> devuelve un valor `let saludar = saludar('Pepe'); // ¡Hola, Pepe!`
+
 
 ### 6. Parámetros Default, Rest & Spread
 
