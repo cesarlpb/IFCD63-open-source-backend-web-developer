@@ -95,15 +95,38 @@ En caso de que queramos usar una misma variable en el bloque general y en otro, 
 
 ### 4. Declaración vs Expresión de Funciones
 
+> [!NOTE]
+> En programación, una función es un bloque de código que se ejecuta cuando se llama a la misma.
+> `function sumar(a, b) { return a + b; }` es una función que acepta dos parámetros y devuelve el resultado de la suma de los dos.
+> `function saludar() { console.log('¡Hola!'); }` es una función que imprime el mensaje "¡Hola!" en la consola.
+
 - **Declaración** (`function foo() { … }`): se hoistea completamente, puede llamarse antes de su aparición en el código.
 - **Expresión** (`const foo = function() { … }`): se comporta como variable `const`/`let`, no hay hoisting de la asignación.
 
 ```js
-console.log(decl()); // “hola”
+// Sin hoisting (forma recomendada al principio 👈🏼):
 function decl() { return 'hola'; }
+// resto del programa
+console.log(decl()); // “hola”
+```
 
+```js
+// Con hoisting primero usamos la función y después la declaramos:
+console.log(decl()); // “hola”
+// resto del programa
+function decl() { return 'hola'; }
+```
+```js
+// ❌ no funciona:
 console.log(expr()); // TypeError: expr is not a function
 const expr = function() { return 'hola'; };
+```
+
+```js
+// ✅ funciona:
+const expr = function() { return 'hola'; };
+// resto del programa
+console.log(expr()); // En este caso no hay problema (sin hoisting)
 ```
 
 ### 5. Arrow Functions
