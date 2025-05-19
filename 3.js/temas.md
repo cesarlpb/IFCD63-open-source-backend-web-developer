@@ -334,43 +334,168 @@ const { info: { email = 'n/a' } } = data; // email='n/a'
 
 - **Number**  
   Valores numéricos: enteros, flotantes, `NaN`, `Infinity`. Operaciones con `+`, `-`, `*`, `/`, `%`, y métodos como `toFixed()`.  
+
+> [!NOTE]
+> Solo hay un tipo numérico en JS, por lo tanto `1` y `0.333333...` se almacenan con la misma memoria, **64 bits** (1 bit es un 0 o un 1):
+> En JavaScript, todos los valores primitivos de tipo Number se representan internamente como IEEE 754 de doble precisión (64 bits), que se desglosan así:
+>
+> - 1 bit para el signo
+> - 11 bits para el exponente
+> - 52 bits para la mantisa (fracción)
+>
+> Eso significa que, en bruto, cada valor Number ocupa 8 bytes en memoria (64 bits).
+
+```js
+let num = 1;
+num = 0.3333333333333333;
+typeof num; // 'number'
+```
+
 - **String**  
   Secuencias de caracteres entre comillas simples, dobles o backticks (plantillas). Propiedades (`.length`) y métodos (`.slice()`, `.toUpperCase()`, `` `${}` ``).  
+
+> [!NOTE]
+> Podemos usar comillas simples, dobles o backticks para crear una cadena de texto.
+> Cada caracter de un string ocupa 1 byte en memoria (8 bits).
+
+```js
+let str = 'Hola';
+str = "Hola de nuevo";
+str = `Hola de nuevo`; 
+typeof str; // 'string'
+```
+
 - **Boolean**  
   Solo dos valores: `true` y `false`. Resultado de comparaciones y expresiones lógicas.  
+
+> [!NOTE]
+> Los valores booleanos se almacenan con la misma memoria que los números, por lo que `true` y `false` son equivalentes a `1` y `0`.
+> En memoria, los booleanos se almacenan como 1 bit (0 o 1).
+
+```js
+let bool = true;
+bool = false;
+typeof bool; // 'boolean'
+```
+
 - **Null**  
-  Literal que indica “ausencia intencional de valor”. Se considera un objeto al usar `typeof`.  
+  Literal que indica "ausencia intencional de valor".  
+  
+> [!WARNING]
+> `typeof` devuelve `object` para `null` pero debería devolver `null`. Esto es un bug conocido en JS que no se puede arreglar.
+
+¿Cuándo se usa `null`?
+
+- Si esperamos un valor y no lo tenemos podemos indicar que no hay valor con `null`.
+- Es diferente a `undefined` (no definido) que es el valor que se asigna por defecto a una variable en JS.
+
+```js
+let email; // undefined
+// intentamos leer el valor del email
+// si no conseguimos el valor del email (por el motivo que sea)
+email = null; // 👉🏼 el valor no se conoce o no se ha podido leer
+```
+
+Otra alternativa usando el mismo tipo de dato que el email:
+
+```js
+let email = ''; // 👈🏼 el valor es el string vacío
+// intentamos obtener el email o colocamos string vacío
+```
+
 - **Undefined**  
   Valor por defecto de una variable declarada sin inicializar, o de una propiedad inexistente.  
+
+```js
+let email;
+typeof email; // 'undefined'
+```
+
+¿Cuándo se usa `undefined`?
+
+- Si no esperamos un valor y no lo tenemos podemos indicar que no hay valor con `undefined`.
+- Es el retorno por defecto de una función que no devuelve nada.
+- Se podría usar en casos en los que se usa `null` pero puede ser confuso.
+
 - **Symbol**  
   Un identificador único que no puede ser reasignado.
-  ```js
-  const s = Symbol('s');
-  const s2 = Symbol('s');
-  s === s2; // false
-  ```
+
+```js
+const s = Symbol('s');
+const s2 = Symbol('s');
+s === s2; // false
+```
+
+¿Cuándo se usa `Symbol`?
+
+- Cuando necesitemos un identificador único para un objeto.
+- Cuando queramos ocultar campos de un objeto al representarlo en el DOM.
+
 - **BigInt**  
   Números enteros de larga escala. No soportado en todos los navegadores.
   ```js
   const n = BigInt(10);
   ```
+
+¿Cuándo se usa `BigInt`?
+
+- Cuando necesitemos un número entero de larga escala. => superior al rango máximo de `number`.
+- Cuando necesitemos precisión adicional en cálculos con muchos decimales o grandes números.
+
+```js
+9007199254740991 * 1e85
+// 9.00719925474099e+100
+// Mientras que en BigInt tenemos todos los dígitos:
+BigInt(9007199254740991 * 1e85).toString()
+// '90071992547409905776464733974940456658968001547918808826399641003255019463714484354073444654786805760'
+```
+
 - **Object**
   Un objeto es una colección dinámica de pares clave : valor.
-  ```js
-  const persona = {
-    nombre: 'Ana',
-    edad: 30,
-    saludar() {
-      console.log(`Hola, soy ${this.nombre}`);
-    }
-  };
-  ```
+
+```js
+const persona = {
+  nombre: 'Ana',
+  edad: 30,
+  saludar() {
+    console.log(`Hola, soy ${this.nombre}`);
+  }
+};
+```
+
+¿Cuándo se usa `Object`?
+
+- Cuando necesitemos modelar alguna estructura de datos del mundo real o abstracción para nuestro programa.
+  - Por ejemplo, usuarios en una aplicación.
+  - Objetos de datos de una API.
+  - Datos de una base de datos, etc.
 
 Otros:
 
-- **Funciones**
-- **Clases**
-- **Arrays**
+- **Funciones**: son bloques de código "con nombre" que se ejecutan cuando se las llama.
+```js
+function suma(a, b) {
+  return a + b;
+  }
+```
+- **Clases**: son una forma de modelar objetos con propiedades y métodos.
+```js
+class Persona {
+  constructor(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+  }
+  saludar() {
+    console.log(`Hola, soy ${this.nombre}`);
+  }
+}
+const ana = new Persona('Ana', 30);
+ana.saludar();
+```
+- **Arrays**: son una colección de valores que se pueden acceder por índice.
+```js
+const numeros = [1, 2, 3, 4, 5];
+```
 
 ---
 
@@ -453,6 +578,9 @@ persona.saludar(); // "Hola, soy Ana"
      };
      ```  
    - Añade al objeto una propiedad `modelo` con valor `'Corolla'` y luego llama a `coche.arrancar()`.  
+
+- [Más ejercicios](https://github.com/cesarlpb/learn-js/tree/ux-ui/cliente/ejercicios)
+- [Aulascript](https://www.aulascript.com/evaluar/index.htm)
 
 ---
 
