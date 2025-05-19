@@ -51,16 +51,29 @@ para dar interactividad al navegador y hoy se usa tanto en **front-end** como en
 ### 3. Hoisting y `scope`
 
 > [!NOTE]
-> **scope** := ámbito o alcance de una variable o función, es decir, donde se puede usar.
+> **Scope** := ámbito o alcance de una variable o función, es decir, donde se puede usar.
+> **Hoisting** := declaraciones de `var` y funciones **se elevan** al inicio de su contexto (función o global).
 
-- **Hoisting**: declaraciones de `var` y funciones **se elevan** al inicio de su
- contexto (función o global).
 - **Scope global**: variables declaradas fuera de cualquier función.
-- **Scope de función**: variables creadas con `var` o funciones dentro de una
- función.
+
+```js
+ let miVariable = 1; // global
+ // resto del código
+```
+
+- **Scope de función**: variables creadas con `var` o funciones dentro de una función.
+
+```js
+function miFuncion() {
+  var miVariable = 1; // local
+  // resto del código
+}
+```
+
 - **Scope de bloque**: variables `let`/`const` dentro de `{ … }`.
 
 ```js
+// bloque:
 {
   var x = 1;
   let y = 2;
