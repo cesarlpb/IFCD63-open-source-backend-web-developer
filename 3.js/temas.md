@@ -233,6 +233,101 @@ const { info: { email = 'n/a' } } = data; // email='n/a'
 // Ejemplo array1 = ['manzana','pera'], array2 = ['uvas','kiwi'] → resultado: ['manzana',…,'kiwi']
 ```
 
+<details>
+  <summary> 👉🏼 Soluciones</summary>
+  <ul>
+    <li>Ejercicio 1:
+    Usando una tercera variable para intercambiar los datos.
+    <pre>
+      <code>
+  let a = 1;
+  let b = 2;
+  let swap;
+  console.log(a, b, swap)
+  // > 1 1 2 undefined
+  undefined
+  swap = a;
+  a = b;
+  b = swap;
+  console.log(a, b, swap)
+  // > 2 1 1
+      </code>
+    </pre>
+    Usando destructuring directamente:
+    <pre>
+      <code>
+  let a = 1;
+  let b = 2;
+  [a, b] = [b, a];
+  console.log(a, b)
+  // > 2 1
+      </code>
+    </pre>
+    Usando destructuring y un array:
+    <pre>
+      <code>
+  const valores = [1, 2];
+  let [a, b] = valores
+  console.log(a, b)
+  // > 1 2
+  [b, a] = valores
+  console.log(a, b)
+  // > 2 1
+      </code>
+    </pre>
+    </li>
+    <li>Ejercicio 2:
+    <pre>
+      <code>
+  function promediar(...nums) {
+    return nums.reduce((acc, n) => acc + n, 0) / nums.length;
+  }
+  console.log(promediar(1, 2, 3, 4, 5))
+  // > 3
+      </code>
+    </pre>
+    </li>
+    <li>Ejercicio 3:
+    <pre>
+      <code>
+  // con function:
+  function saludar1(nombre = 'Invitado') {
+    return `¡Hola, ${nombre}!`;
+  }
+  // con arrow function:
+  const saludar2 = (nombre = 'Invitado') => `¡Hola, ${nombre}!`;
+  console.log(saludar1())
+  // > ¡Hola, Invitado!
+  console.log(saludar2())
+  // > ¡Hola, Invitado!
+      </code>
+      </pre>
+    </li>
+    <li>Ejercicio 4:
+      <pre>
+        <code>
+  const config = { debug: true, verbose: false };
+  const { debug, verbose } = config;
+  console.log(debug, verbose)
+  // > true false
+        </code>
+      </pre>
+    </li>
+    <li>Ejercicio:
+    <pre>
+      <code>
+  const array1 = ['manzana','pera'];
+  const array2 = ['uvas','kiwi'] // → resultado: ['manzana',…,'kiwi']
+  console.log(array1, array2)
+  // > ['manzana', 'pera'] ['uvas', 'kiwi']
+  const array3 = [...array1, ...array2];
+  console.log(array3)
+  // > ['manzana', 'pera', 'uvas', 'kiwi']
+      </code>
+    </pre>
+    </li>
+</details>
+
 ---
 
 ### Estructuras de datos primitivas de JavaScript
