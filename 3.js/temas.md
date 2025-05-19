@@ -50,6 +50,9 @@ para dar interactividad al navegador y hoy se usa tanto en **front-end** como en
 
 ### 3. Hoisting y `scope`
 
+> [!NOTE]
+> **scope** := ámbito o alcance de una variable o función, es decir, donde se puede usar.
+
 - **Hoisting**: declaraciones de `var` y funciones **se elevan** al inicio de su
  contexto (función o global).
 - **Scope global**: variables declaradas fuera de cualquier función.
@@ -64,6 +67,17 @@ para dar interactividad al navegador y hoy se usa tanto en **front-end** como en
 }
 console.log(x); // 1
 // console.log(y); // ReferenceError
+```
+
+En caso de que queramos usar una misma variable en el bloque general y en otro, lo más simple es declarar las variables al principio del programa: 
+
+```js
+  let variable; // undefined
+  console.log(variable); // undefined
+  {
+  variable = 1
+  }
+  console.log(variable); // 1
 ```
 
 ### 4. Declaración vs Expresión de Funciones
