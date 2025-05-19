@@ -161,6 +161,8 @@ const sum = (a, b = 0) => {
 
 #### Parámetros y Retorno de Funciones
 
+![Funciones](funciones.png)
+
 - **Sin parámetros y sin retorno:** `function saludar() { console.log('¡Hola!'); }`
   - Sin parámetro -> no recibe datos o inputs `()` vacío
   - Sin retorno -> no devuelve nada `undefined` => `let saludo = saludar(); // undefined`
