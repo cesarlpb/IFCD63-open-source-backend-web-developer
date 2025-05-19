@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"
+    />
     <title>Dashboard: SEPE labs</title>
   </head>
   <body>
-    <header class="dashboard-header">
+    <header class="dashboard-header" id="header">
       <!-- Branding -->
       <div class="dashboard-header__left">
         <nav>
@@ -25,7 +29,7 @@
       </div>
 
       <!-- Usuario -->
-      <div class="dashboard-header__right">
+      <div class="dashboard-header__right" id="user-info">
         <nav class="user-info">
           <div class="user-info__avatar">
             <img src="./src/img/lucia.jpg" alt="foto de lucía" />
@@ -39,7 +43,12 @@
         </nav>
       </div>
     </header>
-    <button id="toggleSidebar" class="sidebar-toggle" title="Mostrar menú">
+    <button
+      id="toggleSidebar"
+      class="sidebar-toggle"
+      title="Mostrar menú"
+      id="toggleSidebar"
+    >
       ☰
     </button>
 
@@ -58,7 +67,7 @@
       </nav>
     </aside>
     <main>
-      <nav class="top-tabs">
+      <nav class="top-tabs" id="top-tabs">
         <ul class="top-tabs__list">
           <li class="active">
             <a href="#"
@@ -136,11 +145,151 @@
         <section class="hero">
           <h2 class="section-title">SEPE Labs — Panel de Rechazo</h2>
         </section>
+        <section class="col-4">
+          <section class="tiempo" id="resumen_paro">
+            <h2>Tiempo promedio sin empleo</h2>
+            <div class="valor">8 meses y 12 días</div>
+            <p class="comentario">
+              Has batido tu récord anterior. Felicidades.
+            </p>
+            <div class="barra-container">
+              <div class="barra" style="width: 85%"></div>
+            </div>
+            <div class="barra-texto">
+              <p class="help-text">
+                <strong>85%</strong> de los usuarios siguen esperando una
+                oportunidad que probablemente nunca llegará.
+              </p>
+              <p class="help-text">
+                <strong>15%</strong> consiguió empleo… pero
+                <em>lamenta haberlo hecho</em>.
+              </p>
+            </div>
+
+            <small class="comparativa"
+              >↑ 2 semanas más que el promedio nacional</small
+            >
+          </section>
+          <section class="tiempo" id="resumen_postulaciones">
+            <h2>Procesos ignorados recientemente</h2>
+            <ul class="rechazos">
+              <li>
+                <a href="#"
+                  ><span>InfoJobs</span> — “Te mantendremos en nuestra base de
+                  datos”</a
+                >
+                (hace 72 días)
+              </li>
+              <li>
+                <a href="#"
+                  ><span>LinkedIn</span> — “Tu perfil encaja, pero no encaja”</a
+                >
+                (sin abrir)
+              </li>
+              <li>
+                <a href="#"
+                  ><span>Grupo Talentum</span> — “Gracias por tu interés en
+                  formar parte de nuestro proceso”</a
+                >
+                (mail genérico 03:14)
+              </li>
+              <li>
+                <a href="#"
+                  ><span>ONG HumanSmile</span> — "Buscamos un perfil con más
+                  vocación de sufrimiento gratuito"</a
+                >
+              </li>
+            </ul>
+            <p class="comentario">
+              Hay rechazos que ni se dignaron a rechazar.
+            </p>
+          </section>
+          <section class="tiempo" id="recomendaciones_cv">
+            <h2>Actualizaciones recientes de tu CV</h2>
+            <ul class="ultimos__rechazos">
+              <li>
+                <span>🗓</span> 17 de mayo — Corregiste una coma en “liderazgo
+                proactivo” →
+                <em>ninguna reacción</em>
+              </li>
+              <li>
+                <span>🗓</span> 10 de mayo — Añadiste “inteligencia emocional” →
+                <em>rechazado en silencio</em>
+              </li>
+              <li>
+                <span>🗓</span> 3 de mayo — Actualizaste tu foto por una más
+                profesional →
+                <em>ni una visualización</em>
+              </li>
+              <li>
+                <span>🗓</span> 25 de abril — Tradujiste el CV al inglés con IA →
+                <em>bloqueado por filtros de spam</em>
+              </li>
+              <li>
+                <span>🗓</span> 20 de abril — Cambiaste el diseño por uno
+                minimalista →
+                <em>te confundieron con diseñador gráfico</em>
+              </li>
+              <li>
+                <span>🗓</span> 13 de abril — Incluiste un curso de “Scrum”
+                gratuito →
+                <em>ignorado como todos los anteriores</em>
+              </li>
+              <li>
+                <span>🗓</span> 6 de abril — Quitaste la sección de hobbies →
+                <em>nadie lo notó</em>
+              </li>
+            </ul>
+            <p class="comentario">
+              Tu CV grita por atención. El sistema responde con un bostezo.
+            </p>
+          </section>
+          <section class="tiempo" id="resumen_autoestima">
+            <h2>Nivel estimado de autoestima</h2>
+            <div class="valor autoestima">13%</div>
+            <div class="barra-container">
+              <div
+                class="barra"
+                style="width: 13%; background-color: #ff3131"
+              ></div>
+            </div>
+            <p class="comentario">
+              Diagnóstico: funcional pero emocionalmente desactivado.
+            </p>
+            <p class="subcomentario">
+              Se recomienda no mirar esta métrica antes de dormir.
+            </p>
+            <ul class="subindicadores">
+              <li>✔️ Aún responde a mensajes de reclutadores.</li>
+              <li>✔️ Se ríe por compromiso en entrevistas grupales.</li>
+              <li>
+                ✔️ Empieza a considerar abrir un canal de YouTube motivacional.
+              </li>
+            </ul>
+          </section>
+        </section>
 
         <!-- acá irían las métricas, tablas, etc. -->
       </section>
     </main>
+    <footer class="footer">
+      <p>
+        © 2025 SEPE Labs. El desempleo no es un error del sistema. Es una
+        <strong>funcionalidad documentada</strong>.
+      </p>
+      <p>
+        Hecho con <span class="emoji">💔</span> por nadie en particular, bajo
+        supervisión emocional nula.
+      </p>
+      <nav>
+        <a href="#">Aviso de desmotivación</a> ·
+        <a href="#">Política de abandono</a> ·
+        <a href="#">Cookies emocionales</a> ·
+        <a href="#">Desinstalar esperanza</a>
+      </nav>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
     <script src="./src/js/main.js"></script>
   </body>
 </html>

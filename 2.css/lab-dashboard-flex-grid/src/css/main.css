@@ -1,5 +1,4 @@
 /* fuentes tristes - como las lágrimas que derramas cada vez que actualizas LinkedIn */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Space+Grotesk:wght@300..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100..700&display=swap");
 :root {
   /* Tipografía */
@@ -293,6 +292,7 @@ a:active {
 
 .hero h2 {
   text-align: center;
+  text-transform: uppercase;
 }
 .top-tabs li a {
   display: flex;
@@ -304,4 +304,213 @@ a:active {
   height: 3.5rem;
   margin: auto;
   display: block;
+}
+
+/* section con los charts */
+
+.col-4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  gap: 1rem;
+  margin: 3rem auto;
+  padding: 1rem;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.col-4 section {
+  background-color: var(--bg-black);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--bg-black);
+  border: 1px solid var(--bg-black);
+}
+
+/* primera cajita del rechazo*/
+.tiempo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.tiempo h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: var(--text-white) !important;
+  text-transform: uppercase;
+}
+
+.valor {
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: var(--accent-yellow) !important;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.comentario {
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.barra-container {
+  background-color: var(--bg-muted);
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.barra {
+  height: 100%;
+  background-color: var(--accent-red); /* rojo depresivo */
+  width: 60%;
+  transition: width 1s ease-in-out;
+}
+
+.comparativa {
+  color: var(--status-ok);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+/* fin de la primera cajita del rechazo */
+/* segunda cajita del rechazo */
+.rechazos {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  list-style: none;
+}
+
+.rechazos li {
+  margin-bottom: 0.4rem;
+  background-color: var(--bg-muted);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--accent-red);
+  font-weight: 800 !important;
+}
+.rechazos li a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.rechazos li a span {
+  font-weight: bold;
+  color: var(--text-black);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.comentario {
+  font-style: italic;
+  color: var(--text-muted);
+}
+/* tercera cajita del rechazo */
+.ultimos__rechazos {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  list-style: none;
+}
+
+.ultimos__rechazos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--bg-white) !important;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ultimos__rechazos li span {
+  font-weight: bold;
+  color: var(--accent-red);
+}
+.ultimos__rechazos li em {
+  color: var(--accent-yellow);
+  text-decoration: none;
+  font-weight: 800 !important;
+}
+.tiempo .subindicadores {
+  list-style: none;
+}
+
+.tiempo .subindicadores li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--bg-white) !important;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--bg-black);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--text-secondary);
+  margin-top: 3rem;
+}
+
+.footer .emoji {
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.footer nav {
+  margin-top: 0.5rem;
+}
+
+.footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin: 0 0.4rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: var(--text-white);
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-header {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  .dashboard-header__brand {
+    margin-bottom: 1rem;
+  }
+  .main-section {
+    padding: 1rem;
+  }
+  .col-4 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  .col-4 .valor {
+    font-size: 3rem;
+  }
+  .col-4 .help-text {
+    padding-top: 0.5rem;
+  }
+  .top-tabs {
+  }
+  .top-tabs .top-tabs__list {
+    flex-direction: column;
+    align-items: center;
+  }
 }
