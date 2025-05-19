@@ -184,10 +184,17 @@ const sum = (a, b = 0) => {
 - **Spread** (`...arr`): expande iterables en elementos individuales.
 
 ```js
-function greet(name = 'Invitado') {
+function saludar(name = 'Invitado') {
   console.log(`¡Hola, ${name}!`);
 }
 
+saludar(); // ¡Hola, Invitado!
+saludar('Pepe'); // ¡Hola, Pepe!
+```
+
+Ejemplo de uso de operador spread (`...`) con array de números:
+
+```js
 function total(...nums) {
   return nums.reduce((acc, n) => acc + n, 0);
 }
@@ -206,8 +213,8 @@ const colores = ['rojo', 'verde', 'azul'];
 const [primero, segundo] = colores; // primero='rojo', segundo='verde'
 
 // Objeto
-const usuario = { nombre: 'Ana', edad: 25, país: 'ES' };
-const { nombre, país: locale } = usuario; // nombre='Ana', locale='ES'
+const usuario = { nombre: 'Ana', edad: 25, pais: 'ES' };
+const { nombre, pais: locale } = usuario; // nombre='Ana', locale='ES'
 
 // Valores por defecto y anidado
 const data = { id: 1, info: { email: null } };
@@ -216,15 +223,141 @@ const { info: { email = 'n/a' } } = data; // email='n/a'
 
 ### ⚡ Retos rápidos (10–15 min cada uno)
 
-1. **Swap**: intercambia dos variables `a` y `b` usando destructuring.
-2. **Media**: función `average(...nums)` que calcule la media de N números.
-3. **Saludo**: arrow function con parámetro default que devuelva `"¡Hola, X!"`.
-4. **Config**: dado el objeto `{ debug: true, verbose: false }`, usa destructuring para extraer `debug` y `verbose`.
+1. **Swap**: intercambia dos variables `a` y `b` usando destructuring. También podemos usar una tercera variable para intercambiar los datos.
+2. **Media**: función `promediar(...nums)` que calcule la media de N números. La media es la suma de los números dividida entre el número de números.
+3. **Saludo**: arrow function con parámetro default que devuelva `"¡Hola, Invitado!"`.
+4. **Config**: dado el objeto `{ debug: true, verbose: false }`, usa destructuring para extraer `debug` y `verbose`. Se pueden guardar en dos variables que se llamen `debug` y `verbose`.
 5. **Spread**: combina dos arrays de frutas en uno solo usando spread.
 
 ```js
 // Ejemplo array1 = ['manzana','pera'], array2 = ['uvas','kiwi'] → resultado: ['manzana',…,'kiwi']
 ```
+
+---
+
+### Estructuras de datos primitivas de JavaScript
+
+- **Number**  
+  Valores numéricos: enteros, flotantes, `NaN`, `Infinity`. Operaciones con `+`, `-`, `*`, `/`, `%`, y métodos como `toFixed()`.  
+- **String**  
+  Secuencias de caracteres entre comillas simples, dobles o backticks (plantillas). Propiedades (`.length`) y métodos (`.slice()`, `.toUpperCase()`, `` `${}` ``).  
+- **Boolean**  
+  Solo dos valores: `true` y `false`. Resultado de comparaciones y expresiones lógicas.  
+- **Null**  
+  Literal que indica “ausencia intencional de valor”. Se considera un objeto al usar `typeof`.  
+- **Undefined**  
+  Valor por defecto de una variable declarada sin inicializar, o de una propiedad inexistente.  
+- **Symbol**  
+  Un identificador único que no puede ser reasignado.
+  ```js
+  const s = Symbol('s');
+  const s2 = Symbol('s');
+  s === s2; // false
+  ```
+- **BigInt**  
+  Números enteros de larga escala. No soportado en todos los navegadores.
+  ```js
+  const n = BigInt(10);
+  ```
+- **Object**
+  Un objeto es una colección dinámica de pares clave : valor.
+  ```js
+  const persona = {
+    nombre: 'Ana',
+    edad: 30,
+    saludar() {
+      console.log(`Hola, soy ${this.nombre}`);
+    }
+  };
+  ```
+
+Otros:
+
+- **Funciones**
+- **Clases**
+- **Arrays**
+
+---
+
+### Bucles y condicionales en JavaScript
+
+- **if / switch / ternario**  
+  - `if (cond) {…} else if (…) {…} else {…}`  
+  - `switch(valor) { case ‘a’: …; break; … }`  
+  - Operador ternario: `cond ? expr1 : expr2`  
+- **for**  
+  Bucle clásico con inicializador, condición y paso:  
+  ```js
+  for (let i = 0; i < n; i++) { … }
+  ```
+
+* **while** y **do…while**
+
+  * `while (cond) {…}` repite mientras `cond` sea verdadera.
+  * `do {…} while (cond)` ejecuta al menos una vez antes de comprobar `cond`.
+---
+
+### Objetos en JavaScript
+
+Un **objeto** es una colección dinámica de pares clave : valor.
+
+```js
+const persona = {
+  nombre: 'Ana',
+  edad: 30,
+  saludar() {
+    console.log(`Hola, soy ${this.nombre}`);
+  }
+};
+```
+
+* **Acceso**
+
+  * Punto: `persona.nombre`
+  * Corchetes: `persona['edad']`
+* **Añadir / modificar**
+
+  ```js
+  persona.apellido = 'Pérez';
+  persona.edad = 31;
+  ```
+* **Eliminar**
+
+  ```js
+  delete persona.apellido;
+  ```
+* **Métodos y `this`**
+  Funciones internas que pueden usar `this` para referirse al propio objeto.
+
+```js
+persona.saludar(); // "Hola, soy Ana"
+```
+
+## ⚡ Retos rápidos (10–15 min cada uno)
+
+1. **Tipo y Conversión**  
+   - Declara una variable `let x = "123.45";` y comprueba con `typeof` su tipo.  
+   - Convierte `x` a número usando `Number()` y muestra el resultado y su tipo.  
+
+2. **Validación con Boolean y Ternario**  
+   - Crea `const email = ""` (cadena vacía).  
+   - Usa un ternario para asignar `status = email ? "válido" : "invalido"` y muestra `status`.  
+
+3. **Bucle `for` y Array de Strings**  
+   - Dado `const frutas = ['manzana','pera','uva'];`, recórrelo con un `for` y muestra cada fruta en consola prefijada por su índice (p. ej. `0: manzana`).  
+
+4. **`while` y Contador Descendente**  
+   - Crea `let n = 5;` y, usando `while`, muestra en consola los números de 5 a 1. Al terminar, muestra `"¡Despegue!"`.  
+
+5. **Objeto y Método con `this`**  
+   - Define  
+     ```js
+     const coche = { 
+       marca: 'Toyota', 
+       arrancar() { console.log(`Arrancando ${this.marca}`); } 
+     };
+     ```  
+   - Añade al objeto una propiedad `modelo` con valor `'Corolla'` y luego llama a `coche.arrancar()`.  
 
 ---
 
