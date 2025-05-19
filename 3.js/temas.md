@@ -11,20 +11,31 @@ para dar interactividad al navegador y hoy se usa tanto en **front-end** como en
 
 ### 2. Variables: `let`, `const` y `var`
 
-- **`var`**  
+- ❌ **`var`**  
   - Funcionan con **hoisting**: su declaración se eleva al inicio de la función o del script.  
   - Ámbito de **función** (no de bloque).  
   - Puede redeclararse y reasignarse.
-- **`let`**  
+- ✅ **`let`**  
   - Bloquea la variable en el **scope de bloque** (`{ … }`).  
   - No permite redeclaración en el mismo scope.  
   - Sufre la **Temporal Dead Zone** hasta su inicialización.
-- **`const`**  
+
+  ```js
+  let a = 1;
+  a = 2; // a vale 2
+  let a = 3; // Error => ya existe la variable a y no se puede volver a declara en el mismo bloque
+  ```
+- ✅ **`const`**  
   - Igual que `let`, pero **constante**: debe inicializarse al declararse y no puede reasignarse.  
   - Ojo: si referencia un objeto o array, sus propiedades o elementos **sí** pueden mutar.
 
+  ```js
+  const PI = 3.14;
+  PI = 3.14159; // TypeError => ya existe el identificador (variable const) PI
+  ```
+
 ```js
-function ejemplo() {
+  // Copia este código en la Consola del navegador:
   console.log(a); // undefined  (hoisting de var)
   // console.log(b); // ReferenceError (TDZ)
   var a = 1;
@@ -32,7 +43,6 @@ function ejemplo() {
   const c = 3;
   b = 20;
   // c = 30; // TypeError
-}
 ```
 
 > [!TIP]
