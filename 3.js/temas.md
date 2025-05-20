@@ -7,32 +7,42 @@
 JavaScript es un lenguaje de programación **interpretado**, de **tipado dinámico** 
 y multiparadigma (imperativo, funcional y orientado a objetos). Nació en 1995 
 para dar interactividad al navegador y hoy se usa tanto en **front-end** como en
- **back-end** (Node.js), móviles, IoT, etc.
+ **back-end** (Node.js, Deno, Bun, ...), móviles, IoT, etc.
 
 ### 2. Variables: `let`, `const` y `var`
 
-- **`var`**  
+- ❌ **`var`**  
   - Funcionan con **hoisting**: su declaración se eleva al inicio de la función o del script.  
   - Ámbito de **función** (no de bloque).  
   - Puede redeclararse y reasignarse.
-- **`let`**  
+- ✅ **`let`**  
   - Bloquea la variable en el **scope de bloque** (`{ … }`).  
   - No permite redeclaración en el mismo scope.  
   - Sufre la **Temporal Dead Zone** hasta su inicialización.
-- **`const`**  
+
+  ```js
+  let a = 1;
+  a = 2; // a vale 2
+  let a = 3; // Error => ya existe la variable a y no se puede volver a declara en el mismo bloque
+  ```
+- ✅ **`const`**  
   - Igual que `let`, pero **constante**: debe inicializarse al declararse y no puede reasignarse.  
   - Ojo: si referencia un objeto o array, sus propiedades o elementos **sí** pueden mutar.
 
+  ```js
+  const PI = 3.14;
+  PI = 3.14159; // TypeError => ya existe el identificador (variable const) PI
+  ```
+
 ```js
-function ejemplo() {
+  // Copia este código en la Consola del navegador:
   console.log(a); // undefined  (hoisting de var)
   // console.log(b); // ReferenceError (TDZ)
   var a = 1;
   let b = 2;
-  const c = 3;
+  const c = 30;
   b = 20;
-  // c = 30; // TypeError
-}
+  // c = 31; // TypeError => no se puede reasignar a una constante
 ```
 
 > [!TIP]
@@ -40,14 +50,30 @@ function ejemplo() {
 
 ### 3. Hoisting y `scope`
 
-- **Hoisting**: declaraciones de `var` y funciones **se elevan** al inicio de su
- contexto (función o global).
+> [!NOTE]
+> **Scope** := ámbito o alcance de una variable o función, es decir, donde se puede usar.
+> **Hoisting** := declaraciones de `var` y funciones **se elevan** al inicio de su contexto (función o global).
+
 - **Scope global**: variables declaradas fuera de cualquier función.
-- **Scope de función**: variables creadas con `var` o funciones dentro de una
- función.
+
+```js
+ let miVariable = 1; // global
+ // resto del código
+```
+
+- **Scope de función**: variables creadas con `var` o funciones dentro de una función.
+
+```js
+function miFuncion() {
+  var miVariable = 1; // local
+  // resto del código
+}
+```
+
 - **Scope de bloque**: variables `let`/`const` dentro de `{ … }`.
 
 ```js
+// bloque:
 {
   var x = 1;
   let y = 2;
@@ -56,17 +82,51 @@ console.log(x); // 1
 // console.log(y); // ReferenceError
 ```
 
+En caso de que queramos usar una misma variable en el bloque general y en otro, lo más simple es declarar las variables al principio del programa: 
+
+```js
+  let variable; // undefined
+  console.log(variable); // undefined
+  {
+  variable = 1
+  }
+  console.log(variable); // 1
+```
+
 ### 4. Declaración vs Expresión de Funciones
+
+> [!NOTE]
+> En programación, una función es un bloque de código que se ejecuta cuando se llama a la misma.
+> `function sumar(a, b) { return a + b; }` es una función que acepta dos parámetros y devuelve el resultado de la suma de los dos.
+> `function saludar() { console.log('¡Hola!'); }` es una función que imprime el mensaje "¡Hola!" en la consola.
 
 - **Declaración** (`function foo() { … }`): se hoistea completamente, puede llamarse antes de su aparición en el código.
 - **Expresión** (`const foo = function() { … }`): se comporta como variable `const`/`let`, no hay hoisting de la asignación.
 
 ```js
-console.log(decl()); // “hola”
+// Sin hoisting (forma recomendada al principio 👈🏼):
 function decl() { return 'hola'; }
+// resto del programa
+console.log(decl()); // “hola”
+```
 
+```js
+// Con hoisting primero usamos la función y después la declaramos:
+console.log(decl()); // “hola”
+// resto del programa
+function decl() { return 'hola'; }
+```
+```js
+// ❌ no funciona:
 console.log(expr()); // TypeError: expr is not a function
 const expr = function() { return 'hola'; };
+```
+
+```js
+// ✅ funciona:
+const expr = function() { return 'hola'; };
+// resto del programa
+console.log(expr()); // En este caso no hay problema (sin hoisting)
 ```
 
 ### 5. Arrow Functions
@@ -76,16 +136,46 @@ Sintaxis compacta, **no** tienen su propio `this`, `arguments`, ni `new.target`.
 ```js
 // Declaración clásica
 const sq1 = function(n) { return n * n; };
+// Evaluamos con n = 3:
+sq1(3); // 9
 
 // Arrow function
 const sq2 = n => n * n;
+// Evaluamos con n = 3:
+sq2(3); // 9
 
+// Podemos comprobar que ambas son funciones:
+typeof sq1; // 'function'
+typeof sq2; // 'function'
+```
+
+Otro ejemplo de función:
+
+```js
 // Múltiples parámetros y cuerpo de bloque
 const sum = (a, b = 0) => {
   const res = a + b;
   return res;
 };
 ```
+
+#### Parámetros y Retorno de Funciones
+
+![Funciones](funciones.png)
+
+- **Sin parámetros y sin retorno:** `function saludar() { console.log('¡Hola!'); }`
+  - Sin parámetro -> no recibe datos o inputs `()` vacío
+  - Sin retorno -> no devuelve nada `undefined` => `let saludo = saludar(); // undefined`
+- **Sin parámetros y con retorno:** `function saludar() { return 'Hola'; }`
+  - Sin parámetro -> no recibe datos o inputs `()` vacío
+  - Con retorno -> devuelve un valor `let saludo = saludar(); // Hola` => podemos guardar el resultado en una variable para uso posterior en el programa
+- **Con parámetros y sin retorno:** `function saludar(nombre) { console.log('¡Hola, ' + nombre + '!'); }`
+  - Con parámetro -> recibe datos o inputs `let saludar = saludar('Pepe'); // ¡Hola, Pepe!`
+  - Sin retorno -> no devuelve nada `let saludar = saludar('Pepe'); // undefined`
+- **Con parámetros y con retorno:** `function saludar(nombre) { return '¡Hola, ' + nombre + '!'; }`
+  - Con parámetro -> recibe datos o inputs, en este caso recibimos `nombre`
+  - Con retorno -> devuelve un valor `let saludar = saludar('Pepe'); // ¡Hola, Pepe!`
+
 
 ### 6. Parámetros Default, Rest & Spread
 
@@ -94,10 +184,17 @@ const sum = (a, b = 0) => {
 - **Spread** (`...arr`): expande iterables en elementos individuales.
 
 ```js
-function greet(name = 'Invitado') {
+function saludar(name = 'Invitado') {
   console.log(`¡Hola, ${name}!`);
 }
 
+saludar(); // ¡Hola, Invitado!
+saludar('Pepe'); // ¡Hola, Pepe!
+```
+
+Ejemplo de uso de operador spread (`...`) con array de números:
+
+```js
 function total(...nums) {
   return nums.reduce((acc, n) => acc + n, 0);
 }
@@ -116,8 +213,8 @@ const colores = ['rojo', 'verde', 'azul'];
 const [primero, segundo] = colores; // primero='rojo', segundo='verde'
 
 // Objeto
-const usuario = { nombre: 'Ana', edad: 25, país: 'ES' };
-const { nombre, país: locale } = usuario; // nombre='Ana', locale='ES'
+const usuario = { nombre: 'Ana', edad: 25, pais: 'ES' };
+const { nombre, pais: locale } = usuario; // nombre='Ana', locale='ES'
 
 // Valores por defecto y anidado
 const data = { id: 1, info: { email: null } };
@@ -126,15 +223,364 @@ const { info: { email = 'n/a' } } = data; // email='n/a'
 
 ### ⚡ Retos rápidos (10–15 min cada uno)
 
-1. **Swap**: intercambia dos variables `a` y `b` usando destructuring.
-2. **Media**: función `average(...nums)` que calcule la media de N números.
-3. **Saludo**: arrow function con parámetro default que devuelva `"¡Hola, X!"`.
-4. **Config**: dado el objeto `{ debug: true, verbose: false }`, usa destructuring para extraer `debug` y `verbose`.
+1. **Swap**: intercambia dos variables `a` y `b` usando destructuring. También podemos usar una tercera variable para intercambiar los datos.
+2. **Media**: función `promediar(...nums)` que calcule la media de N números. La media es la suma de los números dividida entre el número de números.
+3. **Saludo**: arrow function con parámetro default que devuelva `"¡Hola, Invitado!"`.
+4. **Config**: dado el objeto `{ debug: true, verbose: false }`, usa destructuring para extraer `debug` y `verbose`. Se pueden guardar en dos variables que se llamen `debug` y `verbose`.
 5. **Spread**: combina dos arrays de frutas en uno solo usando spread.
 
 ```js
 // Ejemplo array1 = ['manzana','pera'], array2 = ['uvas','kiwi'] → resultado: ['manzana',…,'kiwi']
 ```
+
+<details>
+  <summary> 👉🏼 Soluciones</summary>
+  <ul>
+    <li>Ejercicio 1:
+    Usando una tercera variable para intercambiar los datos.
+    <pre>
+      <code>
+  let a = 1;
+  let b = 2;
+  let swap;
+  console.log(a, b, swap)
+  // > 1 1 2 undefined
+  undefined
+  swap = a;
+  a = b;
+  b = swap;
+  console.log(a, b, swap)
+  // > 2 1 1
+      </code>
+    </pre>
+    Usando destructuring directamente:
+    <pre>
+      <code>
+  let a = 1;
+  let b = 2;
+  [a, b] = [b, a];
+  console.log(a, b)
+  // > 2 1
+      </code>
+    </pre>
+    Usando destructuring y un array:
+    <pre>
+      <code>
+  const valores = [1, 2];
+  let [a, b] = valores
+  console.log(a, b)
+  // > 1 2
+  [b, a] = valores
+  console.log(a, b)
+  // > 2 1
+      </code>
+    </pre>
+    </li>
+    <li>Ejercicio 2:
+    <pre>
+      <code>
+  function promediar(...nums) {
+    return nums.reduce((acc, n) => acc + n, 0) / nums.length;
+  }
+  console.log(promediar(1, 2, 3, 4, 5))
+  // > 3
+      </code>
+    </pre>
+    </li>
+    <li>Ejercicio 3:
+    <pre>
+      <code>
+  // con function:
+  function saludar1(nombre = 'Invitado') {
+    return `¡Hola, ${nombre}!`;
+  }
+  // con arrow function:
+  const saludar2 = (nombre = 'Invitado') => `¡Hola, ${nombre}!`;
+  console.log(saludar1())
+  // > ¡Hola, Invitado!
+  console.log(saludar2())
+  // > ¡Hola, Invitado!
+      </code>
+      </pre>
+    </li>
+    <li>Ejercicio 4:
+      <pre>
+        <code>
+  const config = { debug: true, verbose: false };
+  const { debug, verbose } = config;
+  console.log(debug, verbose)
+  // > true false
+        </code>
+      </pre>
+    </li>
+    <li>Ejercicio:
+    <pre>
+      <code>
+  const array1 = ['manzana','pera'];
+  const array2 = ['uvas','kiwi'] // → resultado: ['manzana',…,'kiwi']
+  console.log(array1, array2)
+  // > ['manzana', 'pera'] ['uvas', 'kiwi']
+  const array3 = [...array1, ...array2];
+  console.log(array3)
+  // > ['manzana', 'pera', 'uvas', 'kiwi']
+      </code>
+    </pre>
+    </li>
+</details>
+
+---
+
+### Estructuras de datos primitivas de JavaScript
+
+- **Number**  
+  Valores numéricos: enteros, flotantes, `NaN`, `Infinity`. Operaciones con `+`, `-`, `*`, `/`, `%`, y métodos como `toFixed()`.  
+
+> [!NOTE]
+> Solo hay un tipo numérico en JS, por lo tanto `1` y `0.333333...` se almacenan con la misma memoria, **64 bits** (1 bit es un 0 o un 1):
+> En JavaScript, todos los valores primitivos de tipo Number se representan internamente como IEEE 754 de doble precisión (64 bits), que se desglosan así:
+>
+> - 1 bit para el signo
+> - 11 bits para el exponente
+> - 52 bits para la mantisa (fracción)
+>
+> Eso significa que, en bruto, cada valor Number ocupa 8 bytes en memoria (64 bits).
+
+```js
+let num = 1;
+num = 0.3333333333333333;
+typeof num; // 'number'
+```
+
+- **String**  
+  Secuencias de caracteres entre comillas simples, dobles o backticks (plantillas). Propiedades (`.length`) y métodos (`.slice()`, `.toUpperCase()`, `` `${}` ``).  
+
+> [!NOTE]
+> Podemos usar comillas simples, dobles o backticks para crear una cadena de texto.
+> Cada caracter de un string ocupa 1 byte en memoria (8 bits).
+
+```js
+let str = 'Hola';
+str = "Hola de nuevo";
+str = `Hola de nuevo`; 
+typeof str; // 'string'
+```
+
+- **Boolean**  
+  Solo dos valores: `true` y `false`. Resultado de comparaciones y expresiones lógicas.  
+
+> [!NOTE]
+> Los valores booleanos se almacenan con la misma memoria que los números, por lo que `true` y `false` son equivalentes a `1` y `0`.
+> En memoria, los booleanos se almacenan como 1 bit (0 o 1).
+
+```js
+let bool = true;
+bool = false;
+typeof bool; // 'boolean'
+```
+
+- **Null**  
+  Literal que indica "ausencia intencional de valor".  
+  
+> [!WARNING]
+> `typeof` devuelve `object` para `null` pero debería devolver `null`. Esto es un bug conocido en JS que no se puede arreglar.
+
+¿Cuándo se usa `null`?
+
+- Si esperamos un valor y no lo tenemos podemos indicar que no hay valor con `null`.
+- Es diferente a `undefined` (no definido) que es el valor que se asigna por defecto a una variable en JS.
+
+```js
+let email; // undefined
+// intentamos leer el valor del email
+// si no conseguimos el valor del email (por el motivo que sea)
+email = null; // 👉🏼 el valor no se conoce o no se ha podido leer
+```
+
+Otra alternativa usando el mismo tipo de dato que el email:
+
+```js
+let email = ''; // 👈🏼 el valor es el string vacío
+// intentamos obtener el email o colocamos string vacío
+```
+
+- **Undefined**  
+  Valor por defecto de una variable declarada sin inicializar, o de una propiedad inexistente.  
+
+```js
+let email;
+typeof email; // 'undefined'
+```
+
+¿Cuándo se usa `undefined`?
+
+- Si no esperamos un valor y no lo tenemos podemos indicar que no hay valor con `undefined`.
+- Es el retorno por defecto de una función que no devuelve nada.
+- Se podría usar en casos en los que se usa `null` pero puede ser confuso.
+
+- **Symbol**  
+  Un identificador único que no puede ser reasignado.
+
+```js
+const s = Symbol('s');
+const s2 = Symbol('s');
+s === s2; // false
+```
+
+¿Cuándo se usa `Symbol`?
+
+- Cuando necesitemos un identificador único para un objeto.
+- Cuando queramos ocultar campos de un objeto al representarlo en el DOM.
+
+- **BigInt**  
+  Números enteros de larga escala. No soportado en todos los navegadores.
+  ```js
+  const n = BigInt(10);
+  ```
+
+¿Cuándo se usa `BigInt`?
+
+- Cuando necesitemos un número entero de larga escala. => superior al rango máximo de `number`.
+- Cuando necesitemos precisión adicional en cálculos con muchos decimales o grandes números.
+
+```js
+9007199254740991 * 1e85
+// 9.00719925474099e+100
+// Mientras que en BigInt tenemos todos los dígitos:
+BigInt(9007199254740991 * 1e85).toString()
+// '90071992547409905776464733974940456658968001547918808826399641003255019463714484354073444654786805760'
+```
+
+- **Object**
+  Un objeto es una colección dinámica de pares clave : valor.
+
+```js
+const persona = {
+  nombre: 'Ana',
+  edad: 30,
+  saludar() {
+    console.log(`Hola, soy ${this.nombre}`);
+  }
+};
+```
+
+¿Cuándo se usa `Object`?
+
+- Cuando necesitemos modelar alguna estructura de datos del mundo real o abstracción para nuestro programa.
+  - Por ejemplo, usuarios en una aplicación.
+  - Objetos de datos de una API.
+  - Datos de una base de datos, etc.
+
+Otros:
+
+- **Funciones**: son bloques de código "con nombre" que se ejecutan cuando se las llama.
+```js
+function suma(a, b) {
+  return a + b;
+  }
+```
+- **Clases**: son una forma de modelar objetos con propiedades y métodos.
+```js
+class Persona {
+  constructor(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+  }
+  saludar() {
+    console.log(`Hola, soy ${this.nombre}`);
+  }
+}
+const ana = new Persona('Ana', 30);
+ana.saludar();
+```
+- **Arrays**: son una colección de valores que se pueden acceder por índice.
+```js
+const numeros = [1, 2, 3, 4, 5];
+```
+
+---
+
+### Bucles y condicionales en JavaScript
+
+- **if / switch / ternario**  
+  - `if (cond) {…} else if (…) {…} else {…}`  
+  - `switch(valor) { case ‘a’: …; break; … }`  
+  - Operador ternario: `cond ? expr1 : expr2`  
+- **for**  
+  Bucle clásico con inicializador, condición y paso:  
+  ```js
+  for (let i = 0; i < n; i++) { … }
+  ```
+
+* **while** y **do…while**
+
+  * `while (cond) {…}` repite mientras `cond` sea verdadera.
+  * `do {…} while (cond)` ejecuta al menos una vez antes de comprobar `cond`.
+---
+
+### Objetos en JavaScript
+
+Un **objeto** es una colección dinámica de pares clave : valor.
+
+```js
+const persona = {
+  nombre: 'Ana',
+  edad: 30,
+  saludar() {
+    console.log(`Hola, soy ${this.nombre}`);
+  }
+};
+```
+
+* **Acceso**
+
+  * Punto: `persona.nombre`
+  * Corchetes: `persona['edad']`
+* **Añadir / modificar**
+
+  ```js
+  persona.apellido = 'Pérez';
+  persona.edad = 31;
+  ```
+* **Eliminar**
+
+  ```js
+  delete persona.apellido;
+  ```
+* **Métodos y `this`**
+  Funciones internas que pueden usar `this` para referirse al propio objeto.
+
+```js
+persona.saludar(); // "Hola, soy Ana"
+```
+
+## ⚡ Retos rápidos (10–15 min cada uno)
+
+1. **Tipo y Conversión**  
+   - Declara una variable `let x = "123.45";` y comprueba con `typeof` su tipo.  
+   - Convierte `x` a número usando `Number()` y muestra el resultado y su tipo.  
+
+2. **Validación con Boolean y Ternario**  
+   - Crea `const email = ""` (cadena vacía).  
+   - Usa un ternario para asignar `status = email ? "válido" : "invalido"` y muestra `status`.  
+
+3. **Bucle `for` y Array de Strings**  
+   - Dado `const frutas = ['manzana','pera','uva'];`, recórrelo con un `for` y muestra cada fruta en consola prefijada por su índice (p. ej. `0: manzana`).  
+
+4. **`while` y Contador Descendente**  
+   - Crea `let n = 5;` y, usando `while`, muestra en consola los números de 5 a 1. Al terminar, muestra `"¡Despegue!"`.  
+
+5. **Objeto y Método con `this`**  
+   - Define  
+     ```js
+     const coche = { 
+       marca: 'Toyota', 
+       arrancar() { console.log(`Arrancando ${this.marca}`); } 
+     };
+     ```  
+   - Añade al objeto una propiedad `modelo` con valor `'Corolla'` y luego llama a `coche.arrancar()`.  
+
+- [Más ejercicios](https://github.com/cesarlpb/learn-js/tree/ux-ui/cliente/ejercicios)
+- [Aulascript](https://www.aulascript.com/evaluar/index.htm)
 
 ---
 
