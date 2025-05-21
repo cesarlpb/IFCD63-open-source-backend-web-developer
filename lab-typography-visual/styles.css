@@ -1,0 +1,107 @@
+:root { /* Variables CSS */     /* Definición de variables CSS para colores y fuentes */
+  --font-heading: 'Poppins', sans-serif;
+  --font-base: sans-serif;
+  --color-bg: #d4dbe9;
+  --color-white: #e5cfcf;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-hover: rgba(0, 0, 0, 0.15);
+  --color-title: #111827;
+  --color-meta: #6b7280;
+  --color-text: #374151;
+  --color-link: #2563eb;
+}
+
+body {  /* Estilo del cuerpo */
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  padding: 1.5rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.post-card {    /* Estilo de la tarjeta */
+  font-family: var(--font-base);
+  font-size: 1rem;
+  background-color: var(--color-white);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px var(--color-shadow);
+  padding: 1.5rem;
+  position: relative;
+  transition: box-shadow 0.3s ease; /* Transición suave */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  overflow: hidden;
+  max-width: 400px;
+}
+
+.post-card:hover {  /* Efecto hover */
+  box-shadow: 0 8px 12px var(--color-shadow-hover);
+  cursor: pointer;
+}
+
+.post-card h2 { /* Título */
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-title);
+  margin-bottom: 0.25rem;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.meta { /* Metadatos */
+  font-size: 0.875rem;
+  color: var(--color-meta);
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.toggle {   /* Checkbox oculto */
+  display: none;
+}
+
+.excerpt {  /* Extracto */
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.6;
+  text-align: justify;
+  word-spacing: 0.05em;
+
+  max-height: calc(1.6em * 3); /* altura de 3 líneas */
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  transition: max-height 0.4s ease;
+}
+
+.toggle:checked ~ .excerpt {    /* Mostrar todo el texto */
+  max-height: 1000px; /* suficientemente alto para mostrar todo */
+}
+
+.read-more {    /* Botón de leer más */
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-link);
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+/* Cambiar texto “Leer más” / “Leer menos” con ::after */
+.toggle:not(:checked) ~ .read-more::after {
+  content: "Leer más";
+}
+/* Cuando el checkbox NO está marcado, el botón .read-more muestra el texto “Leer más”. */
+.toggle:checked ~ .read-more::after {  
+  content: "Leer menos";
+}
+/* Cuando el checkbox está marcado, el botón .read-more muestra el texto “Leer menos”. */
+.read-more:hover,
+.read-more:focus {
+  text-decoration: underline wavy;
+  outline: none;
+}

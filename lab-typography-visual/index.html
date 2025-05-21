@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tarjeta - Autobiografía</title>
+    <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <article class="post-card" aria-label="Autobiografía de Carlos">
+            <h2>AUTO BIOGRAFÍA</h2>
+            <p class="meta">Autor · 21 May 2025</p>
+
+            <input type="checkbox" id="toggle" class="toggle" />
+            
+            <p class="excerpt" id="excerpt">
+                Soy una persona curiosa y apasionada por el aprendizaje constante.
+                Disfruto resolver problemas, crear ideas útiles y colaborar con otros.
+                Cada día busco crecer un poco más, personal y profesionalmente.
+                Tras graduarse, Carlos se especializó en desarrollo de software y 
+                ha trabajado para varias startups dedicadas a la inteligencia artificial y la automatización. 
+                Su creatividad y capacidad para resolver problemas complejos le han permitido liderar proyectos 
+                innovadores que han tenido impacto en el sector tecnológico.
+                Además de su carrera profesional, Carlos es un apasionado del deporte, especialmente del fútbol, y 
+                dedica tiempo a actividades comunitarias que promueven la educación tecnológica entre jóvenes de bajos recursos. 
+                Su historia refleja esfuerzo, perseverancia y un compromiso constante con el progreso.
+            </p>
+            <!--  El <label> se utiliza para mostrar el texto "Leer más" y cambiar el estado del checkbox.  -->
+            <label for="toggle" class="read-more" role="button" tabindex="0" aria-expanded="false" aria-controls="excerpt"></label> <!--  El <label> también responde a eventos de teclado automáticamente para cambiar el checkbox.  -->
+            
+        </article>
+    </body>
+</html>
