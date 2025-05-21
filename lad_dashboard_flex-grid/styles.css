@@ -18,10 +18,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  background: #c66d6d;
+  background: #6e87ad;
 }
 
-.sidebar { 
+.sidebar {  
   grid-area: sidebar; 
 }
 
@@ -41,7 +41,7 @@
 
 .widget {
   padding: 1rem;
-  background: #49b697;
+  background: #75f0cd;
   border-radius: 4px;
 }
 
@@ -49,7 +49,7 @@
   grid-area: footer;
   text-align: center;
   padding: 1rem;
-  background: #a49191;
+  background: #db3a3a;
 }
 
 /* Móviles muy pequeños <= 360px */
