@@ -52,6 +52,16 @@
   background: #a49191;
 }
 
+/* Móviles muy pequeños <= 360px */
+@media (max-width: 360px) {
+  .dashboard {
+    grid-template-areas:
+      "header"
+      "content"
+      "footer";
+    grid-template-columns: 1fr;
+  } }
+
 /* Responsive */
 @media (max-width: 768px) {
   .dashboard {
@@ -64,5 +74,30 @@
 
   .sidebar {
     display: none;
+  }
+}
+@media (min-width: 769px) and (max-width: 1280px) { /* Desktop 769px a 1280px */
+  .dashboard {
+    grid-template-areas:
+      "header header"
+      "sidebar content"
+      "footer footer";
+    grid-template-columns: 240px 1fr;
+  }
+
+  .sidebar {
+    display: block;
+  }
+
+  .content {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* Desktop grande > 1280px */
+@media (min-width: 1281px) {
+  .dashboard {
+    max-width: 1200px;
+    margin-inline: auto;
   }
 }
