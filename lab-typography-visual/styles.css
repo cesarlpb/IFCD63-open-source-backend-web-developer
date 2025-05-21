@@ -1,4 +1,5 @@
-:root {
+:root { /* Variables CSS */     /* Definición de variables CSS para colores y fuentes */
+  --font-heading: 'Poppins', sans-serif;
   --font-base: sans-serif;
   --color-bg: #d4dbe9;
   --color-white: #e5cfcf;
@@ -10,7 +11,7 @@
   --color-link: #2563eb;
 }
 
-body {
+body {  /* Estilo del cuerpo */
   font-family: var(--font-base);
   background-color: var(--color-bg);
   padding: 1.5rem;
@@ -27,7 +28,7 @@ body {
   box-shadow: 0 4px 6px var(--color-shadow);
   padding: 1.5rem;
   position: relative;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease; /* Transición suave */
   overflow-wrap: break-word;
   word-break: break-word;
   overflow: hidden;
@@ -77,7 +78,7 @@ body {
   max-height: 1000px; /* suficientemente alto para mostrar todo */
 }
 
-.read-more {
+.read-more {    /* Botón de leer más */
   position: absolute;
   bottom: 1.5rem;
   right: 1.5rem;
