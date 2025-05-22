@@ -740,6 +740,88 @@ persona.saludar(); // "Hola, soy Ana"
      ```  
    - Añade al objeto una propiedad `modelo` con valor `'Corolla'` y luego llama a `coche.arrancar()`.  
 
+<details>
+  <summary> 👉🏼 Soluciones</summary>
+  <ul>
+    <li><strong>Ejercicio 01<strong>
+    <pre>
+      <code>
+  // Declaramos una variable string:
+  let x = "123.45"
+  console.log(x, typeof x);
+  // Conversión a Number o casting:
+  x = Number(x);
+  console.log(x, typeof x);
+      </code>
+    </pre>
+    </li>
+    <li><strong>Ejercicio 02</strong>
+    <pre>
+      <code>
+  // Declaramos una variable email como string vacío:
+  const email = "";
+  // Aplicamos un ternario para verificar si hay contenido:
+  let status = email ? "válido" : "invalido";
+  console.log("El status del email es:", status);
+  // Asignamos un email a otra variable (const no permite reasignar):
+  const email2 = "pepe@gmail.com";
+  status = email2 ? "válido" : "invalido"; 
+  console.log("El status del email2 es:", status);
+  // Nota: no es una verificación exhaustiva, solo comprobamos si hay algún
+  // caracter en el email :) 
+      </code>
+    </pre>
+    </li>
+    <li><strong>Ejercicio 03</strong>
+    <pre>
+      <code>
+  // Definimos el array de frutas:
+  const frutas = ['manzana','pera','uva'];
+  // Hacemos un bucle for desde índice 0 a indice menor que la longitud del 
+  // array (el número de elementos que tiene) => todos los arrays empiezan sus 
+  // índices en 0 y terminan en array.length - 1
+  for(let i = 0; i < frutas.length; i++ ){
+    console.log(`${i}: ${frutas[i]}`)
+  }
+      </code>
+    </pre>
+    </li>
+    <li><strong>Ejercicio 04</strong>
+    <pre>
+      <code>
+  // Definimos un contador que empieza en 5
+  let contador = 5;
+  // También es posible usar contador > 0 como condición:
+  while(contador >= 1){
+    console.log(`${contador}`);
+    contador--; // Importante! ⚠️ Hay que reducir en uno el contador en cada
+                // iteración para que se llegue a cumplir la condición de parada
+                // del bucle 
+  }
+  console.log("Despegue! 🚀");
+      </code>
+    </pre>
+    </li>
+    <li><strong>Ejercicio 05</strong>
+    <pre>
+      <code>
+  // Definimos un objeto coche:
+  const coche = { 
+       marca: 'Toyota', 
+       arrancar() { console.log(`Arrancando ${this.marca}`); } 
+     };
+  // Añadimos una propiedad "modelo" con el valor "Corolla":
+  coche.modelo = "Corolla";
+  console.log("El modelo del coche es:", coche["modelo"]);
+  // Se puede acceder a una propiedad con . cuando no tiene espacios en el nombre
+  // Siempre se puede acceder a una propiedad con ["propiedad con espacios o no"]
+  coche.arrancar();
+      </code>
+    </pre>
+    </li>
+  </ul>
+</details>
+
 - [Más ejercicios](https://github.com/cesarlpb/learn-js/tree/ux-ui/cliente/ejercicios)
 - [Aulascript](https://www.aulascript.com/evaluar/index.htm)
 
