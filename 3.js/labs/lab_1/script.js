@@ -18,7 +18,7 @@ function crearTarea(tarea){
   // Usamos el string que recibimos como parámetro para crear un <li> que 
   // añadimos en el <ul>
   const ul = document.querySelector("#todo-list");
-  ul.innerHTML = `
+  ul.innerHTML += `
   <li>${tarea}</li>
   `; 
 // TODO: añadir el checkbox en el li y añadir el button con x para borrar tarea
