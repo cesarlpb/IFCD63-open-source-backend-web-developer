@@ -1000,6 +1000,13 @@ podemos interactuar con ellos usando eventos y manipulación de DOM.
    * Manipulación de DOM y `classList`.
    * Persistencia con `localStorage`.
 
+  <details>
+    <summary>Solución del Lab 1: TODO app con persistencia en localStorage</summary>
+    <ul>
+      <li><a href="./labs/lab_1/">Lab 1</a></li>
+    </ul>
+  <details>
+
 ## Parte III — Asincronía y Módulos ES6
 
 Los módulos son una forma de organizar código en JavaScript.
