@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis Tareas</title>
+    <!-- Hoja de estilos de Water CSS para tener un look básico en light: -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css"
+    />
+    <!-- Importamos nuestra hoja de estilos por si la necesitamos: -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Mi Lista de Tareas</h1>
+    <form id="todo-form">
+      <input type="text" name="task" placeholder="Nueva tarea…" required />
+      <button>Agregar</button>
+    </form>
+    <ul id="todo-list"></ul>
+    <!-- Habitualmente, se importa el script de JS antes del cierra del body: -->
+    <script src="./script.js"></script>
+  </body>
+</html>

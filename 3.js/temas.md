@@ -502,19 +502,175 @@ const numeros = [1, 2, 3, 4, 5];
 ### Bucles y condicionales en JavaScript
 
 - **if / switch / ternario**  
-  - `if (cond) {…} else if (…) {…} else {…}`  
+
+#### Bucle if
+
+Sirve para crear bloques con condiciones que se van a evaluar.
+Solo se ejecuta el bloque si la condición es verdadera.
+
+- `if` := si condicional
+- `else`:= si no condicional // en caso contrario
+- `else if` := además, si condicional
+
+```js
+if (condicion) {
+  // ejecutar este bloque
+}
+```
+Ejemplo:
+
+**if**
+
+```js
+// pedimos la edad al usuario
+if (edad >= 18) {
+  console.log("Puedes acceder a la página");
+}
+// solo se ejecuta el console.log si edad es igual o mayor a 18
+// en caso de false no se ejecuta el bloque
+```
+
+**if-else**
+
+```js
+// pedimos la edad al usuario
+if (edad >= 18) {
+  console.log("Puedes acceder a la página");
+} else {
+  console.log("No puedes acceder a la página");
+}
+// si edad es menor a 18 se ejecuta el primer console.log
+// en caso de false se ejecuta el segundo console.log
+```
+
+![bucle if](bucle-if.png)
+
+**if-else if-else**
+
+`if (cond) {…} else if (…) {…} else {…}`  
+
+```js
+// pedimos la edad al usuario
+if (edad > 18) {
+  console.log("Puedes acceder a la página");
+} else if (edad == 18) {
+  console.log("Tienes 18 años, enhorabuena!");
+} else {
+  // edad < 18
+  // y cualquier otro caso
+  console.log("No puedes acceder a la página");
+}
+```
+
+#### Bucle switch
+
+Es similar al if pero se evaluan los casos exactos que sean de interés para nuestro programa.
+
   - `switch(valor) { case ‘a’: …; break; … }`  
+
+- `switch`:= conmutar, alternar (una variable en este caso)
+- `break` := parar o frenar => salir del bucle donde se usa el break
+- `default`:= es equivalente al `else` del bucle `if` => se evalua si no hay un caso (`case`) que se haya ejecutado antes => no necesita `break`
+
+Ejemplo`
+
+```js
+// vamos a evaluar los días de la semana
+// guardo el día de la semanana en diaSemana
+switch (diaSemana.toLowerCase()) {
+  case "lunes":
+    console.log("Hoy es lunes");
+    break;
+  case "martes":
+    console.log("Hoy es martes");
+    break;
+  case "miércoles":
+    console.log("Hoy es miércoles");
+    break;
+  case "jueves":
+    console.log("Hoy es jueves");
+    break;
+  case "viernes":
+    console.log("Hoy es viernes");
+    break;
+  case "sábado":
+    console.log("Hoy es sábado");
+    break;
+  case "domingo":
+    console.log("Hoy es domingo");
+    break;
+  default:
+    console.log("Hoy no es ningún día de la semana");
+}
+```
+
   - Operador ternario: `cond ? expr1 : expr2`  
+
+Ejemplo:
+
+```js
+edad > 18 
+  ? console.log("Es mayor de edad") 
+  : console.log("No es mayor de edad")
+```
+
+#### Bucle for
+
+Nos permite repetir instrucciones una cantidad conocida de veces.
+
 - **for**  
   Bucle clásico con inicializador, condición y paso:  
   ```js
   for (let i = 0; i < n; i++) { … }
   ```
 
+Ejemplo:
+```js
+// Sumar los número enteros del 1 al 100
+let suma = 0;
+for (let i = 1; i <= 100; i++) {
+  suma += i;
+}
+console.log(suma); // 5050
+```
+
+```js
+// Hacemos una cuenta atrás desde 10 a 0
+for(let contador = 10; contador >= 0; contador = contador - 1) {
+  console.log(contador)
+}
+```
+
 * **while** y **do…while**
+
+Sirve para repetir instrucciones siempre que una condición sea verdadera.
+
+- `while` := mientras => ejecuta las instrucciones mientras la condición que se evalua sea `true`
 
   * `while (cond) {…}` repite mientras `cond` sea verdadera.
   * `do {…} while (cond)` ejecuta al menos una vez antes de comprobar `cond`.
+
+```js
+// Suma de 100 primeros números
+let contador = 0;
+let suma = 0;
+while(contador <= 100){
+  suma = suma + contador;
+  contador = contador + 1;
+}
+console.log(suma) // 5050
+```
+
+```js
+// Cuanta atrás desde 10 a 0
+let contador = 10; // valor inicial
+while(contador >= 0){
+  console.log(contador);
+  contador = contador - 1;
+}
+console.log(""); // para ocultar el último valor del contador que aparece en la consola
+```
+
 ---
 
 ### Objetos en JavaScript
@@ -556,20 +712,25 @@ persona.saludar(); // "Hola, soy Ana"
 ## ⚡ Retos rápidos (10–15 min cada uno)
 
 1. **Tipo y Conversión**  
+
    - Declara una variable `let x = "123.45";` y comprueba con `typeof` su tipo.  
    - Convierte `x` a número usando `Number()` y muestra el resultado y su tipo.  
 
 2. **Validación con Boolean y Ternario**  
+
    - Crea `const email = ""` (cadena vacía).  
-   - Usa un ternario para asignar `status = email ? "válido" : "invalido"` y muestra `status`.  
+   - Usa un ternario para asignar `status = email ? "válido" : "invalido"` y muestra `status`. Se puede usar `length` para comprobar si hay contenido en el string. 
 
 3. **Bucle `for` y Array de Strings**  
-   - Dado `const frutas = ['manzana','pera','uva'];`, recórrelo con un `for` y muestra cada fruta en consola prefijada por su índice (p. ej. `0: manzana`).  
+
+   - Dado `const frutas = ['manzana','pera','uva'];`, recórrelo con un `for` y muestra cada fruta en consola prefijada por su índice (p. ej. `0: manzana`). Necesitamos un índice que empieza en `0` y termina en `2` (en este caso) o podemos usar de valor final `frutas.length`.
 
 4. **`while` y Contador Descendente**  
+
    - Crea `let n = 5;` y, usando `while`, muestra en consola los números de 5 a 1. Al terminar, muestra `"¡Despegue!"`.  
 
 5. **Objeto y Método con `this`**  
+
    - Define  
      ```js
      const coche = { 
@@ -578,6 +739,88 @@ persona.saludar(); // "Hola, soy Ana"
      };
      ```  
    - Añade al objeto una propiedad `modelo` con valor `'Corolla'` y luego llama a `coche.arrancar()`.  
+
+<details>
+  <summary> 👉🏼 Soluciones</summary>
+  <ul>
+    <li><strong>Ejercicio 01<strong>
+    <pre>
+      <code>
+  // Declaramos una variable string:
+  let x = "123.45"
+  console.log(x, typeof x);
+  // Conversión a Number o casting:
+  x = Number(x);
+  console.log(x, typeof x);
+      </code>
+    </pre>
+    </li>
+    <li><strong>Ejercicio 02</strong>
+    <pre>
+      <code>
+  // Declaramos una variable email como string vacío:
+  const email = "";
+  // Aplicamos un ternario para verificar si hay contenido:
+  let status = email ? "válido" : "invalido";
+  console.log("El status del email es:", status);
+  // Asignamos un email a otra variable (const no permite reasignar):
+  const email2 = "pepe@gmail.com";
+  status = email2 ? "válido" : "invalido"; 
+  console.log("El status del email2 es:", status);
+  // Nota: no es una verificación exhaustiva, solo comprobamos si hay algún
+  // caracter en el email :) 
+      </code>
+    </pre>
+    </li>
+    <li><strong>Ejercicio 03</strong>
+    <pre>
+      <code>
+  // Definimos el array de frutas:
+  const frutas = ['manzana','pera','uva'];
+  // Hacemos un bucle for desde índice 0 a indice menor que la longitud del 
+  // array (el número de elementos que tiene) => todos los arrays empiezan sus 
+  // índices en 0 y terminan en array.length - 1
+  for(let i = 0; i < frutas.length; i++ ){
+    console.log(`${i}: ${frutas[i]}`)
+  }
+      </code>
+    </pre>
+    </li>
+    <li><strong>Ejercicio 04</strong>
+    <pre>
+      <code>
+  // Definimos un contador que empieza en 5
+  let contador = 5;
+  // También es posible usar contador > 0 como condición:
+  while(contador >= 1){
+    console.log(`${contador}`);
+    contador--; // Importante! ⚠️ Hay que reducir en uno el contador en cada
+                // iteración para que se llegue a cumplir la condición de parada
+                // del bucle 
+  }
+  console.log("Despegue! 🚀");
+      </code>
+    </pre>
+    </li>
+    <li><strong>Ejercicio 05</strong>
+    <pre>
+      <code>
+  // Definimos un objeto coche:
+  const coche = { 
+       marca: 'Toyota', 
+       arrancar() { console.log(`Arrancando ${this.marca}`); } 
+     };
+  // Añadimos una propiedad "modelo" con el valor "Corolla":
+  coche.modelo = "Corolla";
+  console.log("El modelo del coche es:", coche["modelo"]);
+  // Se puede acceder a una propiedad con . cuando no tiene espacios en el nombre
+  // Siempre se puede acceder a una propiedad con ["propiedad con espacios o no"]
+  coche.arrancar();
+      </code>
+    </pre>
+    </li>
+  </ul>
+</details>
 
 - [Más ejercicios](https://github.com/cesarlpb/learn-js/tree/ux-ui/cliente/ejercicios)
 - [Aulascript](https://www.aulascript.com/evaluar/index.htm)
@@ -756,6 +999,13 @@ podemos interactuar con ellos usando eventos y manipulación de DOM.
    * Delegación de eventos en `<ul>`.
    * Manipulación de DOM y `classList`.
    * Persistencia con `localStorage`.
+
+  <details>
+    <summary>Solución del Lab 1: TODO app con persistencia en localStorage</summary>
+    <ul>
+      <li><a href="./labs/lab_1/">Lab 1</a></li>
+    </ul>
+  <details>
 
 ## Parte III — Asincronía y Módulos ES6
 
