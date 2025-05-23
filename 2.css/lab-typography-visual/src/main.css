@@ -1,0 +1,334 @@
+/* fuentes tristes - como las lágrimas que derramas cada vez que actualizas LinkedIn */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Space+Grotesk:wght@300..700&display=swap");
+
+/* Variables: lo único constante en tu vida aparte del rechazo laboral */
+:root {
+  --font-base: "Space Grotesk", sans-serif; /* Tipografía más interesante que tu CV */
+  --color-bg: #111; /* Negro como el futuro de tu carrera */
+  --color-text: #f0f0f0; /* Blanco, como las páginas vacías de tu agenda */
+  --secondary-text: #aaa; /* Gris, como tu estado de ánimo al ver tu cuenta bancaria */
+  --color-accent: #645517; /* El color del "estamos revisando candidaturas" */
+  --color-white: #fff; /* Blanco inmaculado, como tu historial laboral */
+  --color-1: #f9f871; /* amarillo apagado / institucional - como tu entusiasmo en la 20ª entrevista */
+  --color-2: #ffb347; /* naranja débil, tipo gov dashboard - el color de tu tarjeta del paro */
+  --color-3: #ff9999; /* rosa derrota suave - el rubor de vergüenza cuando dices "estoy en búsqueda activa" */
+  --color-4: #c0e0de; /* azul hospitalario - donde acabarás con ansiedad crónica */
+  --color-5: #e1bee7; /* lavanda sedada - el color que ves después de 12 horas de tutoriales */
+  --color-6: #b2dfdb; /* turquesa pálido - como tus esperanzas de conseguir un trabajo decente */
+  --color-7: #fddde6; /* rosado error humano - el tono de tu cara cuando te preguntan por el "gap" en tu CV */
+  --color-8: #fff8dc; /* beige institucional de 2008 - la última vez que tuviste empleo estable */
+  --color-9: #e0f7fa; /* celeste diagnóstico - "me temo que usted sufre de sobrecualificación" */
+  --color-10: #f3e5f5; /* violeta ghost - el color de los recruiters después de la primera llamada */
+  --color-11: #ffe082; /* mostaza funcional - "te llamaremos para la siguiente fase" (mentira) */
+  --color-12: #dcedc8; /* verde burocrático - el color de los trámites del SEPE que conoces mejor que tu propia familia */
+}
+
+/* configuración base - como tu vida: vacía y oscura */
+body {
+  background: var(--color-bg);
+  color: var(--secondary-text);
+  font-family: var(--font-base);
+  height: 100vh; /* Alto como tus expectativas antes de graduarte */
+  padding: 1rem; /* El espacio que te da la sociedad: mínimo */
+  display: flex;
+  flex-direction: column; /* Como tu carrera: siempre hacia abajo */
+}
+
+/* Títulos que nunca tendrás en tu tarjeta de visita */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-bg);
+}
+
+/* Párrafos: donde explicas por qué 3 meses sin trabajo "fue para reinventarte" */
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--color-bg);
+  font-weight: bold; /* Negrita, como tu desesperación */
+}
+
+/* Imagen de perfil: el último vestigio de tu dignidad profesional */
+img {
+  width: 1.5rem;
+  height: auto;
+  border-radius: 50%; /* Redondo como el cero de tu cuenta corriente */
+  margin: auto;
+  display: block;
+}
+
+/* hero - irónico nombre para alguien que es el villano de su propia historia laboral */
+header {
+  text-align: center;
+  margin-bottom: 2rem; /* Como tu autoestima */
+}
+
+/* El título más grande de la página, a diferencia de los de tu CV */
+h1 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 2.5rem; /* Grande como tus promesas de "esta vez sí encontraré trabajo" */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+/* La sección donde vendes esperanzas que no tienes */
+.hero {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #999; /* Gris como tu futuro */
+  font-style: italic; /* Inclinado como tu motivación después de 50 rechazos */
+  line-height: 1.6;
+}
+
+/* las cartas - como las que te echan en cada proceso de selección */
+.container {
+  display: grid; /* Grid: organizado, a diferencia de tu vida laboral */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem; /* El espacio entre tú y un empleo digno */
+  background-color: var(--color-white);
+  place-content: center;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+
+/* Las tarjetas de cursos que sigues haciendo mientras tu familia pregunta cuándo conseguirás trabajo */
+.post-card {
+  background: white;
+  width: 320px; /* El ancho perfecto para contener todas tus desilusiones */
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera, como tu presencia en el mercado laboral */
+  padding: 0.5rem;
+  position: relative;
+  overflow: hidden; /* Como ocultas tu desesperación */
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Efecto hover: lo más cercano que estarás de una promoción */
+.post-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* El contenido principal, como el trabajo que nunca consigues */
+.post-primary-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  background: #78f3c0; /* Color por defecto, alegre como tus expectativas iniciales */
+  max-height: 400px;
+  min-height: 390px; /* Alto mínimo, como los requisitos de experiencia que nunca cumples */
+}
+
+/* 12 colores distintos para 12 formas diferentes de ser rechazado */
+article:nth-child(1n) .post-primary-content {
+  background-color: var(
+    --color-1
+  ) !important; /* Amarillo de "no cumples el perfil" */
+}
+
+article:nth-child(2n) .post-primary-content {
+  background-color: var(--color-2) !important;
+}
+article:nth-child(3n) .post-primary-content {
+  background-color: var(--color-3) !important;
+}
+article:nth-child(4n) .post-primary-content {
+  background-color: var(--color-4) !important;
+}
+article:nth-child(5n) .post-primary-content {
+  background-color: var(--color-5) !important;
+}
+article:nth-child(6n) .post-primary-content {
+  background-color: var(--color-6) !important;
+}
+article:nth-child(7n) .post-primary-content {
+  background-color: var(--color-7) !important;
+}
+article:nth-child(8n) .post-primary-content {
+  background-color: var(--color-8) !important;
+}
+article:nth-child(9n) .post-primary-content {
+  background-color: var(--color-9) !important;
+}
+article:nth-child(10n) .post-primary-content {
+  background-color: var(--color-10) !important;
+}
+article:nth-child(11n) .post-primary-content {
+  background-color: var(--color-11) !important;
+}
+article:nth-child(12n) .post-primary-content {
+  background-color: var(--color-12) !important;
+}
+
+.post-card__header {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.post-card__header p {
+  padding: 0.5rem;
+  background-color: var(--color-white);
+  color: var(--color-bg);
+  border-radius: 1rem;
+  margin: 0;
+  align-self: end;
+}
+.post-card__topbar_title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-bg);
+  text-decoration: underline;
+}
+.post-card__title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.post-card h2 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  margin-bottom: 0.25rem;
+}
+
+.sepe-logo {
+  width: 5.5rem;
+  height: auto;
+  border-radius: 0.2rem;
+  margin: auto;
+  display: block;
+  background-color: #111;
+}
+
+.meta {
+  font-size: 0.9rem;
+  color: var(--color-meta);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.author {
+  font-weight: 600;
+  color: var(--color-bg);
+  text-decoration: underline;
+}
+.excerpt {
+  line-height: 1.6;
+  word-spacing: 0.05em;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.tag-label {
+  font-size: 0.7rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.post-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: #eee;
+  color: #333;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-family: "IBM Plex Mono", monospace;
+}
+.post-card__link {
+  display: flex;
+  justify-content: flex-end;
+}
+.read-more {
+  visibility: hidden;
+  display: inline-block;
+  background-color: #111;
+  color: #777;
+  font-weight: 400;
+  font-size: 0.85rem;
+  padding: 0.6rem 1rem;
+  border-radius: 2px;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  text-align: left;
+  text-decoration: none;
+  outline: none;
+  border: 1px solid #222;
+}
+
+.read-more::after {
+  content: " ↓";
+  margin-left: 0.3rem;
+  font-weight: normal;
+  color: var(--color-accent);
+}
+
+.read-more__date {
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.post-card:hover .read-more,
+.read-more:focus {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: none;
+  text-decoration: underline wavy var(--color-accent);
+  color: var(--color-accent);
+}
+
+@media screen and (max-width: 768px) {
+  .post-card {
+    padding: 0 !important;
+  }
+  .container {
+    gap: 2rem;
+  }
+}
