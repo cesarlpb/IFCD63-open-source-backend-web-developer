@@ -13,12 +13,17 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Mi Lista de Tareas</h1>
-    <form id="todo-form">
-      <input type="text" name="task" placeholder="Nueva tarea…" required />
-      <button>Agregar</button>
-    </form>
-    <ul id="todo-list"></ul>
+    
+    <main>
+      <h1>Mi Lista de Tareas</h1>
+      <form id="todo-form">
+        <input type="text" name="task" placeholder="Nueva tarea…" required />
+        <button>Agregar</button>
+      </form>
+      <ul id="todo-list">
+        <li id="no-tasks">Aún no hay tareas.</li>
+      </ul>
+    </main>
     <!-- Habitualmente, se importa el script de JS antes del cierra del body: -->
     <script src="./script.js"></script>
   </body>
