@@ -108,6 +108,7 @@ function crearTarea(tarea){
   button.addEventListener("click", (e) => {
     console.log("Has clicado el boton", e.target.id);
     const li = ul.querySelector(`#${taskElId}`);
+    // TODO: usamos window.confirm(...) para pedir confirmación antes de borrar
     li.remove();
   });
 }
@@ -130,6 +131,8 @@ function limpiarForm(){
 // </li>
 
 // * Guardar y recuperar la lista en `localStorage`.
+
+// TODO: agregamos la carga y el guardado de las tareas en localStorage
 
 function cargarLista(){
   // Lee la lista de tareas desde localStorage
