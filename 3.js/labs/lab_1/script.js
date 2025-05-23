@@ -19,7 +19,12 @@ function crearTarea(tarea){
   // añadimos en el <ul>
   const ul = document.querySelector("#todo-list");
   ul.innerHTML += `
-  <li>${tarea}</li>
+  
+  <li>
+  <input class="checkbox" type="checkbox">
+  ${tarea}
+  <button class="delete-btn">&#x2715;</button>
+  </li>
   `; 
 // TODO: añadir el checkbox en el li y añadir el button con x para borrar tarea
 }
