@@ -42,21 +42,51 @@ function crearTarea(tarea){
 
   // Usamos el string que recibimos como parámetro para crear un <li> que 
   // añadimos en el <ul>
-  
-  ul.innerHTML += `
-  <li id=${taskElId}>
-  <input id=${checkboxElId} class="checkbox" type="checkbox">
-  <span>${tarea}</span>
-  <button id=${deleteBtnElId} class="delete-btn">&#x2715;</button>
-  </li>
-  `; 
+
+  const li = document.createElement("li");
+  li.id = taskElId;
+
+  // Usando el API de elementos del DOM creamos un checkbox idéntico
+  // a: <input id=${checkboxElId} class="checkbox" type="checkbox">
+  // de la siguiente forma:
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.id = checkboxElId;
+  checkbox.className = "checkbox";
+
+  // Creamos un elemento del DOM span con el texto de forma equivalente
+  // a: <span>${tarea}</span>
+  // de la siguiente forma:
+  const span = document.createElement("span");
+  span.textContent = tarea;
+
+  // Creamos el button que equivale a:
+  // <button id=${deleteBtnElId} class="delete-btn">&#x2715;</button>
+  // de la siguiente forma:
+  const button = document.createElement("button");
+  button.id = deleteBtnElId;
+  button.className = "delete-btn";
+  button.innerHTML = "&#x2715;";
+
+  // Finalmente, colocamos los elementos en el orden correcto:
+  /**
+   * <li> 
+   *  <input...> <span> texto </span> <button> x </button>
+   * </li>
+   */
+  // Primero colocamos el contenido del li:
+  li.appendChild(checkbox);
+  li.appendChild(span);
+  li.appendChild(button);
+  // Añadimos el li con todo su contenido al ul:
+  ul.appendChild(li);
 
   // Añadimos los eventos para dar funcionalidad al checkbox y 
   // al botón de borrar:
-
-  const checkbox = ul.querySelector(`#${checkboxElId}`);
-  const deleteBtn = ul.querySelector(`#${deleteBtnElId}`);
   
+  // Usamos el evento change para capturar cuando el checkbox se marca
+  // y se desmarca => en e.target.checked tenemos el valor true/false
+  // según esté marcado o desmarcado este input:
   checkbox.addEventListener("change", (e) => {
     console.log("Estado del checkbox", e.target.id, ":", e.target.checked)
     // Boolean => nombramos la variable como una pregunta de SI / NO
@@ -71,11 +101,14 @@ function crearTarea(tarea){
       span.style.textDecoration = "none"; // sin tachado
       span.style.color = "black";
     }
-
   });
 
-  deleteBtn.addEventListener("click", (e) => {
-    console.log("Has clicado el boton", e.target.id)
+  // Usamos el evento de click en el deleteBtn para capturar 
+  // los clicks en estos botones:
+  button.addEventListener("click", (e) => {
+    console.log("Has clicado el boton", e.target.id);
+    const li = ul.querySelector(`#${taskElId}`);
+    li.remove();
   });
 }
 
