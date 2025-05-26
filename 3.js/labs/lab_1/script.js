@@ -1,6 +1,6 @@
 // Script de Lab 1: Página de Tareas con persistencia en localStorage
 
-// * Añadir nuevas tareas al hacer submit. => necesitamos un evento que capture 
+// * Añadir nuevas tareas al hacer submit. => necesitamos un evento que capture
 // el envío del formulario, es decir, el submit
 
 /* Variables globales */
@@ -22,27 +22,45 @@ form.addEventListener("submit", (e) => {
   limpiarForm();
 });
 
-function crearTarea(tarea){
+// Llamamos a la función para actualizar el ul con datos
+// del localStorage: 
+cargarListaTareas();
 
+/* Funciones */
+function crearTarea(tarea) {
   let taskId = 0; // id de la tarea que se va a agregar
 
   const noTasksEl = ul.querySelector("#no-tasks");
-  if(noTasksEl){
+  if (noTasksEl) {
     noTasksEl.remove();
-  } 
-  
+  }
+
   // Usamos la cantidad de elementos <li> en el <ul> para
   // calcular un id que empieza en 1:
   taskId = ul.querySelectorAll("li").length + 1;
 
-  // creamos los ids que podammos necesitar:
+  // Realiza toda la lógica necesaria para añadir el <li>
+  // en el <ul> de las tareas:
+  // - crear los elementos del DOM con sus contenidos
+  // - Anida los elementos del DOM
+  // - Añade el li nuevo al ul
+  // - Añade los event listeners al checkbox y al button:
+  crearLi(taskId, tarea);
+}
+
+function limpiarForm() {
+  input.value = "";
+}
+
+function crearLi(taskId, tarea) {
+  // Creamos los ids que podammos necesitar:
   const taskElId = `tarea-${taskId}`;
   const checkboxElId = `checkbox-${taskId}`;
   const deleteBtnElId = `delete-btn-${taskId}`;
 
-  // Usamos el string que recibimos como parámetro para crear un <li> que 
-  // añadimos en el <ul>
-
+  // Usamos document.createElement() para crear los objetos
+  // del DOM porque usando string los event listeners no se
+  // añadían bien:
   const li = document.createElement("li");
   li.id = taskElId;
 
@@ -70,7 +88,7 @@ function crearTarea(tarea){
 
   // Finalmente, colocamos los elementos en el orden correcto:
   /**
-   * <li> 
+   * <li>
    *  <input...> <span> texto </span> <button> x </button>
    * </li>
    */
@@ -81,20 +99,33 @@ function crearTarea(tarea){
   // Añadimos el li con todo su contenido al ul:
   ul.appendChild(li);
 
-  // Añadimos los eventos para dar funcionalidad al checkbox y 
+  // Añadimos los eventos para dar funcionalidad al checkbox y
   // al botón de borrar:
-  
+
+  // * Marcar tareas completadas al hacer click (toggle de clase). => Necesitamos
+  // un checkbox en cada tarea para marcarla como completada con un click => al
+  // completar se va a tachar la línea => al desmarcar el checkbox se quitara el
+  // tachado
+
+  // <li style="text-decoration:none;"><input type="checkbox" name="" id=""> Tarea</li>
+
+  // * Eliminar tareas con un botón “×” dentro de cada `<li>`.
+
+  // <li style="text-decoration:none;"><input type="checkbox" name="" id=""> Tarea
+  // button x
+  // </li>
+
   // Usamos el evento change para capturar cuando el checkbox se marca
   // y se desmarca => en e.target.checked tenemos el valor true/false
   // según esté marcado o desmarcado este input:
   checkbox.addEventListener("change", (e) => {
-    console.log("Estado del checkbox", e.target.id, ":", e.target.checked)
+    console.log("Estado del checkbox", e.target.id, ":", e.target.checked);
     // Boolean => nombramos la variable como una pregunta de SI / NO
     // Si la respuesta es sí: true
     // Si es no: false
     const isChecked = e.target.checked;
     const span = ul.querySelector(`#${taskElId} span`);
-    if(isChecked) {
+    if (isChecked) {
       span.style.textDecoration = "line-through"; // tachado
       span.style.color = "gray";
     } else {
@@ -103,7 +134,7 @@ function crearTarea(tarea){
     }
   });
 
-  // Usamos el evento de click en el deleteBtn para capturar 
+  // Usamos el evento de click en el deleteBtn para capturar
   // los clicks en estos botones:
   button.addEventListener("click", (e) => {
     console.log("Has clicado el boton", e.target.id);
@@ -113,37 +144,28 @@ function crearTarea(tarea){
   });
 }
 
-function limpiarForm(){
-  input.value = "";
-}
-
-// * Marcar tareas completadas al hacer click (toggle de clase). => Necesitamos 
-// un checkbox en cada tarea para marcarla como completada con un click => al 
-// completar se va a tachar la línea => al desmarcar el checkbox se quitara el 
-// tachado
-
-// <li style="text-decoration:none;"><input type="checkbox" name="" id=""> Tarea</li>
-
-// * Eliminar tareas con un botón “×” dentro de cada `<li>`.
-
-// <li style="text-decoration:none;"><input type="checkbox" name="" id=""> Tarea 
-// button x
-// </li>
-
 // * Guardar y recuperar la lista en `localStorage`.
-
-function cargarLista(){
+function cargarListaTareas() {
   // Lee la lista de tareas desde localStorage
-}
-function guardarTarea(tarea){
 
+  // Leemos localStorage => item "tareas"
+  const tareasString = localStorage.getItem("tareas"); // string de tareas
+  const tareasArray = JSON.parse(tareasString); // array de tareas
+  // Hacemos un bucle para colocar las tareas en el ul
+  for (let i = 0; i < tareasArray.length; i++) {
+    const tarea = tareasArray[i];
+    crearTarea(tarea);
+  }
+}
+
+function guardarTarea(tarea) {
   // Leemos el localStorage para añadir a la lista actual si es que hay
   // tareas guardadas
   const tareasString = localStorage.getItem("tareas");
   // en este punto, tareasString es un string:
   console.log(tareasString, typeof tareasString);
-  // Pero, para usar .push() de array necesitamos pasar el string 
-  // a array, asi que realizamos un 
+  // Pero, para usar .push() de array necesitamos pasar el string
+  // a array, asi que realizamos un
   // casting (conversión) de string a objeto (array):
   const tareasArray = JSON.parse(tareasString);
   console.log(tareasArray, typeof tareasArray); // este dato es 'object' Array => array
