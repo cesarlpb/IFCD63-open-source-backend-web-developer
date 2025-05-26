@@ -974,7 +974,7 @@ podemos interactuar con ellos usando eventos y manipulación de DOM.
 > datos, pero es una buena práctica. En lado cliente, nos centramos en darle 
 > feedback al usuario y ayudarle a corregir los errores posibles del envío.
 
-### 🛠️ Lab: To-Do List 100 % con vanilla JS
+### 🛠️ Lab 1: To-Do List 100 % con vanilla JS
 
 - `Vanilla JS` := JavaScript sin librerías adicionales.
 
@@ -1012,6 +1012,53 @@ podemos interactuar con ellos usando eventos y manipulación de DOM.
 ## Parte III — Asincronía y Módulos ES6
 
 Los módulos son una forma de organizar código en JavaScript.
+
+- **Sincronía:** en programación, se refiere al modo de ejecutar instrucciones 
+de forma que se bloquea el thread o hilo principal de ejecución.
+  - Imagina que solo puedes hacer una tarea a la vez: llevar un vaso a una mesa
+  - Te piden llevar dos vasos
+  - Debes entregar el vaso 1
+  - Hasta que no termines de hacer eso no podrás llevar el vaso 2
+
+  - Ejemplos de acciones bloqueantes en navegador: `window.alert()`, `window.confir`()`, etc.
+  
+  ```js
+  for(let i = 0; i < 10; i++){
+    console.log(i);
+    if(i == 5){
+        alert("La i vale 5")
+    }
+  }
+  ```
+
+- **Asincronía:** en programación, se refiere a la modalidad de crear los programas
+de forma que se pueden realizar acciones paralelas que no se bloqueen entre sí y 
+que podamos esperar a los resultados de dichas operaciones para realizar ciertas acciones.
+
+  - Ejemplo: pedir datos a un servidor o a una base de datos
+
+  ```js
+  console.log("antes:", new Date().toLocaleTimeString());
+  // realizamos una tarea que tarda de manera ficticia unos segundos:
+  const milis = 5_000;
+  setTimeout(() => {
+      console.log(`Te digo hola ${milis / 1_000} segundos después`);
+      console.log("después:", new Date().toLocaleTimeString());
+  }, milis);
+  // Seguimos con el bucle de antes
+    for(let i = 0; i < 10; i++){
+      console.log(i);
+    }
+  // En este ejemplo, el console.log tarda varios segundos pero el bucle se ejecuta 
+  // antes de conseguir la respuesta sin problemas => no tenemos bloqueo
+  ```
+
+- **HTTP:** protocolo de transferencia de hipertexto, el que se utiliza mayormente
+para pedir y recibir archivos de páginas web y servidores. **Nota:** la versión
+segura de este protocolo **HTTPS** añade cifrado para que la comunicación no sea
+"fácil" de interceptar y leer por alguien que intente acceder a los datos.
+
+![Diagrama de interacción cliente-servidor](image.png)
 
 ### 1. Fetch API
 
@@ -1109,7 +1156,7 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
   * Usa un punto de entrada (p. ej. `main.js`) que importe tus módulos y arranque la app.
   * Configura bundler (Vite, Webpack) para servir `type="module"` y resolver rutas.
 
-### 🚀 Mini-proyecto: Consumir API pública y pintar cards con CSS Modules
+### 🚀 Lab 2: Consumir API pública y pintar cards con CSS Modules
 
 1. **Estructura**
 
