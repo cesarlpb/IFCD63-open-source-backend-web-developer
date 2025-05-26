@@ -132,11 +132,27 @@ function limpiarForm(){
 
 // * Guardar y recuperar la lista en `localStorage`.
 
-// TODO: agregamos la carga y el guardado de las tareas en localStorage
-
 function cargarLista(){
   // Lee la lista de tareas desde localStorage
 }
-function actualizarTareas(){
-  // Hace un bucle para añadir todas las tareas del localStorage como <li>
+function guardarTarea(tarea){
+
+  // Leemos el localStorage para añadir a la lista actual si es que hay
+  // tareas guardadas
+  const tareasString = localStorage.getItem("tareas");
+  // en este punto, tareasString es un string:
+  console.log(tareasString, typeof tareasString);
+  // Pero, para usar .push() de array necesitamos pasar el string 
+  // a array, asi que realizamos un 
+  // casting (conversión) de string a objeto (array):
+  const tareasArray = JSON.parse(tareasString);
+  console.log(tareasArray, typeof tareasArray); // este dato es 'object' Array => array
+  // Añadimos la tarea al array actual => usamos el método push de array
+  tareasArray.push(tarea); // la tarea se añade al array
+  console.log(tareasArray);
+  // Guardamos la lista actualizada en el localStorage
+  const tareasActualizadasString = JSON.stringify(tareasArray);
+  localStorage.setItem("tareas", tareasActualizadasString);
 }
+
+// Hace un bucle para añadir todas las tareas del localStorage como <li>
