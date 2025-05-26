@@ -144,6 +144,9 @@ function crearLi(taskId, tarea) {
     const li = ul.querySelector(`#${taskElId}`);
     // TODO: usamos window.confirm(...) para pedir confirmación antes de borrar
     li.remove();
+    const span = li.querySelector("span");
+    const tarea = span.textContent;
+    borrarTarea(tarea);
   });
 }
 
@@ -194,4 +197,22 @@ function guardarTarea(tarea) {
   localStorage.setItem("tareas", tareasActualizadasString);
 
   return actualizarUl;
+}
+
+function borrarTarea(tarea){
+  // Leer localStorage
+  const tareasString = localStorage.getItem("tareas");
+  const tareasArray = JSON.parse(tareasString);
+  // Encontrar la tarea
+  // Usamos indexOf para saber qué índice queremos borrar del array
+  // devuelve -1 si no está en array el dato
+  const index = tareasArray.indexOf(tarea);
+  // Y si existe la borramos
+  if(index > -1) {
+    // Usamos splice para borrar el dato sabiendo su índice
+    tareasArray.splice(index, 1); // borramos 1 dato
+  }
+  // Guardamos la lista actualizada en localStorage
+  const tareasActualizadasString = JSON.stringify(tareasArray);
+  localStorage.setItem("tareas", tareasActualizadasString);
 }
