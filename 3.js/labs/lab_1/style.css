@@ -16,8 +16,9 @@ form#todo-form {
   margin-bottom: 1em;
 }
 main {
-  width: 80vw;
+  min-height: 90vh;
   margin: 1em auto;
+  padding: 0 1em;
 }
 ul#todo-list {
   list-style: none;
