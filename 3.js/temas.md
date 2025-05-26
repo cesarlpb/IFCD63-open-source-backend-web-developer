@@ -1154,55 +1154,344 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
 
 # Temario Javascript para Back-End con Node.js
 
-## Parte IV — Fundamentos de Node.js  
+## Parte IV — Fundamentos de Node.js
 
-- **4.1** ¿Qué es Node.js? V8, Event Loop y arquitectura no bloqueante  
-- **4.2** Gestor de paquetes **npm / yarn**  
-  - `package.json`, versiones semánticas, scripts  
-- **4.3** Módulos CommonJS vs ES Modules  
-  - `require` / `module.exports` y `import` / `export`  
-- **4.4** API de sistema de archivos (fs)  
-  - Lectura/escritura síncrona y asíncrona  
-- **4.5** Eventos y EventEmitter  
-- **4.6** Trabajo con streams (lectura y escritura de datos en chunks)  
-- ⚡ **Lab**: script CLI que lee un JSON, lo modifica y lo reescribe  
+### 4.1 ¿Qué es Node.js? V8, Event Loop y arquitectura no bloqueante
+Node.js es un entorno de ejecución para JavaScript basado en el motor V8 de Chrome.  
+- **Event Loop**: ciclo que procesa callbacks de manera asíncrona sin bloquear el hilo principal.  
+- **Arquitectura no bloqueante**: I/O asíncrono mediante callbacks/Promises, ideal para alta concurrencia.
 
-## Parte V — Servidores HTTP y Express.js  
+```js
+// Ejemplo de operación asíncrona
+console.log('Inicio');
+setTimeout(() => console.log('Middle'), 0);
+console.log('Fin');
+// Salida: Inicio → Fin → Middle
+```
 
-- **5.1** Módulo nativo `http`  
-  - Crear servidor, rutas básicas, cabeceras y códigos de estado  
-- **5.2** Introducción a **Express**  
-  - Instalación y estructura de un proyecto  
-- **5.3** Rutas y verbos HTTP (`GET`, `POST`, `PUT`, `DELETE`)  
-- **5.4** Middleware  
-  - Uso de `app.use()`, orden, middleware de terceros (morgan, body-parser)  
-- **5.5** Gestión de errores (error-handling middleware)  
-- **5.6** Servir archivos estáticos  
-- 🛠️ **Lab**: API REST mínima de “tareas” en memoria con Express  
+---
 
-## Parte VI — Persistencia de datos  
+### 4.2 Gestor de paquetes npm / yarn
 
-- **6.1** Conexión a bases de datos  
-  - **MongoDB** con **Mongoose**: esquemas, modelos, validaciones  
-  - **PostgreSQL** con **Sequelize** / **Knex**: definiciones, migraciones  
-- **6.2** CRUD completo conectado a BD  
-- **6.3** Consultas avanzadas: filtros, paginación, población (populate)  
-- **6.4** Gestión de transacciones (en SQL)  
-- **6.5** Variables de entorno con **dotenv**  
-- ⚡ **Lab**: extender la API de “tareas” para que persista en MongoDB  
+* **`package.json`**: metadatos del proyecto, dependencias y scripts.
+* Versionado semántico (`MAJOR.MINOR.PATCH`).
+* Scripts típicos:
 
-## Parte VII — Seguridad, Testing y Despliegue  
+  ```json
+  {
+    "scripts": {
+      "start": "node app.js",
+      "dev":   "nodemon app.js",
+      "test":  "jest"
+    }
+  }
+  ```
 
-- **7.1** Autenticación y autorización  
-  - **JWT**, **bcrypt** para hashing de contraseñas  
-  - Middlewares de protección de rutas  
-- **7.2** Buenas prácticas de seguridad  
-  - **Helmet**, **CORS**, validación de inputs (Joi / express-validator)  
-- **7.3** Testing de API  
-  - **Jest** + **Supertest**: tests de rutas y casos de error  
-- **7.4** Contenerización ligera con **Docker** (Dockerfile básico)  
-- **7.5** Despliegue en **Heroku** / **Vercel** / **Render**  
-- 🚀 **Mini-proyecto**: API completa de “usuarios” con registro/login, roles y tests  
+---
+
+### 4.3 Módulos CommonJS vs ES Modules
+
+* **CommonJS** (Node por defecto):
+
+  ```js
+  // sum.js
+  function sum(a, b) { return a + b; }
+  module.exports = sum;
+
+  // app.js
+  const sum = require('./sum');
+  console.log(sum(2,3));
+  ```
+* **ES Modules** (`"type":"module"` en package.json):
+
+  ```js
+  // sum.mjs
+  export function sum(a, b) { return a + b; }
+
+  // app.mjs
+  import { sum } from './sum.mjs';
+  console.log(sum(2,3));
+  ```
+
+---
+
+### 4.4 API de sistema de archivos (fs)
+
+* **Síncrono**: bloqueo del hilo.
+
+  ```js
+  const fs = require('fs');
+  const data = fs.readFileSync('./data.json', 'utf8');
+  ```
+* **Asíncrono**: callbacks / Promises.
+
+  ```js
+  const fs = require('fs').promises;
+  fs.readFile('./data.json', 'utf8')
+    .then(json => console.log(json))
+    .catch(console.error);
+  ```
+
+---
+
+### 4.5 Eventos y EventEmitter
+
+* Clase base para eventos personalizados.
+
+  ```js
+  const { EventEmitter } = require('events');
+  const ee = new EventEmitter();
+
+  ee.on('data', payload => console.log('Evento data:', payload));
+  ee.emit('data', { foo: 'bar' });
+  ```
+
+---
+
+### 4.6 Trabajo con streams
+
+* Permiten leer/escribir datos en trozos (chunks).
+
+  ```js
+  const fs = require('fs');
+  const readStream  = fs.createReadStream('large.txt', 'utf8');
+  const writeStream = fs.createWriteStream('out.txt');
+
+  readStream.pipe(writeStream);
+  ```
+
+---
+
+⚡ **Lab**: Script CLI que lee un JSON (ruta por argumento), modifica un campo y escribe el resultado de nuevo.
+
+---
+
+## Parte V — Servidores HTTP y Express.js
+
+### 5.1 Módulo nativo `http`
+
+```js
+const http = require('http');
+const server = http.createServer((req, res) => {
+  if (req.url === '/') {
+    res.writeHead(200, {'Content-Type':'text/plain'});
+    res.end('Hola desde Node nativo');
+  }
+});
+server.listen(3000);
+```
+
+---
+
+### 5.2 Introducción a Express
+
+```bash
+npm install express
+```
+
+```js
+// app.js
+import express from 'express';
+const app = express();
+app.use(express.json());
+app.get('/', (req, res) => res.send({ status: 'ok' }));
+app.listen(3000);
+```
+
+---
+
+### 5.3 Rutas y verbos HTTP
+
+```js
+app
+  .get('/items',    handlerList)
+  .post('/items',   handlerCreate)
+  .put('/items/:id', handlerUpdate)
+  .delete('/items/:id', handlerDelete);
+```
+
+---
+
+### 5.4 Middleware
+
+* Orden de ejecución importa.
+* Ejemplo con `morgan` y `body-parser`:
+
+  ```js
+  import morgan from 'morgan';
+  app.use(morgan('dev'));
+  // express.json() en v4.16+
+  ```
+
+---
+
+### 5.5 Gestión de errores
+
+```js
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(err.status || 500).send({ error: err.message });
+});
+```
+
+---
+
+### 5.6 Servir archivos estáticos
+
+```js
+app.use('/public', express.static('public'));
+```
+
+---
+
+🛠️ **Lab**: API REST mínima de “tareas” en memoria con Express (CRUD de `/tasks`).
+
+---
+
+## Parte VI — Persistencia de datos
+
+### 6.1 Conexión a bases de datos
+
+* **MongoDB + Mongoose**:
+
+  ```js
+  import mongoose from 'mongoose';
+  await mongoose.connect(process.env.MONGO_URI);
+  const User = mongoose.model('User', new mongoose.Schema({ name:String }));
+  ```
+* **PostgreSQL + Sequelize**:
+
+  ```js
+  import { Sequelize, DataTypes } from 'sequelize';
+  const sequelize = new Sequelize('sqlite::memory:');
+  const User = sequelize.define('User', {
+    name: { type: DataTypes.STRING, allowNull: false }
+  });
+  await sequelize.sync();
+  ```
+
+---
+
+### 6.2 CRUD completo conectado a BD
+
+* Implementar endpoints que usen los modelos definidos.
+
+---
+
+### 6.3 Consultas avanzadas: filtros, paginación, populate
+
+* Mongoose `.find({ active: true }).limit(10).skip(20)`
+* Sequelize `.findAll({ where: {...}, limit, offset })`
+
+---
+
+### 6.4 Gestión de transacciones (en SQL)
+
+```js
+await sequelize.transaction(async t => {
+  await User.create({ name:'Ana' }, { transaction: t });
+  // ...
+});
+```
+
+---
+
+### 6.5 Variables de entorno con dotenv
+
+```bash
+npm install dotenv
+```
+
+```js
+import 'dotenv/config';
+console.log(process.env.PORT);
+```
+
+---
+
+⚡ **Lab**: Extender la API de “tareas” para que persista en MongoDB.
+
+---
+
+## Parte VII — Seguridad, Testing y Despliegue
+
+### 7.1 Autenticación y autorización
+
+* **JWT** para tokenizar usuario:
+
+  ```js
+  import jwt from 'jsonwebtoken';
+  const token = jwt.sign({ id: user.id }, process.env.SECRET);
+  ```
+* **bcrypt** para hashear contraseñas:
+
+  ```js
+  import bcrypt from 'bcrypt';
+  const hash = await bcrypt.hash(password, 10);
+  ```
+
+---
+
+### 7.2 Buenas prácticas de seguridad
+
+* **Helmet**:
+
+  ```js
+  import helmet from 'helmet';
+  app.use(helmet());
+  ```
+* **CORS**:
+
+  ```js
+  import cors from 'cors';
+  app.use(cors({ origin: 'https://miapp.com' }));
+  ```
+* Validación de inputs con **Joi** o **express-validator**.
+
+---
+
+### 7.3 Testing de API
+
+* **Jest** + **Supertest**:
+
+  ```js
+  import request from 'supertest';
+  test('GET /items', async () => {
+    const res = await request(app).get('/items');
+    expect(res.status).toBe(200);
+  });
+  ```
+
+---
+
+### 7.4 Contenerización ligera con Docker
+
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --production
+COPY . .
+CMD ["node","app.js"]
+```
+
+---
+
+### 7.5 Despliegue en Heroku / Vercel / Render
+
+* **Heroku**: `heroku create` + `git push heroku main`
+* Variables de entorno en panel de la plataforma.
+
+---
+
+🚀 **Mini-proyecto**: API completa de “usuarios” con registro/login, roles y tests automatizados.
+
+```bas`
+# Entrega final:
+# - README con setup, endpoints y ejemplos.
+# - Colección Postman o pruebas Jest.
+# - Dockerfile y .env.example.
+``` 
 
 - [Ejercicios de Javascript](./ejercicios/backend.md)
 - [Proyectos de Javascript](./ejercicios/proyectos-backend.md)
