@@ -142,11 +142,18 @@ function crearLi(taskId, tarea) {
   button.addEventListener("click", (e) => {
     console.log("Has clicado el boton", e.target.id);
     const li = ul.querySelector(`#${taskElId}`);
-    // TODO: usamos window.confirm(...) para pedir confirmación antes de borrar
-    li.remove();
+
     const span = li.querySelector("span");
     const tarea = span.textContent;
-    borrarTarea(tarea);
+    const confirmaBorrar = confirm("¿Confirmas la acción de borrar?"); // boolean
+    if(confirmaBorrar) {
+      // Quitamos el <li> del DOM:
+      li.remove();
+      // Borramos la tarea del localStorage:
+      borrarTarea(tarea);
+    }
+    // Alternativa con ternario (en una línea):
+    // confirmaBorrar ? borrarTarea(tarea) : null;
   });
 }
 
