@@ -1005,7 +1005,9 @@ podemos interactuar con ellos usando eventos y manipulación de DOM.
     <ul>
       <li><a href="./labs/lab_1/">Lab 1</a></li>
     </ul>
-  <details>
+  </details>
+
+---
 
 ## Parte III — Asincronía y Módulos ES6
 
@@ -1486,7 +1488,7 @@ CMD ["node","app.js"]
 
 🚀 **Mini-proyecto**: API completa de “usuarios” con registro/login, roles y tests automatizados.
 
-```bas`
+```bash
 # Entrega final:
 # - README con setup, endpoints y ejemplos.
 # - Colección Postman o pruebas Jest.
