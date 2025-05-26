@@ -27,7 +27,7 @@ form.addEventListener("submit", (e) => {
 cargarListaTareas();
 
 /* Funciones */
-function crearTarea(tarea) {
+function crearTarea(tarea, cargaInicial = false) {
   let taskId = 0; // id de la tarea que se va a agregar
 
   const noTasksEl = ul.querySelector("#no-tasks");
@@ -45,7 +45,10 @@ function crearTarea(tarea) {
   // - Anida los elementos del DOM
   // - Añade el li nuevo al ul
   // - Añade los event listeners al checkbox y al button:
-  crearLi(taskId, tarea);
+  const actualizarUl = guardarTarea(tarea); // => actualiza el localStorage
+  if(actualizarUl || cargaInicial){
+    crearLi(taskId, tarea); // => añade la tarea en el ul
+  }
 }
 
 function limpiarForm() {
@@ -150,11 +153,16 @@ function cargarListaTareas() {
 
   // Leemos localStorage => item "tareas"
   const tareasString = localStorage.getItem("tareas"); // string de tareas
+  // Si recibo null en tareasString => paramos la ejecución de la función
+  if(tareasString == null){ 
+    console.log("Aún no hay tareas")
+    return ; 
+  }
   const tareasArray = JSON.parse(tareasString); // array de tareas
   // Hacemos un bucle para colocar las tareas en el ul
   for (let i = 0; i < tareasArray.length; i++) {
     const tarea = tareasArray[i];
-    crearTarea(tarea);
+    crearTarea(tarea, true);
   }
 }
 
@@ -167,14 +175,23 @@ function guardarTarea(tarea) {
   // Pero, para usar .push() de array necesitamos pasar el string
   // a array, asi que realizamos un
   // casting (conversión) de string a objeto (array):
-  const tareasArray = JSON.parse(tareasString);
+  let tareasArray = JSON.parse(tareasString);
   console.log(tareasArray, typeof tareasArray); // este dato es 'object' Array => array
+  if(tareasArray == null){
+    tareasArray = []
+  }
   // Añadimos la tarea al array actual => usamos el método push de array
-  tareasArray.push(tarea); // la tarea se añade al array
-  console.log(tareasArray);
+  const actualizarUl = !tareasArray.includes(tarea); // true si está, false si no está
+  if(actualizarUl){
+    tareasArray.push(tarea); // la tarea se añade al array
+    console.log("Se ha añadido la tarea", tarea, "en:", tareasArray);
+  } else {
+    console.log("La tarea", tarea, "ya estaba en el array:", tareasArray)
+  }
+  
   // Guardamos la lista actualizada en el localStorage
   const tareasActualizadasString = JSON.stringify(tareasArray);
   localStorage.setItem("tareas", tareasActualizadasString);
-}
 
-// Hace un bucle para añadir todas las tareas del localStorage como <li>
+  return actualizarUl;
+}
