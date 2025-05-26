@@ -151,6 +151,7 @@ function crearLi(taskId, tarea) {
       li.remove();
       // Borramos la tarea del localStorage:
       borrarTarea(tarea);
+      // alert("Se ha borrado la tarea..." + tarea);
     }
     // Alternativa con ternario (en una línea):
     // confirmaBorrar ? borrarTarea(tarea) : null;
