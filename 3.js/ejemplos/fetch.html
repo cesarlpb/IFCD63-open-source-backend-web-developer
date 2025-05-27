@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FETCH</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+</head>
+<body>
+  <div id="users"></div>
+
+  <h2>Crear Post</h2>
+  <form>
+    <label for="userId">userId:</label>
+    <input type="text" name="userId" id="userId" required>
+    <br>
+    <label for="title">title:</label>
+    <input type="text" name="title" id="title" required>
+    <br>
+    <label for="body">body:</label>
+    <input type="text" name="body" id="body" required>
+    <br>
+    <input type="submit" value="Post!">
+  </form>
+  <script>
+    /* Ejemplo de fetch con GET */
+    const url = "https://jsonplaceholder.typicode.com/users";
+    fetch(url)
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err));
+
+    /* Vamos a escribir los datos en el HTML usando elementos del DOM */ 
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      const div = document.querySelector("#users");
+      for(let i = 0; i < data.length; i++) {
+        const user = data[i];
+        const p = document.createElement("p");
+        p.textContent += `
+        ${user.id} ·
+        ${user.email},
+        ${user.name}
+        `;
+        div.appendChild(p);
+      }
+    })
+    .catch(err => console.error(err));
+
+
+    /* POST */
+
+    const postUrl = "https://jsonplaceholder.typicode.com/posts";
+    fetch(postUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer TOKEN_AQUI'
+    },
+    body: JSON.stringify({ 
+      userId: 1, 
+      title: "Título",
+      body: "Esto es el body"
+    })
+  })
+    .then(res => res.json())
+    .then(data => console.log('Creado:', data))
+    .catch(err => console.error(err));
+
+
+    /* Form para POST */
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const postUrl = "https://jsonplaceholder.typicode.com/posts";
+    fetch(postUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer TOKEN_AQUI'
+      },
+      body: JSON.stringify({ 
+        userId: form.querySelector("#userId").value, 
+        title: form.querySelector("#title").value,
+        body: form.querySelector("#body").value
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log('Creado desde form:', data)
+        alert("Post creado"); // avisa al usuario => bloqueante
+        window.location.reload(); // actualiza la página => limpiar form
+      })
+      .catch(err => console.error(err));
+    })  
+  </script>
+</body>
+</html>

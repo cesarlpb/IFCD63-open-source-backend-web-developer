@@ -1065,6 +1065,9 @@ segura de este protocolo **HTTPS** añade cifrado para que la comunicación no s
 El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
 
 - **GET**  
+  
+  Se usa para conseguir recursos, datos, etc. **GET** := conseguir, hacerse con.
+  
   ```js
   fetch('https://api.example.com/items')
     .then(res => res.json())
@@ -1073,6 +1076,9 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
   ```
 
 - **POST**
+
+  **POST** := publicar, escribir en un sitio, enviar una carta.
+  Se usa para crear un recurso nuevo, es decir, "postear" algo.
 
   ```js
   fetch('https://api.example.com/items', {
@@ -1092,9 +1098,16 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
   * `JSON.stringify(obj)` → convierte objeto a cadena JSON.
   * `response.json()` → parsea texto a objeto JS.
 
+- Ejemplo en [fetch.html](./ejemplos/fetch.html)
+
 ### 2. Promesas y async/await
 
 - **Creación de promesas**
+
+  Promise es un la "promesa" (objeto) que tiene un estado y se puede resolver la
+  acción que encapsula en un tiempo determinado (no siempre sabemos cuánto tiempo).
+
+  ![Diagrama de un Promise](image-1.png)
 
   ```js
   const espera = ms =>
@@ -1102,21 +1115,47 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
 
   espera(1000).then(() => console.log('1 segundo ha pasado'));
   ```
+  ```js
+  const esperaError = ms =>
+    new Promise((resolve, reject) => setTimeout(resolve, ms));
+  //espera(1000)
+
+  .then(() => console.log('1 segundo ha pasado'))
+  .catch((err) => console.error('Error:', err));
+  ```
+
+  Ejemplo de reject:
+
+  ```js
+  Promise.reject(new Error("fail")).then(
+    () => {
+      // not called
+    },
+    (error) => {
+      console.error(error); // Stacktrace
+    },
+  );
+  ```
+
 - **Encadenamiento** (`then` / `catch` / `finally`)
+
+  - then => para cada acción que realizamos
+  - catch => capturar errores y hacer error handling (lo que mostramos o logeamos cuando hay un error en alguna acción)
+  - finally => acción final // siempre se ejecuta
 
   ```js
   fetch('/data')
     .then(res => res.json())
-    .then(items => /* procesar ítems */)
-    .catch(err => /* manejar error */)
-    .finally(() => console.log('¡Operación finalizada!'));
+    .then(items => {/* procesar ítems */})
+    .catch(err => {/* manejar error */})
+    .finally(() => console.log('¡Operación finalizada!')); // siempre se ejecuta
   ```
 - **`async` / `await`**
 
   ```js
   async function cargaDatos() {
     try {
-      const res = await fetch('/data');
+      const res = await fetch('https://jsonplaceholder.typicode.com/users');
       const items = await res.json();
       console.log(items);
     } catch (err) {
@@ -1129,8 +1168,13 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
 
 ### 3. Módulos ES6
 
+  Se usar import y export para separar el código en varios archivos que puedan interactuar entre sí.
+
 - **`export` vs `export default`**
 
+  > [!NOTE]
+  > Solo puede haber un export default por archivo.
+  
   ```js
   // utils.js
   export function suma(a, b) { return a + b; }
@@ -1143,12 +1187,16 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
 
 - **`import` y alias**
 
+  **as** := "como" => importamos X "como" Y usando `as` y se renombra la variable
+
   ```js
   import saluda, { suma, PI as constantePI } from './utils.js';
 
   saluda();
   console.log(suma(2,3), constantePI);
   ```
+
+  - [Ejemplo con calculadora](./ejemplos/calculadora/)
 
 - **Organización por módulos**
 
