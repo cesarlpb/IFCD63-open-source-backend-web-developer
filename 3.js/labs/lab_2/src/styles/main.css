@@ -1,0 +1,31 @@
+/* Estilos personalizados para el index.html */
+body {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+#root {
+  padding: 1.5em 10vw;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  & h1 {
+    margin: 0;
+    margin-bottom: 0.5em;
+  }
+}
+#app {
+  background-color: bisque;
+  width: 80vw;
+  /* Usamos calc para asegurar el máximo espacio en vertical */
+  height: calc(100vh - 3em - 1.5em - 2.2em - 0.5em);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
