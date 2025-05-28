@@ -28,8 +28,8 @@
   }
   & span {
     display: inline-block;
-    background-color: lightgray;
-    color: #606060;
+    background-color: #d3d3d3;
+    color: #505050;
     padding: 0.25em 1em;
     border-radius: 1em;
   }
@@ -42,6 +42,10 @@
     }
     & p {
       color: #d3d3d3;
+    }
+    & span {
+     background-color: #808080;
+      color: #d3d3d3; 
     }
   }
 }
