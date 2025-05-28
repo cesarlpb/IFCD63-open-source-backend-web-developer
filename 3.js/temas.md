@@ -1232,9 +1232,9 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
     import styles from './Card.module.css';
     ```
 
-    > [!NOTE] 
-    > Tuvimos que crear una función `loadCSS()` para poder cargar la hoja de estilos
-    > de forma dinámica usando `fetch`
+> [!NOTE] 
+> Tuvimos que crear una función `loadCSS()` para poder cargar la hoja de estilos
+> de forma dinámica usando `fetch`
 
    - En tu componente, aplica clases:
 
@@ -1242,9 +1242,9 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
     cardEl.className = styles.card;
     ```
 
-    > [!NOTE]
-    > Hemos añadido los estilos usando `adoptedStyleSheets` y en caso de que falle
-    > se crearía un bloque `<style>` con el CSS (en el head)
+> [!NOTE]  
+> Hemos añadido los estilos usando `adoptedStyleSheets` y en caso de que falle
+> se crearía un bloque `<style>` con el CSS (en el head)
 
    - Esto evita colisiones y permite scope local por componente.
 
