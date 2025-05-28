@@ -1172,8 +1172,8 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
 
 - **`export` vs `export default`**
 
-  > [!NOTE]
-  > Solo puede haber un export default por archivo.
+> [!NOTE]
+> Solo puede haber un export default por archivo.
   
   ```js
   // utils.js
