@@ -18,6 +18,6 @@ if(jokes.length > 0){
   for(let i = 0; i < jokes.length; i++) {
     if(i == 0){ document.querySelector("#app").textContent = "" }
     const item = jokes[i];
-    Card(item);
+    Card(item); // <- toda la responsabilidad de generar cards está en este módulo
   }
 }

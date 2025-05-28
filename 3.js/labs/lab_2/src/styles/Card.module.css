@@ -1,1 +1,47 @@
 /* Estilos de componente Card */
+
+.card {
+  padding: 0.75em 1em;
+  width: 300px;
+  height: auto;
+  max-height: 250px;
+  margin: 1em auto;
+  border-top: 1px solid #a16207;
+  border-left: 1px solid #a16207;
+  border-right: 1px solid #713f12;
+  border-bottom: 1px solid #713f12;
+  border-width: 2px;
+  border-radius: 10px;
+  background-color: burlywood;
+  box-sizing: border-box;
+  
+  & h2 {
+    color: brown;
+    font-size: 1.25em;
+    letter-spacing: 0.1em;
+    font-family: monospace;
+    margin: 0;
+  }
+  & p {
+    color: rgba(165, 42, 42, 0.9);
+    margin: 0.35em 0;
+  }
+  & span {
+    display: inline-block;
+    background-color: lightgray;
+    color: #606060;
+    padding: 0.25em 1em;
+    border-radius: 1em;
+  }
+  &:hover{
+    background-color: rgba(180, 138, 84, 0.75);
+    margin-top: 0.5em;
+    /* cursor: pointer; */
+    & h2 {
+      color: #dfdfdf;
+    }
+    & p {
+      color: #d3d3d3;
+    }
+  }
+}
