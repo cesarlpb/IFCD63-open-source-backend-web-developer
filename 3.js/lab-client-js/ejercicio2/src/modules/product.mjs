@@ -55,7 +55,8 @@ export const updateProductUX = async (productId, data)=>{
     description, // descripción del producto
     category, // categoría del producto
     rating, // valoración del producto
-    frabric_details // detalles de fabricación del producto
+    frabric_details, // detalles de fabricación del producto
+    discount
   } = data;
 
   // Seleccionar los elementos del DOM que se van a actualizar.
@@ -68,6 +69,8 @@ export const updateProductUX = async (productId, data)=>{
   const category_DOM = document.querySelector(`#category`);
   const description_DOM = document.querySelector(`#description`);
   const afterpay_DOM = document.querySelector(`#afterpay`);
+  const discount_DOM = document.querySelector(`#discount`);
+  const countdown_DOM = document.querySelector(`#countdown`);
   // seleccionar el contenedor de tallas
   updateSizesUX(sizes);
   // actualizar el stock del producto
@@ -82,7 +85,7 @@ export const updateProductUX = async (productId, data)=>{
   name_DOM.textContent = name;
   type_DOM.textContent = type;
   // Actualizar el precio del producto
-  price_DOM.textContent = getPriceStringFromProduct(prices);
+  price_DOM.textContent = getPriceStringFromProduct(prices, discount.percentage);
   // Actualizar el atributo data-price con el JSON de precios
   price_DOM.setAttribute("data-price", JSON.stringify(prices));
   // Actualizar la categoría del producto
@@ -92,7 +95,15 @@ export const updateProductUX = async (productId, data)=>{
   // Actualizar los detalles de fabricación del producto
   updateFrabricDetailsUX(frabric_details);
   // Actualizar el texto de Afterpay del producto
-    afterpay_DOM.textContent = getAfterpayStringFromProduct(prices);
+    afterpay_DOM.textContent = getAfterpayStringFromProduct(prices, discount.percentage);
+  // Actualizar el tiempo de cuenta atrás
+  // actualizar el descuento del producto
+  if (discount) {
+    discount_DOM.setAttribute("data-discount", discount.percentage);
+    countdown_DOM.setAttribute("data-valid-until", discount.validUntil);
+  }
+  setcountdown();
+  setDiscountUX();
 }
 const updateSizesUX = (sizes) => {
   // Función para actualizar la UX de las tallas del producto
@@ -108,6 +119,7 @@ const updateSizesUX = (sizes) => {
     sizesContainer.appendChild(sizeLink);
   });
 }
+
 
 const updateFrabricDetailsUX = (fabric_details) => {
   // Función para actualizar la UX de los detalles de fabricación del producto
@@ -188,7 +200,7 @@ const blockOrActivateCartForm = (paymentForm, state) => {
   }
 }
 
-const getPriceStringFromProduct = (prices) => {
+const getPriceStringFromProduct = (prices, discount) => {
     // Función que devuelve el precio del producto en formato string con su valor y currency
     const currency = localStorage.getItem("currency") || "EUR"; // Recuperar la moneda del localStorage o usar EUR por defecto
     const validCurrencies = localStorage.getItem("currencies") ? JSON.parse(localStorage.getItem("currencies")) : [];
@@ -206,12 +218,12 @@ const getPriceStringFromProduct = (prices) => {
     const price = prices.find(p => p.currency === currency);
     if (!price) {
         console.warn(`Price not found for currency ${currency}, using first available price.`);
-        return `${prices[0].value} ${prices[0].currency}`;
+        return `${applyDiscount(prices[0].value, discount)} ${prices[0].currency}`;
     }
-    return `${price.value}${validCurrencies.find(c => c.code === currency).symbol}`;
+    return `${applyDiscount(price, discount)}${validCurrencies.find(c => c.code === currency).symbol}`;
 }
 
-const getAfterpayStringFromProduct = (prices) => {
+const getAfterpayStringFromProduct = (prices, discount) => {
     // Función que devuelve el texto de Afterpay del producto
     const currency = localStorage.getItem("currency") || "EUR"; // Recuperar la moneda del localStorage o usar EUR por defecto
     const validCurrencies = localStorage.getItem("currencies") ? JSON.parse(localStorage.getItem("currencies")) : [];
@@ -232,12 +244,77 @@ const getAfterpayStringFromProduct = (prices) => {
         return `${prices[0].value} ${prices[0].currency}`;
     }
     // Dividir el precio entre 4 para Afterpay
-    const afterpayValue = (price.value / 4).toFixed(2);
+    let afterpayValue = (price.value / 4).toFixed(2);
+    // aplicar el descuento al valor de Afterpay
+    if (discount && discount > 0) {
+        afterpayValue = (afterpayValue - (afterpayValue * (discount / 100))).toFixed(2);
+    }
+    // Verificar si el valor de Afterpay es válido
+    if (isNaN(afterpayValue) || afterpayValue === null || afterpayValue === undefined) {
+        console.warn("Afterpay value is not a number.");
+        return "Afterpay not available";
+    }
     if (afterpayValue <= 0) {
         console.warn("Afterpay value is not valid.");
         return "Afterpay not available";
     }
     return `${afterpayValue}${validCurrencies.find(c => c.code === currency).symbol}`;
+}
+
+const setcountdown = () => {
+  // Función para establecer un temporizador de cuenta atrás
+  // Recuperamos el elemento del DOM "data-valid-until="2024-12-31"
+  const countdownElement = document.querySelector("#countdown");
+  if (!countdownElement) {
+    console.error("Countdown element not found");
+    return;
+  }
+  const validUntil = countdownElement.getAttribute("data-valid-until");
+  if (!validUntil) {
+    console.error("Valid until date not found in countdown element");
+    return;
+  }
+  const endDate = new Date(validUntil);
+  const now = new Date();
+  const timeRemaining = endDate - now;
+  if (timeRemaining <= 0) {
+    countdownElement.textContent = "Countdown has ended";
+    return;
+  }
+  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+  countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+  // Actualizar el temporizador cada segundo
+  setTimeout(setcountdown, 1000);
+};
+
+const setDiscountUX = () => {
+// Función para establecer la UX del descuento
+  const discountElement = document.querySelector("#discount");
+  if (!discountElement) {
+    console.error("Discount element not found");
+    return;
+  }
+  const discountValue = discountElement.getAttribute("data-discount");
+  if (!discountValue) {
+    console.error("Discount value not found in discount element");
+    return;
+  }
+  // Actualizar el texto del descuento
+  discountElement.textContent = `${discountValue}%`;
+}
+const applyDiscount = (price, discount) => {
+  // Función para aplicar el descuento al precio
+  console.log("Applying discount:", price, discount);
+  if (!price.value || !discount) {
+    console.error("Price or discount is not valid");
+    return price.value; // Retornar el precio original si no hay descuento
+  }
+  const discountedPrice = price.value - (price.value * (discount / 100));
+  return discountedPrice.toFixed(2); // Retornar el precio con descuento formateado a dos decimales
 }
 
 export const addEventListenersToNavProducts = async () => {
