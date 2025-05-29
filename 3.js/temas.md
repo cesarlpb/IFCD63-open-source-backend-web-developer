@@ -1265,8 +1265,18 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
 
 ## Parte IV — Fundamentos de Node.js
 
+- [Descargar Node 22 LTS](https://nodejs.org/en)
+
+## Alternativas a Node
+
+- **Node** es el entorno de ejecución (runtime) de JS con más años en desarrollo: 15 [1](https://en.wikipedia.org/wiki/Node.js)
+- Bun solo tiene 3 años [2](https://en.wikipedia.org/wiki/Bun_(software)). [Descargar Bun JS](https://bun.sh/)
+- Deno tiene 7 años de existencia [3]https://en.wikipedia.org/wiki/Deno_(software). [Descargar Deno](https://deno.com/)
+
 ### 4.1 ¿Qué es Node.js? V8, Event Loop y arquitectura no bloqueante
-Node.js es un entorno de ejecución para JavaScript basado en el motor V8 de Chrome.  
+
+Node.js es un entorno de ejecución para JavaScript basado en el motor V8 de Chrome.
+  
 - **Event Loop**: ciclo que procesa callbacks de manera asíncrona sin bloquear el hilo principal.  
 - **Arquitectura no bloqueante**: I/O asíncrono mediante callbacks/Promises, ideal para alta concurrencia.
 
