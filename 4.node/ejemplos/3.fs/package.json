@@ -1,0 +1,13 @@
+{
+  "name": "3.fs",
+  "version": "1.0.0",
+  "description": "Módulo para aprender fs en Node",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["fs", "node"],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

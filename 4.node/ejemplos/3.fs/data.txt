@@ -1,0 +1,3 @@
+Hola, desde data.txt
+Nueva línea
+Nueva línea

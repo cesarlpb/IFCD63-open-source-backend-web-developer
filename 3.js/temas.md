@@ -1345,6 +1345,14 @@ Según la encuesta de [StackOverflow de 2024](https://survey.stackoverflow.co/20
   import { sum } from './sum.mjs';
   console.log(sum(2,3));
   ```
+> [!NOTE]
+> Si es export `default` no hace falta las llaves cuando se importa:
+> ```js
+> export default function sum(a, b) { return a + b; } 
+> ...
+> import sum from './sum.mjs'; 
+> ```
+> Solo un objeto puede ser default por módulo pero puede haber más exports no default
 
 ---
 
@@ -1353,18 +1361,28 @@ Según la encuesta de [StackOverflow de 2024](https://survey.stackoverflow.co/20
 * **Síncrono**: bloqueo del hilo.
 
   ```js
-  const fs = require('fs');
+  // const fs = require('fs'); // CommonJS
+  import fs from 'fs'; // ES Modules
   const data = fs.readFileSync('./data.json', 'utf8');
   ```
 * **Asíncrono**: callbacks / Promises.
 
   ```js
-  const fs = require('fs').promises;
-  fs.readFile('./data.json', 'utf8')
+  import fs from 'fs'; // ES Modules
+  fs.readFile('./data.txt', 'utf8')
     .then(json => console.log(json))
     .catch(console.error);
   ```
 
+- [Ejemplo de uso de fs](../4.node/ejemplos/3.fs/)
+
+  Lab de `fs`:
+  
+  - Crear un archivo en blanco `.txt`
+  - Añadimos con un bucle los 10 primeros números
+  - En otro archivo, vamos a simular un log (`log.txt`), en cada línea pondremos: `Hora actual: hh:mm, evento, error`
+  - En un archivo `user.json` vamos a guadar un objeto usuario con camos de `email`, `nombre`, etc.
+  - Haremos un array para guardar varios usuarios en un JSON
 ---
 
 ### 4.5 Eventos y EventEmitter
