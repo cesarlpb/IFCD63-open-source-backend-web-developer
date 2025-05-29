@@ -1276,7 +1276,7 @@ El API de `fetch` permite realizar peticiones HTTP desde JavaScript.
 ### 4.1 ¿Qué es Node.js? V8, Event Loop y arquitectura no bloqueante
 
 Node.js es un entorno de ejecución para JavaScript basado en el motor V8 de Chrome.
-  
+
 - **Event Loop**: ciclo que procesa callbacks de manera asíncrona sin bloquear el hilo principal.  
 - **Arquitectura no bloqueante**: I/O asíncrono mediante callbacks/Promises, ideal para alta concurrencia.
 
@@ -1288,9 +1288,21 @@ console.log('Fin');
 // Salida: Inicio → Fin → Middle
 ```
 
+- [Ejemplo primer node](../4.node/ejemplos/1.primer-node/)
+
 ---
 
-### 4.2 Gestor de paquetes npm / yarn
+### 4.2 Gestor de paquetes npm / yarn / pnpm
+
+- `npm` (Node Package Manager) es el gestor de paquetes (módulos) más usado en el ecosistema de JS / TS
+- `pnpm` se basa en `npm` pero mejora el uso de memoria (usa cachés para no descargar todo cada vez para cada proyecto) => pero a veces hay módulos que no son completamente compatibles o requieren configuración adicional
+- `yarn` es una alternativa sólida a `npm`
+
+Según la encuesta de [StackOverflow de 2024](https://survey.stackoverflow.co/2024/technology#1-other-tools):
+
+- npm:  ~ 50%
+- yarn: ~ 20%
+- pnpm: ~ 9%
 
 * **`package.json`**: metadatos del proyecto, dependencias y scripts.
 * Versionado semántico (`MAJOR.MINOR.PATCH`).
