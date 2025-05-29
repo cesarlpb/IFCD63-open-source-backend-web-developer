@@ -1,0 +1,27 @@
+{
+  "name": "primer-npm",
+  "version": "1.0.0",
+  "description": "Proyecto para aprender NPM",
+  "keywords": [
+    "npm",
+    "js",
+    "node"
+  ],
+  "homepage": "https://github.com/cesarlpb/IFCD63-open-source-backend-web-developer#readme",
+  "bugs": {
+    "url": "https://github.com/cesarlpb/IFCD63-open-source-backend-web-developer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesarlpb/IFCD63-open-source-backend-web-developer.git"
+  },
+  "license": "ISC",
+  "author": "César P.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

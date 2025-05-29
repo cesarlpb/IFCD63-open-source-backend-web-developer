@@ -1318,6 +1318,8 @@ Según la encuesta de [StackOverflow de 2024](https://survey.stackoverflow.co/20
   }
   ```
 
+- [Ejemplo de uso de NPM](../4.node/ejemplos/2.primer-npm/)
+
 ---
 
 ### 4.3 Módulos CommonJS vs ES Modules
