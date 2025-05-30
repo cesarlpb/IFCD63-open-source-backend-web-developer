@@ -1,0 +1,13 @@
+{
+  "name": "lab_1_fs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["Node", "fs"],
+  "author": "César P.",
+  "license": "ISC",
+  "type": "module",
+  "description": "Lab del módulo fs de Node"
+}

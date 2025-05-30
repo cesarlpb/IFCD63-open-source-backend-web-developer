@@ -1376,13 +1376,23 @@ Según la encuesta de [StackOverflow de 2024](https://survey.stackoverflow.co/20
 
 - [Ejemplo de uso de fs](../4.node/ejemplos/3.fs/)
 
-  Lab de `fs`:
+  **Lab 1 de `fs`**:
   
-  - Crear un archivo en blanco `.txt`
-  - Añadimos con un bucle los 10 primeros números
-  - En otro archivo, vamos a simular un log (`log.txt`), en cada línea pondremos: `Hora actual: hh:mm, evento, error`
-  - En un archivo `user.json` vamos a guadar un objeto usuario con camos de `email`, `nombre`, etc.
-  - Haremos un array para guardar varios usuarios en un JSON
+  1. Crear un archivo en blanco `.txt`
+  2. Añadimos con un bucle los 10 primeros números
+  3. En otro archivo, vamos a simular un log (`log.txt`), en cada línea pondremos: `Hora actual: hh:mm, evento, error`
+  4. En un archivo `user.json` vamos a guadar un objeto usuario con campos de `email`, `nombre`, etc.
+  5. Haremos un array para guardar varios usuarios en un JSON en `users.json`
+
+
+  <details>
+    <summary>
+    Solución
+    </summary>
+    <a href="../4.node/labs/lab_1_fs/">Solución del lab de fs</a>
+  </details>
+
+
 ---
 
 ### 4.5 Eventos y EventEmitter
@@ -1390,7 +1400,7 @@ Según la encuesta de [StackOverflow de 2024](https://survey.stackoverflow.co/20
 * Clase base para eventos personalizados.
 
   ```js
-  const { EventEmitter } = require('events');
+  import { EventEmitter } from 'events';
   const ee = new EventEmitter();
 
   ee.on('data', payload => console.log('Evento data:', payload));
@@ -1404,7 +1414,7 @@ Según la encuesta de [StackOverflow de 2024](https://survey.stackoverflow.co/20
 * Permiten leer/escribir datos en trozos (chunks).
 
   ```js
-  const fs = require('fs');
+  import fs from 'fs';
   const readStream  = fs.createReadStream('large.txt', 'utf8');
   const writeStream = fs.createWriteStream('out.txt');
 
@@ -1413,7 +1423,11 @@ Según la encuesta de [StackOverflow de 2024](https://survey.stackoverflow.co/20
 
 ---
 
-⚡ **Lab**: Script CLI que lee un JSON (ruta por argumento), modifica un campo y escribe el resultado de nuevo.
+⚡ **Lab 2**: Script CLI que lee un JSON (ruta por argumento), modifica un campo y escribe el resultado de nuevo.
+  - Necesitamos poder leer args del comando node: `node index.js --path data.json`
+  - Recibir el campo desde terminal: user > nombre o email // Pepe, pepe@frog.com
+  - Recibir el nuevo valor de este campo: Pepe M...
+  - Guardamos el dato en el archivo json
 
 ---
 
@@ -1422,7 +1436,7 @@ Según la encuesta de [StackOverflow de 2024](https://survey.stackoverflow.co/20
 ### 5.1 Módulo nativo `http`
 
 ```js
-const http = require('http');
+import http from 'http';
 const server = http.createServer((req, res) => {
   if (req.url === '/') {
     res.writeHead(200, {'Content-Type':'text/plain'});
