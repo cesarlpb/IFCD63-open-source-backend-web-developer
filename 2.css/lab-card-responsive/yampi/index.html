@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lab 1 - CSS Responsive Card" />
+    <title>Lab 1</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Cartas sin futuro</h1>
+    </header>
+    <section class="card-container">
+      <div class="card-wrapper">
+        <article class="card">
+          <!-- Cara frontal -->
+          <div class="card__face card__face--front">
+            <div class="card__header">
+              <img
+                src="./images/carlos.jpg"
+                alt="Card Image"
+                class="card__image"
+              />
+              <span class="card__tag">#SinCVSinEsperanza</span>
+            </div>
+            <div class="card__content">
+              <h2 class="card__title">Carlos Salasar</h2>
+              <div class="icons-container">
+                <img
+                  src="./images/js.png"
+                  alt="JavaScript Icon"
+                  class="card__icon-image"
+                />
+                <img
+                  src="./images/java.png"
+                  alt="Java Icon"
+                  class="card__icon-image"
+                />
+                <img
+                  src="./images/python.png"
+                  alt="Python Icon"
+                  class="card__icon-image"
+                />
+              </div>
+              <p class="card__description">
+                Mi carrera terminó antes de empezar. Aprendí JavaScript, pero no
+                cómo pagar el alquiler.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cara trasera -->
+          <div class="card__face card__face--back">
+            <span class="card__tag card__tag--back">#SinCVSinEsperanza</span>
+          </div>
+        </article>
+      </div>
+      <div class="card-wrapper">
+        <article class="card">
+          <!-- Cara frontal -->
+          <div class="card__face card__face--front">
+            <div class="card__header">
+              <img
+                src="./images/lucia.jpg"
+                alt="Card Image"
+                class="card__image"
+              />
+              <span class="card__tag">#DesempleadoDelMes</span>
+            </div>
+            <div class="card__content">
+              <h2 class="card__title">Lucía Delgado</h2>
+              <div class="icons-container">
+                <img
+                  src="./images/html.png"
+                  alt="HTML Icon"
+                  class="card__icon-image"
+                />
+                <img
+                  src="./images/css.png"
+                  alt="CSS Icon"
+                  class="card__icon-image"
+                />
+                <img
+                  src="./images/vue.png"
+                  alt="VueJS Icon"
+                  class="card__icon-image"
+                />
+              </div>
+              <p class="card__description">
+                Diseño interfaces que nadie verá. Mis solicitudes son como mis
+                commits: sin respuesta.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cara trasera -->
+          <div class="card__face card__face--back">
+            <span class="card__tag card__tag--back"
+              >#404CarreraNoEncontrada</span
+            >
+          </div>
+        </article>
+      </div>
+      <div class="card-wrapper">
+        <article class="card">
+          <!-- Cara frontal -->
+          <div class="card__face card__face--front">
+            <div class="card__header">
+              <img
+                src="./images/ivan.jpg"
+                alt="Card Image"
+                class="card__image"
+              />
+              <span class="card__tag">#ExperienciaNoRelevante</span>
+            </div>
+            <div class="card__content">
+              <h2 class="card__title">Iván Segovia</h2>
+              <div class="icons-container">
+                <img
+                  src="./images/js.png"
+                  alt="JavaScript Icon"
+                  class="card__icon-image"
+                />
+                <img
+                  src="./images/java.png"
+                  alt="Java Icon"
+                  class="card__icon-image"
+                />
+                <img
+                  src="./images/python.png"
+                  alt="Python Icon"
+                  class="card__icon-image"
+                />
+              </div>
+              <p class="card__description">
+                Me preseleccionaron tres veces esta semana. Y aún así, sigo
+                aquí. Como el loader de una SPA rota.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cara trasera -->
+          <div class="card__face card__face--back">
+            <span class="card__tag card__tag--back">#FeedbackNoRecibido</span>
+          </div>
+        </article>
+      </div>
+      <div class="card-wrapper">
+        <article class="card">
+          <!-- Cara frontal -->
+          <div class="card__face card__face--front">
+            <div class="card__header">
+              <img
+                src="./images/marta.jpg"
+                alt="Card Image"
+                class="card__image"
+              />
+              <span class="card__tag">#CVRechazado_n</span>
+            </div>
+            <div class="card__content">
+              <h2 class="card__title">Marta Ruiz</h2>
+              <div class="icons-container">
+                <img
+                  src="./images/js.png"
+                  alt="JavaScript Icon"
+                  class="card__icon-image"
+                />
+                <img
+                  src="./images/java.png"
+                  alt="Java Icon"
+                  class="card__icon-image"
+                />
+                <img
+                  src="./images/python.png"
+                  alt="Python Icon"
+                  class="card__icon-image"
+                />
+              </div>
+              <p class="card__description">
+                No sé si soy diseñadora, desarrolladora o solo otra entrada
+                olvidada en una base de datos de RRHH.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cara trasera -->
+          <div class="card__face card__face--back">
+            <span class="card__tag card__tag--back">#EstéticaSobreEmpleo</span>
+          </div>
+        </article>
+      </div>
+      <div class="card-wrapper">
+        <article class="card">
+          <!-- Cara frontal -->
+          <div class="card__face card__face--front">
+            <div class="card__header">
+              <img
+                src="./images/sara.jpg"
+                alt="Card Image"
+                class="card__image"
+              />
+              <span class="card__tag">#ExperienciaNoRelevante</span>
+            </div>
+            <div class="card__content">
+              <h2 class="card__title">Sara Morel</h2>
+              <div class="icons-container">
+                <img
+                  src="./images/js.png"
+                  alt="JavaScript Icon"
+                  class="card__icon-image"
+                />
+                <img
+                  src="./images/java.png"
+                  alt="Java Icon"
+                  class="card__icon-image"
+                />
+                <img
+                  src="./images/python.png"
+                  alt="Python Icon"
+                  class="card__icon-image"
+                />
+              </div>
+              <p class="card__description">
+                Envié mi CV con ilusión. Me devolvieron silencio. Ni el spam
+                quiso abrirme.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cara trasera -->
+          <div class="card__face card__face--back">
+            <span class="card__tag card__tag--back">#PortfolioInútil</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>
