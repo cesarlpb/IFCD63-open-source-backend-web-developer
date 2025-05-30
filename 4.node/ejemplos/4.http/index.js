@@ -4,7 +4,7 @@ import http from 'http'; // 👉🏼 importación del módulo
 const server = http.createServer((req, res) => {
   // Objeto request en req:
   // console.log(req)
-  if (req.url === '/') {
+  if (req.url === '/' && req.method === "GET") {
     // Texto plano:
     // res.writeHead(200, {'Content-Type':'text/plain'});
     // res.end('Hola desde Node nativo');
@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
     res.end('{"msg": "Hola desde Node nativo"}');
   } else {
     res.writeHead(404, {'Content-Type':'application/json'}); 
-    res.end(`{"error": "No se ha encontrado la ruta o recurso ${req.url}"}`);
+    res.end(`{"error": "No se ha encontrado la ruta o recurso '${req.url}', o el método '${req.method}' no es correcto. Se esperaba GET"}`);
   }
 });
 server.listen(3000, () => {

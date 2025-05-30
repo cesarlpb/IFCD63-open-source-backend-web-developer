@@ -1446,6 +1446,13 @@ const server = http.createServer((req, res) => {
 server.listen(3000);
 ```
 
+**Ejercicio**: Usando el ejemplo de [Módulo http](../4.node/ejemplos/4.http/) haz un servidor que:
+
+  - Devuelve texto plano: "Hola desde Node" en ruta "/"
+  - HTML "Acerca de" en ruta "about/"
+  - HTML "Home" en ruta "home"
+  - JSON [usuarios] en ruta "api/users"
+
 ---
 
 ### 5.2 Introducción a Express
@@ -1470,6 +1477,7 @@ app.listen(3000);
 ```js
 app
   .get('/items',    handlerList)
+  .get('items/:id' handlerItem)
   .post('/items',   handlerCreate)
   .put('/items/:id', handlerUpdate)
   .delete('/items/:id', handlerDelete);
