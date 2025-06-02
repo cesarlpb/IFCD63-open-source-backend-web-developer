@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Obtener el UUID del producto al principio para actualizar la UX y quitar el producto customizado
   await updateProductUX(get_product_UUID());
   // llamar al primer producto para que se muestre en la página
+  await get_product_UUID();
 });
 
 

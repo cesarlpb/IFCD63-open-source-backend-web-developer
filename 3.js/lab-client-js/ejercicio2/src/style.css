@@ -4,10 +4,6 @@ h1 {
   font-size: 2.5rem;
 }
 
-main{
-
-}
-
 .icon {
   width: 25px;
   height: 25px;
@@ -150,6 +146,84 @@ a {
   100% {
     transform: translateY(0);
   }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 1.5rem;
+  }
+  .header-nav{
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .header-nav div:nth-child(1) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header-nav div:nth-child(1) nav {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .header-nav div:nth-child(1) nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+  .header-nav div:nth-child(1) div:nth-child(1) {
+    display: none;
+  }
+    .header-nav div:nth-child(1) div:nth-child(3) {
+    display: none;
+  }
+
+  /* product */
+  article div:nth-child(1) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .product-payment-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  .price-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+    max-width: fit-content;
+  }
+  #links-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  aside{
+    display: none;
+  }
+
+
 }
 
 /* .money-selector {
