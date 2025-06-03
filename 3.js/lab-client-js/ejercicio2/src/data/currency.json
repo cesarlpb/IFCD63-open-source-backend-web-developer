@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Europe",
+        "code": "EUR",
+        "symbol": "€"
+    },
+    {
+        "name": "United States",
+        "code": "USD",
+        "symbol": "$"
+    },
+    {
+        "name": "Pounds",
+        "code": "GBP",
+        "symbol": "£"
+    },
+    {
+        "name": "Japanese",
+        "code": "JPY",
+        "symbol": "¥"
+    },
+    {
+        "name": "Swiss",
+        "code": "CHF",
+        "symbol": "CHF"
+    },
+    {
+        "name": "Australian",
+        "code": "AUD",
+        "symbol": "$"
+    },
+    {
+        "name": "Canadian",
+        "code": "CAD",
+        "symbol": "$"
+    }
+]
