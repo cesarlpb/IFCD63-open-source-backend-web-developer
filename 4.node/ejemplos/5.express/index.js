@@ -64,7 +64,7 @@ app.get("/items/:id", (req, res) => {
 app.post("/items", (req, res) => {
   // Hacer un items.push() de los datos recibidos
   console.log(req.body);
-  // res.send({"msg": "recibido"})
+  // TODO: añadir el item recibido a items
   res.json(req.body);
 });
 
@@ -72,6 +72,7 @@ app.post("/items", (req, res) => {
  * PUT -> editar campos de un item ya existente
  */
 app.put("/items/:id", (req, res) => {
+  // TODO:
   // Encontramos el elemento en items
   // Modificamos los campos que se indican editados
   const id = req.params.id;
@@ -89,6 +90,8 @@ app.put("/items/:id", (req, res) => {
  * DELETE -> borrar un item de items
  */
 app.delete("/items/:id", (req, res) => {
+  // TODO:
+  // Encontramos el elemento en items
   // Borramos el elemento de items
   const id = req.params.id;
   const esNumeroEntero = Number(id) == Number.parseInt(id);
