@@ -63,9 +63,20 @@ app.get("/items/:id", (req, res) => {
  */
 app.post("/items", (req, res) => {
   // Hacer un items.push() de los datos recibidos
+  console.log("Item recibido:")
   console.log(req.body);
-  // TODO: añadir el item recibido a items
-  res.json(req.body);
+  const {id, titulo, precio} = req.body;
+  const newItem = new Item(id, titulo, precio)
+  // Una vez creado el Item, lo añadimos a items:
+  items.push(newItem);
+  // 201 := elemento creado
+  res.status(201).json(newItem);
+  // Faltaría (para que sea realista):
+  /**
+   * - Calcular el id a partir de los datos en items => items.length + 1
+   * - Validar que el Item creado es correcto y se añade al array items
+   * - Dar response de error en caso de que algo vaya mal
+   */
 });
 
 /**
@@ -82,8 +93,38 @@ app.put("/items/:id", (req, res) => {
       error: `El id ${id} debe ser número entero. Se recibió ${typeof id}`,
     });
   }
+  console.log("Datos recibidos en PUT:")
   console.log(req.body);
-  res.json(req.body);
+  let index = -1;
+  for(let i = 0; i < items.length; i++) {
+    const currentId = items[i].id
+    if(Number(id) == currentId) {
+      index = i;
+      break;
+    }
+  }
+  let item = {}
+  // -1 implica que no se ha encontrado el item por id
+  if(index > -1) {
+    item = items[index];
+  } else if (index == -1) {
+    res.status(404).json({"error": `No se ha encontrado el item de id ${id}`})
+  }
+  // Solo permitimos titulo y precio para ser editados => id no se edita
+  const { titulo, precio } = req.body;
+  if(titulo != undefined) {
+    item.titulo = titulo;
+  }
+  if(precio != undefined) {
+    item.precio = precio;
+  }
+  // item.save()
+  res.status(200).json(item);
+  /**
+   * - Validar datos que sean del tipo y formato correctos
+   * - Comprobar que no borramos información que no se quiera perder => id protegido
+   * - Devolver casos de error con información descriptiva
+   */
 });
 
 /**
@@ -102,7 +143,23 @@ app.delete("/items/:id", (req, res) => {
         error: `El id ${id} debe ser número entero. Se recibió ${typeof id}`,
       });
   }
-  res.json(id);
+  let index = -1;
+  for(let i = 0; i < items.length; i++) {
+    const currentId = items[i].id
+    if(Number(id) == currentId) {
+      index = i;
+      break;
+    }
+  }
+  let item = {}
+  // -1 implica que no se ha encontrado el item por id
+  if(index > -1) {
+    item = items[index];
+  } else if (index == -1) {
+    res.status(404).json({"error": `No se ha encontrado el item de id ${id}`})
+  }
+  items.splice(index, 1);
+  res.status(200).json(item);
 });
 
 // Añadimos callback para escribir la ruta base del servidor:
