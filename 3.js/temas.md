@@ -1458,17 +1458,33 @@ server.listen(3000);
 ### 5.2 Introducción a Express
 
 ```bash
-npm install express
+npm install express --save
 ```
 
 ```js
-// app.js
 import express from 'express';
+
+// Instanciamos Express en la variable app:
 const app = express();
+const PORT = 3000;
+
+// Middleware para parsear req.body => JSON
 app.use(express.json());
-app.get('/', (req, res) => res.send({ status: 'ok' }));
-app.listen(3000);
+
+// Endpoint para método GET:
+app.get('/', (req, res) => {
+  res.send({ status: 'ok' })
+});
+
+// Añadimos callback para escribir la ruta base del servidor:
+app.listen(PORT, () => {
+  console.log(`Hola, desde http://localhost:${PORT}/`)
+});
 ```
+> [!NOTE]
+> Añadimos `start: "node index.js"` en `package.json` y `"type": "module"` para
+> usar ES modules
+
 
 ---
 

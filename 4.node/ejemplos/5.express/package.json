@@ -1,0 +1,19 @@
+{
+  "name": "5.express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Node",
+    "Express"
+  ],
+  "author": "César P.",
+  "license": "ISC",
+  "description": "Proyecto de ejemplo para aprender Express JS",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+"type": "module"
+}
