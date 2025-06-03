@@ -38,10 +38,22 @@ app.get('/items', (req, res) => {
  */
 app.get('/items/:id', (req, res) => {
   const id = req.params.id;
-  // TODO: añadir validación para que id sea un número entero
-  console.log("id:", id)
-  console.log("typeof", typeof id)
-  res.end(`items/${id}`)
+  const esNumeroEntero = Number(id) == Number.parseInt(id);
+  // Negative programming o Defense clauses => if
+  // Descartar primero lo que sabemos que NO nos vale
+  if(!esNumeroEntero){
+    res.status(400).send({"error": `El id ${id} debe ser número entero. Se recibió ${typeof id}`});
+  }
+  let item = {}
+  for(let i = 0; i < items.length; i++){
+    if(Number.parseInt(id) == items[i].id){
+      item = items[i]
+      break; // paramos el for si encontramos el elemento
+    }
+  }
+  // TODO: colocar condición para devolver 404 (No encontrado) cuando item sea {}
+  // en este punto
+  res.status(200).send(item);
 })
 
 // Añadimos callback para escribir la ruta base del servidor:
