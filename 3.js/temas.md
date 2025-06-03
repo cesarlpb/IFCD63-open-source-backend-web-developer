@@ -1490,10 +1490,15 @@ app.listen(PORT, () => {
 
 ### 5.3 Rutas y verbos HTTP
 
+- **GET:** sirve para conseguir un recurso
+- **POST:** crear recurso en base de datos, registro...
+- **PUT:** editar una entrada existente en db, archivo, etc.
+- **DELETE:** borrar un recurso (por id, filtro, regla, etc.)
+
 ```js
 app
   .get('/items',    handlerList)
-  .get('items/:id' handlerItem)
+  .get('items/:id', handlerItem)
   .post('/items',   handlerCreate)
   .put('/items/:id', handlerUpdate)
   .delete('/items/:id', handlerDelete);
