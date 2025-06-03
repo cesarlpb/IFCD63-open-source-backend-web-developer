@@ -1495,6 +1495,13 @@ app.listen(PORT, () => {
 - **PUT:** editar una entrada existente en db, archivo, etc.
 - **DELETE:** borrar un recurso (por id, filtro, regla, etc.)
 
+CRUD:
+
+- **C**REATE: crear
+- **R**EAD: leer
+- **U**PDATE: actualizar
+- **D**ELETE: borrar
+
 ```js
 app
   .get('/items',    handlerList)
