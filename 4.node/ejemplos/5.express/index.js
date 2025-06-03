@@ -54,7 +54,29 @@ app.get('/items/:id', (req, res) => {
   // TODO: colocar condición para devolver 404 (No encontrado) cuando item sea {}
   // en este punto
   res.status(200).send(item);
-})
+});
+
+/**
+ * POST -> añade un elemento nuevo a la lista
+ */
+// app.post(/items, (req, res) => {
+// // Hacer un items.push() de los datos recibidos
+// })
+
+/**
+ * PUT -> editar campos de un item ya existente
+ */
+// app.put(/items/:id, (req, res) => {
+// // Encontramos el elemento en items
+// // Modificamos los campos que se indican editados
+// })
+
+/**
+ * DELETE -> borrar un item de items
+ */
+// app.delete(/items/:id, (req, res) => {
+// // Borramos el elemento de items
+// }))
 
 // Añadimos callback para escribir la ruta base del servidor:
 app.listen(PORT, () => {
