@@ -1,0 +1,20 @@
+{
+  "name": "lab_3_tasks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js"
+  },
+  "keywords": [
+    "CRUD",
+    "Todo App",
+    "tasks"
+  ],
+  "author": "César P.",
+  "license": "ISC",
+  "type": "module",
+  "description": "Proyecto de backend para Todo app",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
