@@ -1423,6 +1423,8 @@ Según la encuesta de [StackOverflow de 2024](https://survey.stackoverflow.co/20
 
 ---
 
+# TODO / Pendiente
+
 ⚡ **Lab 2**: Script CLI que lee un JSON (ruta por argumento), modifica un campo y escribe el resultado de nuevo.
   - Necesitamos poder leer args del comando node: `node index.js --path data.json`
   - Recibir el campo desde terminal: user > nombre o email // Pepe, pepe@frog.com
@@ -1545,8 +1547,14 @@ app.use('/public', express.static('public'));
 
 ---
 
-🛠️ **Lab**: API REST mínima de “tareas” en memoria con Express (CRUD de `/tasks`).
+🛠️ **Lab 3**: API REST mínima de “tareas” en memoria con Express (CRUD de `/tasks`).
 
+Implementamos el CRUD básico: `GET` (lista / id), `POST`, `PUT` (id), `DELETE` (id)
+
+ 1. [ ] Replicamos el ejemplo anterior con `items` => leer y actualizar un `.json`
+ 2. [ ] Añadimos persistencia en base de datos => `SQLite`
+ 3. [ ] Refactorizamos para usar el ORM de `Sequelize` (`SQLite`, `MySQL`, `PostgreSQL`, etc.)
+    - Es posible implementar funcionalidades adicionales con "poco" esfuerzo
 ---
 
 ## Parte VI — Persistencia de datos
@@ -1582,7 +1590,7 @@ app.use('/public', express.static('public'));
 ### 6.3 Consultas avanzadas: filtros, paginación, populate
 
 * Mongoose `.find({ active: true }).limit(10).skip(20)`
-* Sequelize `.findAll({ where: {...}, limit, offset })`
+* Seq`elize `.findAll({ where: {...}, limit, offset })`
 
 ---
 
