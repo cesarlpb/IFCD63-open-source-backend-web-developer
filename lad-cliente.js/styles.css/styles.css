@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+#product-info, #posts {
+  margin-bottom: 30px;
+}
+
+.post {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.fav-btn {
+  background-color: #eee;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.fav-btn.favorited {
+  color: gold;
+}
