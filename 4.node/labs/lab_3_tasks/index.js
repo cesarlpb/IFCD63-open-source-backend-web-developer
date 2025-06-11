@@ -138,7 +138,18 @@ app.listen(PORT, () => {
 });
 
 /* TODO: 
-* Parte 2: Usamos un .json para guardar las tareas => refactor
+* Parte 2: Usamos un .json para guardar las tareas:
+  - Refactor inicial
+  - Fn => escribir y leer desde .json => módulo fs
+    - GETs => leer
+    - POST, PUT, DELETE => escribir + leer
 * Parte 3: Conectamos a un db SQLite
+  - Fn que conecta a la db
+  - Fn que crea la tabla necesaria => Tasks
+  - En cada endpoint podemos colocar el query necesario
 * Parte 4: ORM Sequelize => SQLite
+  - Configurar el Sequelize
+  - Modelo Task
+  - Migración => crea tabla en la db
+  - Usar las funcionalides de Sequelize en cada endpoint
 */
