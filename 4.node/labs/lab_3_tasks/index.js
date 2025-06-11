@@ -136,3 +136,9 @@ app.delete("/tasks/:id", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Hola, desde http://localhost:${PORT}/`);
 });
+
+/* TODO: 
+* Parte 2: Usamos un .json para guardar las tareas => refactor
+* Parte 3: Conectamos a un db SQLite
+* Parte 4: ORM Sequelize => SQLite
+*/
