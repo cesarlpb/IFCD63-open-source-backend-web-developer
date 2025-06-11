@@ -1,0 +1,113 @@
+/* Base */
+body {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  background-color: #fffdf8;
+  color: #2c2c2c;
+  padding: 2rem;
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* Formulario */
+form {
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background: #fefefe;
+}
+
+form button {
+  background-color: #333;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #555;
+}
+
+/* Contenedor de posts */
+#posts-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Estilo de cada post */
+.post {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #eaeaea;
+  transition: box-shadow 0.2s ease;
+}
+
+.post:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.post h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #111;
+}
+
+.post p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Botón de favorito */
+.post button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #eeeeee;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.post button:hover {
+  background-color: #d4d4d4;
+}
+
+
+
+/* Botón mostrar favoritos */
+#show-favs {
+  display: inline-block;
+  margin: 2rem auto;
+  background-color: #111;
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#show-favs:hover {
+  background-color: #444;
+}
