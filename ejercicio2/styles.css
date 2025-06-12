@@ -1,0 +1,152 @@
+:root {
+  --navbar-height: 65px; /* Altura de la navbar */
+  --navbar-bg-color: rgba(9, 128, 202, 0.4); /* Color de fondo de la navbar */
+}
+
+* {
+  box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho y alto total */
+  margin: 0;   /* Elimina el margen por defecto */
+  padding: 0; /* Elimina el margen y padding por defecto */
+ 
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #d39a9a;
+}
+
+/* Navbar fija */
+.navbar {    
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  background-color: rgba(9, 128, 202, 0.4); /* menos opaco */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(198, 145, 145, 0.05);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Contenedor de navbar */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+/* Logo */
+
+ .logo img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+.logo img {
+  vertical-align: middle;
+}
+/* Enlaces navbar */
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+/* Icono y texto del link */
+.nav-links .icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 639px) {  /* Este bloque es una media query que se aplica solo en pantallas pequeñas (ancho máximo de 639px), 
+    como móviles o pantallas pequeñas.*/
+  .nav-links .link-text {
+    display: none;
+  }
+
+  .nav-links a {
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+
+  .nav-links .icon {
+    margin: 0;
+  }
+}
+
+/*Contenido principal */
+.contenido {
+  padding-top: var(--navbar-height);
+  max-width: 800px;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 2rem;
+}
+
+h1 {    /* Titulo principal */
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #270a0a;
+  padding: 1rem 0;
+}
+h2 { /* Titulo secundario */
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #270a0a;
+  padding: 1rem 0;
+}
+/* Grid de tarjetas */
+.tarjetas-grid {
+  display: grid;
+  gap: 5rem; /* pongo en 5 para que sea mas ancho*/
+  margin-top: 2rem;
+    grid-template-columns: 1fr; /* Cambia el tamaño mínimo de las tarjetas */
+ 
+}
+/* Tablets: 2 columnas */
+@media (min-width: 640px) {
+  .tarjetas-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+/* Pantallas grandes: 3 columnas */
+@media (min-width: 1280px) {
+  .tarjetas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/*  ¿Cómo comprobarlo?
+Abre tu sitio en un navegador.
+
+Activa las herramientas de desarrollo (F12 o clic derecho → "Inspeccionar").
+
+Cambia el ancho de la ventana y verás cómo las tarjetas:
+
+se ven en 1 columna en móviles,
+
+en 2 columnas en tablets o pantallas medianas,
+
+y en 3 columnas en pantallas grandes.
+/* Tarjeta base */
+.tarjeta {
+  background-color: #f7f4f4;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border: 1px solid #270a0a;
+}
+
+
