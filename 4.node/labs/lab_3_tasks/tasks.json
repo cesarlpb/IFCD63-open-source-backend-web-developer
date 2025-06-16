@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Aprender JS",
+    "description": "Estudiar CRUD en Node",
+    "createdAt": "2025-06-16T09:03:34.785Z",
+    "updatedBy": 1
+  },
+  {
+    "id": 2,
+    "title": "Enviar entregable",
+    "description": "Ejercicios de backend",
+    "createdAt": "2025-06-16T09:03:34.787Z",
+    "updatedBy": 1
+  },
+  {
+    "id": 3,
+    "title": "Probar Codex",
+    "description": "En OpenAI",
+    "createdAt": "2025-06-16T09:03:34.787Z",
+    "updatedBy": 1
+  }
+]

@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch index.js"
+    "dev": "node --watch index.js",
+    "dev:json": "node --watch index2.js",
+    "dev:sqlite": "node --watch index3.js",
+    "dev:sequelize": "node --watch index4.js"
+
   },
   "keywords": [
     "CRUD",
