@@ -1,0 +1,290 @@
+[
+  {
+    "uuid": "9b52127f-52b9-4e87-a310-2758ead230bc",
+    "name": "Stay Humble Relax Hood",
+    "type": "Holy Canopy",
+    "prices": [
+      {
+        "currency": "USD",
+        "value": 89.0
+      },
+      {
+        "currency": "EUR",
+        "value": 75.0
+      },
+      {
+        "currency": "GBP",
+        "value": 65.0
+      },
+      {
+        "currency": "JPY",
+        "value": 12000.0
+      },
+      {
+        "currency": "AUD",
+        "value": 130.0
+      },
+      {
+        "currency": "CAD",
+        "value": 110.0
+      }
+    ],
+    "unitsInStock": 10,
+    "image": "./src/products/Back-Bone.png",
+    "sizes": ["S", "M", "L", "XL", "2XL"],
+    "description": "Stay Humble Relax Hood Holy Canopy is a stylish and comfortable hoodie designed for everyday wear. Made from high-quality materials, it features a relaxed fit and a unique design that stands out.",
+    "category": "Flowers & Saints",
+    "rating": 4.5,
+    "frabric_details": [
+      "Fit: Relaxed for comfort, drop shoulder for a casual silhouette",
+      "Fabric: Mid-weight 320GSM fleece, 80% cotton, 20% recycled polyester (CVC blend)",
+      "Feel: Soft-touch interior, warm and durable with structure",
+      "Details: Pullover hood, kangaroo pocket, self-fabric lined hood, no drawcord, sleeve cuff ribbin",
+      "Preshrunk: Minimised shrinkage for lasting shape and fit"
+    ],
+    "discount": {
+      "percentage": 10,
+      "validUntil": "2025-08-31"
+    }
+  },
+  {
+    "uuid": "b1c2d3e4-f5a6-7b8c-9d0e-f1a2b3c4d5e6",
+    "name": "Stay Humble Relax Hood",
+    "type": "Faded Halo",
+    "prices": [
+      {
+        "currency": "USD",
+        "value": 101.0
+      },
+      {
+        "currency": "EUR",
+        "value": 85.0
+      },
+      {
+        "currency": "GBP",
+        "value": 75.0
+      },
+      {
+        "currency": "JPY",
+        "value": 14000.0
+      },
+      {
+        "currency": "AUD",
+        "value": 150.0
+      },
+      {
+        "currency": "CAD",
+        "value": 125.0
+      }
+    ],
+    "unitsInStock": 10,
+    "image": "./src/products/Shadow-Back.png",
+    "sizes": ["S", "M", "P", "L", "XL"],
+    "description": "Stay Humble Relax Hood Sacred Sand is a stylish and comfortable hoodie designed for everyday wear. Made from high-quality materials, it features a relaxed fit and a unique design that stands out.",
+    "category": "Flowers & Saints",
+    "rating": 4.5,
+    "frabric_details": [
+      "Fit: Relaxed for comfort, drop shoulder for a casual silhouette",
+      "Fabric: Mid-weight 320GSM fleece, 80% cotton, 20% recycled polyester (CVC blend)",
+      "Feel: Soft-touch interior, warm and durable with structure",
+      "Details: Pullover hood, kangaroo pocket, self-fabric lined hood, no drawcord, sleeve cuff ribbin",
+      "Preshrunk: Minimised shrinkage for lasting shape and fit"
+    ],
+    "discount": {
+      "percentage": 15,
+      "validUntil": "2025-09-30"
+    }
+  },
+  {
+    "uuid": "c1d2e3f4-g5h6-i7j8-k9l0-m1n2o3p4q5r6",
+    "name": "Stay Humble Relax Hood",
+    "type": "Sacred Shadow",
+    "prices": [
+      {
+        "currency": "USD",
+        "value": 100.0
+      },
+      {
+        "currency": "EUR",
+        "value": 85.0
+      },
+      {
+        "currency": "GBP",
+        "value": 75.0
+      },
+      {
+        "currency": "JPY",
+        "value": 13500.0
+      },
+      {
+        "currency": "AUD",
+        "value": 145.0
+      },
+      {
+        "currency": "CAD",
+        "value": 120.0
+      }
+    ],
+    "unitsInStock": 10,
+    "image": "./src/products/Clay-Back.png",
+    "sizes": ["S","S1", "M", "L", "XL"],
+    "description": "Stay Humble Relax Hood Sacred Sand is a stylish and comfortable hoodie designed for everyday wear. Made from high-quality materials, it features a relaxed fit and a unique design that stands out.",
+    "category": "Flowers & Saints",
+    "rating": 4.5,
+    "frabric_details": [
+      "Fit: Relaxed for comfort, drop shoulder for a casual silhouette",
+      "Fabric: Mid-weight 320GSM fleece, 80% cotton, 20% recycled polyester (CVC blend)",
+      "Feel: Soft-touch interior, warm and durable with structure",
+      "Details: Pullover hood, kangaroo pocket, self-fabric lined hood, no drawcord, sleeve cuff ribbin",
+      "Preshrunk: Minimised shrinkage for lasting shape and fit"
+    ],
+    "discount": {
+      "percentage": 20,
+      "validUntil": "2025-10-15"
+    }
+  },
+  {
+    "uuid": "d1e2f3g4-h5i6-j7k8-l9m0-n1o2p3q4r5s6",
+    "name": "Stay Humble Relax Hood",
+    "type": "Midnight cobalt",
+    "prices": [
+      {
+        "currency": "USD",
+        "value": 80.0
+      },
+      {
+        "currency": "EUR",
+        "value": 70.0
+      },
+      {
+        "currency": "GBP",
+        "value": 60.0
+      },
+      {
+        "currency": "JPY",
+        "value": 12000.0
+      },
+      {
+        "currency": "AUD",
+        "value": 125.0
+      },
+      {
+        "currency": "CAD",
+        "value": 105.0
+      }
+    ],
+    "unitsInStock": 10,
+    "image": "./src/products/Cobalt-Back.png",
+    "sizes": ["S", "M", "L", "2L", "XL"],
+    "description": "Stay Humble Relax Hood Pine Green Black is a stylish and comfortable hoodie designed for everyday wear. Made from high-quality materials, it features a relaxed fit and a unique design that stands out.",
+    "category": "Flowers & Saints",
+    "rating": 4.5,
+    "frabric_details": [
+      "Fit: Relaxed for comfort, drop shoulder for a casual silhouette",
+      "Fabric: Mid-weight 320GSM fleece, 80% cotton, 20% recycled polyester (CVC blend)",
+      "Feel: Soft-touch interior, warm and durable with structure",
+      "Details: Pullover hood, kangaroo pocket, self-fabric lined hood, no drawcord, sleeve cuff ribbin",
+      "Preshrunk: Minimised shrinkage for lasting shape and fit"
+    ],
+    "discount": {
+      "percentage": 5,
+      "validUntil": "2025-11-01"
+    }
+  },
+  {
+    "uuid": "e1f2g3h4-i5j6-k7l8-m9n0-o1p2q3r4s5t6",
+    "name": "Stay Humble Relax Hood",
+    "type": "Covenant Clay",
+    "prices": [
+      {
+        "currency": "USD",
+        "value": 75.0
+      },
+      {
+        "currency": "EUR",
+        "value": 65.0
+      },
+      {
+        "currency": "GBP",
+        "value": 55.0
+      },
+      {
+        "currency": "JPY",
+        "value": 11000.0
+      },
+      {
+        "currency": "AUD",
+        "value": 120.0
+      },
+      {
+        "currency": "CAD",
+        "value": 95.0
+      }
+    ],
+    "unitsInStock": 10,
+    "image": "./src/products/PineGreen-Black.png",
+    "sizes": ["S", "M", "SM", "L", "XL"],
+    "description": "Stay Humble Relax Hood Covenant Clay is a stylish and comfortable hoodie designed for everyday wear. Made from high-quality materials, it features a relaxed fit and a unique design that stands out.",
+    "category": "Flowers & Saints",
+    "rating": 4.5,
+    "frabric_details": [
+      "Fit: Relaxed for comfort, drop shoulder for a casual silhouette",
+      "Fabric: Mid-weight 320GSM fleece, 80% cotton, 20% recycled polyester (CVC blend)",
+      "Feel: Soft-touch interior, warm and durable with structure",
+      "Details: Pullover hood, kangaroo pocket, self-fabric lined hood, no drawcord, sleeve cuff ribbin",
+      "Preshrunk: Minimised shrinkage for lasting shape and fit"
+    ],
+    "discount": {
+      "percentage": 12,
+      "validUntil": "2025-12-31"
+    }
+  },
+  {
+    "uuid": "f1g2h3i4-j5k6-l7m8-n9o0-p1q2r3s4t5u6",
+    "name": "Stay Humble Relax Hood",
+    "type": "Pine Green Black",
+    "prices": [
+      {
+        "currency": "USD",
+        "value": 290.0
+      },
+      {
+        "currency": "EUR",
+        "value": 250.0
+      },
+      {
+        "currency": "GBP",
+        "value": 220.0
+      },
+      {
+        "currency": "JPY",
+        "value": 40000.0
+      },
+      {
+        "currency": "AUD",
+        "value": 450.0
+      },
+      {
+        "currency": "CAD",
+        "value": 380.0
+      }
+    ],
+    "unitsInStock": 0,
+    "image": "./src/products/Shadow-Back.png",
+    "sizes": ["S", "M", "L", "XL", "2XL"],
+    "description": "Stay Humble Relax Hood Pine Green Black is a stylish and comfortable hoodie designed for everyday wear. Made from high-quality materials, it features a relaxed fit and a unique design that stands out.",
+    "category": "Flowers & Saints",
+    "rating": 4.5,
+    "frabric_details": [
+      "Fit: Relaxed for comfort, drop shoulder for a casual silhouette",
+      "Fabric: Mid-weight 320GSM fleece, 80% cotton, 20% recycled polyester (CVC blend)",
+      "Feel: Soft-touch interior, warm and durable with structure",
+      "Details: Pullover hood, kangaroo pocket, self-fabric lined hood, no drawcord, sleeve cuff ribbin",
+      "Preshrunk: Minimised shrinkage for lasting shape and fit"
+    ],
+    "discount": {
+      "percentage": 5,
+      "validUntil": "2025-06-5"
+    }
+  }
+]

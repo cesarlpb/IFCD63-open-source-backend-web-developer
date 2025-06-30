@@ -1,0 +1,267 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FUENTES */
+body {
+  font-family: "Space Grotesk", sans-serif;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* TITULOS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+/* LINKS */
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  text-transform: uppercase;
+}
+a:hover {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+section {
+  max-width: 1200px;
+}
+img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+ul {
+  list-style: none;
+}
+/* hero */
+.hero {
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+.hero .title {
+  font-size: 4.5rem;
+}
+
+/* categorias */
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 2rem auto;
+}
+.categories .category {
+  border-radius: 0.4rem;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.categories .category__title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.categories .category__highlight {
+  font-weight: 700;
+  font-size: 5.5rem;
+  margin-top: 3rem;
+  letter-spacing: -10px;
+  text-align: left;
+}
+.categories .category__description {
+  font-size: 1rem;
+  margin-top: 0rem;
+  text-align: left;
+  margin-bottom: 3.5rem;
+}
+
+.categories .category__link {
+  text-align: left;
+}
+.categories a::before {
+  content: "→";
+  margin-right: 0.1rem;
+  font-size: 1.5rem;
+}
+
+.category:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+
+.category:nth-child(1) {
+  border: 1px solid #b4670e; /* naranja sucio - paro total */
+}
+.category:nth-child(1) .category__highlight::before {
+  content: ">";
+  margin-right: 0.1rem;
+}
+
+.category:nth-child(2) {
+  border: 1px solid #1715a8; /* azul tristeza - rechazos formales */
+}
+
+.category:nth-child(3) {
+  border: 1px solid #970b90; /* violeta fantasma - “te llamamos” */
+}
+
+.category:nth-child(4) {
+  border: 1px solid #11b981; /* verde mentolado - entrevistas anuladas */
+}
+
+.category:nth-child(5) {
+  border: 1px solid #790f0f; /* rojo sangre - CVs ignorados */
+}
+
+.category:nth-child(6) {
+  border: 1px solid #4c4c4c; /* gris observador - perfiles vistos */
+}
+
+.category:nth-child(7) {
+  border: 1px solid #ff8800; /* naranja brillante - ofertas guardadas */
+}
+
+.category:nth-child(8) {
+  border: 1px solid #005b96; /* azul oscuro - cambios al CV */
+}
+
+.category:nth-child(9) {
+  border: 1px solid #222222; /* casi negro - portafolio visto por nadie */
+}
+
+.category:nth-child(10) {
+  border: 1px solid #6e2585; /* morado apagado - proyectos personales */
+}
+
+/* navbar */
+
+.navbar {
+  width: 100%;
+  background: #000;
+  border-bottom: 1px solid #333;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.navbar__list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar__list a {
+  color: white;
+  text-decoration: none;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.navbar__list a:hover {
+  color: #ffcc00;
+}
+
+/* Responsive nihilismo */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar__list {
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  body.nav-open .navbar__list {
+    max-height: 500px; /* porque nada es infinito, ni el paro */
+    padding-top: 1rem;
+  }
+}
+
+/* footer */
+.footer {
+  background-color: #000;
+  color: #888;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-family: "IBM Plex Mono", monospace;
+  border-top: 1px solid #333;
+}
+
+.footer__slogan {
+  color: #ccc;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.footer__legal {
+  margin-top: 1rem;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    margin-top: 5.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .categories {
+    display: flex;
+    flex-direction: column;
+  }
+  .categories .category__highlight {
+    font-size: 2.5rem;
+  }
+  .hero .title {
+    font-size: 2rem;
+  }
+  .navbar__list {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+  }
+}
